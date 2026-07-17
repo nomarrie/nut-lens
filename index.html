@@ -1,0 +1,1399 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NutLens — Panduan Nutrisi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Outfit:wght@100..900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/landing-page.css" />
+    <script type="module" src="assets/js/navbar.mjs"></script>
+    <script type="module" src="assets/js/solution.mjs"></script>
+    <script type="module" src="assets/js/how-it-works.mjs"></script>
+    <script type="module" src="assets/js/testimonial.mjs"></script>
+    <script type="module" src="assets/js/faq.mjs"></script>
+  </head>
+  <body>
+    <nav class="nutlens-navbar" aria-label="Navigasi utama">
+      <div class="navbar__container">
+        <ul class="navbar__menu">
+          <li>
+            <a href="index.html" class="is-active" aria-current="page"
+              >Beranda</a
+            >
+          </li>
+          <li>
+            <div class="navbar__services" data-services-dropdown>
+              <button
+                class="navbar__services-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="services-menu"
+              >
+                Layanan
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >expand_more</span
+                >
+              </button>
+              <ul id="services-menu" class="navbar__submenu" hidden>
+                <li>
+                  <a href="assets/pages/cek-makanan.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--check material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      nutrition
+                    </span>
+
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Cek Makanan</span>
+                      <span class="navbar__submenu-description">
+                        Analisis nutrisi dari makananmu
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="assets/pages/buat-resep.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--recipe material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      restaurant_menu
+                    </span>
+
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Buat Resep</span>
+                      <span class="navbar__submenu-description">
+                        Buat resep dari bahan yang tersedia
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="assets/pages/resep-galeri.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--gallery material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      menu_book
+                    </span>
+
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Galeri Resep</span>
+                      <span class="navbar__submenu-description">
+                        Temukan inspirasi resep sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="assets/pages/challenge-sehat.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--challenge material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      emoji_events
+                    </span>
+
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Challenge Sehat</span>
+                      <span class="navbar__submenu-description">
+                        Ikuti tantangan hidup lebih sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="assets/pages/artikel.html">Artikel</a></li>
+        </ul>
+
+        <div class="navbar__logo">
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >nutrition</span
+          >
+          <a href="index.html" aria-label="NutLens, kembali ke beranda"
+            >NutLens</a
+          >
+        </div>
+
+        <div class="navbar__profile">
+          <span class="navbar__profile-label">
+            Profil
+            <span class="visually-hidden">— belum tersedia</span>
+          </span>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <div class="hero__rating">
+            <span aria-hidden="true">★★★★★</span>
+            <span class="visually-hidden">5 dari 5 bintang</span>
+          </div>
+          <p class="hero__recommendation">
+            1.000+ rekomendasi makanan sehat tersedia
+          </p>
+
+          <h1 id="hero-title" class="hero__title">
+            Lihat Makananmu dengan<br />
+            Cara yang <span class="hero__accent">Lebih Sehat</span>
+          </h1>
+
+          <p class="hero__description">
+            Kenali pilihan makanan yang lebih baik dan temukan inspirasi resep
+            sehat yang sesuai dengan kebutuhanmu setiap hari.
+          </p>
+
+          <div class="hero__actions" aria-label="Aksi utama">
+            <a
+              href="assets/pages/cek-makanan.html"
+              class="hero__cta hero__cta--primary"
+            >
+              Cek Makananmu
+            </a>
+            <a
+              href="assets/pages/resep-galeri.html"
+              class="hero__cta hero__cta--secondary"
+            >
+              Jelajahi Resep
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >menu_book</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__artwork">
+          <div class="hero__image-frame hero__image--outer">
+            <img
+              class="hero__image"
+              src="assets/images/hero/kiri luar.webp"
+              srcset="
+                assets/images/hero/kiri luar.webp 168w,
+                assets/images/hero/kiri luar.webp 336w
+              "
+              sizes="(max-width: 46rem) 18vw, 10.5rem"
+              alt=""
+              width="168"
+              height="272"
+              fetchpriority="low"
+            />
+          </div>
+          <div
+            class="hero__image-frame hero__image--side hero__image-frame--left"
+          >
+            <img
+              class="hero__image"
+              src="assets/images/hero/kiri.webp"
+              srcset="
+                assets/images/hero/kiri.webp 168w,
+                assets/images/hero/kiri.webp 336w
+              "
+              sizes="(max-width: 46rem) 18vw, 10.5rem"
+              alt=""
+              width="168"
+              height="272"
+              fetchpriority="low"
+            />
+          </div>
+          <div class="hero__image-frame hero__image--main">
+            <img
+              class="hero__image"
+              src="assets/images/hero/tengah.webp"
+              srcset="
+                assets/images/hero/tengah.webp 544w,
+                assets/images/hero/tengah.webp 1088w
+              "
+              sizes="(max-width: 46rem) 24vw, min(37.778vw, 34rem)"
+              alt="Sekelompok orang menikmati makanan sehat bersama di meja makan"
+              width="544"
+              height="240"
+              fetchpriority="high"
+            />
+          </div>
+          <div
+            class="hero__image-frame hero__image--side hero__image-frame--right"
+          >
+            <img
+              class="hero__image"
+              src="assets/images/hero/kanan.webp"
+              srcset="
+                assets/images/hero/kanan.webp 168w,
+                assets/images/hero/kanan.webp 336w
+              "
+              sizes="(max-width: 46rem) 18vw, 10.5rem"
+              alt=""
+              width="168"
+              height="272"
+              fetchpriority="low"
+            />
+          </div>
+          <div class="hero__image-frame hero__image--outer">
+            <img
+              class="hero__image"
+              src="assets/images/hero/kanan luar.webp"
+              srcset="
+                assets/images/hero/kanan luar.webp 168w,
+                assets/images/hero/kanan luar.webp 336w
+              "
+              sizes="(max-width: 46rem) 18vw, 10.5rem"
+              alt=""
+              width="168"
+              height="272"
+              fetchpriority="low"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="problems" aria-labelledby="problems-title">
+        <div class="problems__layout">
+          <div class="problems__intro">
+            <p class="problems__eyebrow">
+              <span
+                class="problems__eyebrow-mark"
+                aria-hidden="true"
+              ></span>
+              <span class="problems__eyebrow-title">PERMASALAHAN</span>
+            </p>
+
+            <h2 id="problems-title" class="problems__title">
+              Masalah <span class="problems__accent">Gizi</span> Yang Sering
+              <span class="problems__title-line">Diabaikan</span>
+            </h2>
+
+            <figure class="problems__media">
+              <img
+                class="problems__image"
+                src="assets/images/problem/Foto junk food.webp"
+                alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
+                width="608"
+                height="432"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <div class="problems__list">
+            <article class="problem-card">
+              <span class="problem-card__icon">
+                <span
+                  class="material-symbols-outlined"
+                  aria-hidden="true"
+                  >bar_chart</span
+                >
+              </span>
+              <div class="problem-card__content">
+                <h3 class="problem-card__title">
+                  Sulit Mengetahui Kandungan Gizi
+                </h3>
+                <p class="problem-card__description">
+                  Banyak orang makan tanpa mengetahui jumlah kalori, gula,
+                  lemak, protein, atau serat dari makanan yang dikonsumsi.
+                </p>
+              </div>
+            </article>
+
+            <article class="problem-card">
+              <span class="problem-card__icon">
+                <span
+                  class="material-symbols-outlined"
+                  aria-hidden="true"
+                  >cookie</span
+                >
+              </span>
+              <div class="problem-card__content">
+                <h3 class="problem-card__title">
+                  Konsumsi Gula Dan Lemak Berlebih
+                </h3>
+                <p class="problem-card__description">
+                  Makanan dan minuman tinggi gula atau lemak sering dikonsumsi
+                  tanpa disadari, sehingga dapat memengaruhi pola makan sehat.
+                </p>
+              </div>
+            </article>
+
+            <article class="problem-card">
+              <span class="problem-card__icon">
+                <span
+                  class="material-symbols-outlined"
+                  aria-hidden="true"
+                  >spa</span
+                >
+              </span>
+              <div class="problem-card__content">
+                <h3 class="problem-card__title">
+                  Kurangnya Serat Dan Nutrisi Seimbang
+                </h3>
+                <p class="problem-card__description">
+                  Kurangnya asupan sayur, buah, serat, protein, dan nutrisi
+                  penting membuat pola makan harian kurang seimbang serta tubuh
+                  mudah kekurangan gizi.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="solution"
+        aria-labelledby="solution-title"
+        data-solution
+      >
+        <header class="solution__header">
+          <p class="solution__eyebrow">
+            <span class="solution__eyebrow-mark" aria-hidden="true"></span>
+            <span>CARA NUTLENS MEMBANTU</span>
+          </p>
+
+          <h2 id="solution-title" class="solution__title">
+            Solusi Pintar untuk Memahami
+            <span class="solution__accent">Makananmu</span>
+          </h2>
+        </header>
+
+        <div class="solution__layout">
+          <div
+            class="solution__steps"
+            role="tablist"
+            aria-label="Tahapan menggunakan NutLens"
+          >
+            <button
+              id="solution-tab-kenali"
+              class="solution__step is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="solution-panel-kenali"
+              tabindex="0"
+              data-solution-step="kenali"
+            >
+              <span class="solution__step-content">
+                <span class="solution__step-label">Kenali</span>
+                <span class="solution__step-number">01</span>
+              </span>
+            </button>
+
+            <button
+              id="solution-tab-analisis"
+              class="solution__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="solution-panel-analisis"
+              tabindex="-1"
+              data-solution-step="analisis"
+            >
+              <span class="solution__step-content">
+                <span class="solution__step-label">Analisis</span>
+                <span class="solution__step-number">02</span>
+              </span>
+            </button>
+
+            <button
+              id="solution-tab-pilih"
+              class="solution__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="solution-panel-pilih"
+              tabindex="-1"
+              data-solution-step="pilih"
+            >
+              <span class="solution__step-content">
+                <span class="solution__step-label">Pilih</span>
+                <span class="solution__step-number">03</span>
+              </span>
+            </button>
+
+            <button
+              id="solution-tab-biasakan"
+              class="solution__step"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="solution-panel-biasakan"
+              tabindex="-1"
+              data-solution-step="biasakan"
+            >
+              <span class="solution__step-content">
+                <span class="solution__step-label">Biasakan</span>
+                <span class="solution__step-number">04</span>
+              </span>
+            </button>
+          </div>
+
+          <div class="solution__panels">
+            <article
+              id="solution-panel-kenali"
+              class="solution__panel is-active"
+              role="tabpanel"
+              aria-labelledby="solution-tab-kenali"
+              aria-hidden="false"
+              data-solution-panel="kenali"
+            >
+              <figure class="solution__media">
+                <img
+                  class="solution__image"
+                  src="assets/images/solution/kenali.webp"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
+                  width="528"
+                  height="328"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="solution__panel-title">Kenali</h3>
+              <p class="solution__description">
+                Pengguna mulai dengan mengecek makanan melalui foto atau
+                pilihan makanan.
+              </p>
+            </article>
+
+            <article
+              id="solution-panel-analisis"
+              class="solution__panel"
+              role="tabpanel"
+              aria-labelledby="solution-tab-analisis"
+              aria-hidden="true"
+              data-solution-panel="analisis"
+            >
+              <figure class="solution__media">
+                <img
+                  class="solution__image"
+                  src="assets/images/solution/analisis 2.webp"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
+                  width="528"
+                  height="328"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="solution__panel-title">Analisis</h3>
+              <p class="solution__description">
+                NutLens menganalisis kandungan utama makanan dan menyajikan
+                informasi gizi yang lebih mudah dipahami.
+              </p>
+            </article>
+
+            <article
+              id="solution-panel-pilih"
+              class="solution__panel"
+              role="tabpanel"
+              aria-labelledby="solution-tab-pilih"
+              aria-hidden="true"
+              data-solution-panel="pilih"
+            >
+              <figure class="solution__media">
+                <img
+                  class="solution__image"
+                  src="assets/images/solution/pilih.webp"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
+                  width="528"
+                  height="328"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="solution__panel-title">Pilih</h3>
+              <p class="solution__description">
+                Pengguna membandingkan hasil analisis dan memilih makanan atau
+                rekomendasi yang lebih sesuai dengan kebutuhannya.
+              </p>
+            </article>
+
+            <article
+              id="solution-panel-biasakan"
+              class="solution__panel"
+              role="tabpanel"
+              aria-labelledby="solution-tab-biasakan"
+              aria-hidden="true"
+              data-solution-panel="biasakan"
+            >
+              <figure class="solution__media">
+                <img
+                  class="solution__image"
+                  src="assets/images/solution/biasakan.webp"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
+                  width="528"
+                  height="328"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="solution__panel-title">Biasakan</h3>
+              <p class="solution__description">
+                Pilihan sehat yang dilakukan secara konsisten membantu
+                membangun kebiasaan makan yang lebih baik setiap hari.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="how-it-works"
+        aria-labelledby="how-it-works-title"
+        data-how-it-works
+      >
+        <div class="how-it-works__content">
+          <header class="how-it-works__intro">
+            <p class="how-it-works__eyebrow">
+              <span
+                class="how-it-works__eyebrow-mark"
+                aria-hidden="true"
+              ></span>
+              <span>CARA KERJA NUTRILENS</span>
+            </p>
+
+            <h2 id="how-it-works-title" class="how-it-works__title">
+              Pahami Makananmu Dalam
+              <span class="how-it-works__title-line">
+                Beberapa <span class="how-it-works__accent">Langkah</span> Mudah
+              </span>
+            </h2>
+
+            <p class="how-it-works__description">
+              NutLens membantu kamu mengenali makanan, membaca kandungan
+              nutrisinya, dan menemukan rekomendasi yang lebih sehat untuk
+              kebutuhan harianmu.
+            </p>
+
+            <div
+              class="hero__actions how-it-works__actions"
+              aria-label="Aksi Cara Kerja NutLens"
+            >
+              <a
+                href="assets/pages/cek-makanan.html"
+                class="hero__cta hero__cta--primary"
+              >
+                Cek Makananmu
+              </a>
+              <a
+                href="assets/pages/resep-galeri.html"
+                class="hero__cta hero__cta--secondary"
+              >
+                Jelajahi Resep
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  menu_book
+                </span>
+              </a>
+            </div>
+          </header>
+
+          <div class="how-it-works__timeline-frame">
+            <svg
+              class="how-it-works__connector"
+              viewBox="0 0 72 248"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                class="how-it-works__line how-it-works__line--base"
+                d="M 28 28 C 48 60 48 92 28 124 C 8 156 8 188 28 220"
+                vector-effect="non-scaling-stroke"
+              />
+
+              <path
+                class="how-it-works__line how-it-works__line--progress"
+                d="M 28 28 C 48 60 48 92 28 124 C 8 156 8 188 28 220"
+                pathLength="1"
+                vector-effect="non-scaling-stroke"
+              />
+            </svg>
+
+            <ol class="how-it-works__timeline">
+              <li class="how-it-works__step">
+                <span class="how-it-works__number" aria-hidden="true">01</span>
+                <div class="how-it-works__step-content">
+                  <h3 class="how-it-works__step-title">Scan Makanan</h3>
+                  <p class="how-it-works__step-description">
+                    Unggah foto makanan atau pilih contoh makanan yang ingin
+                    dianalisis oleh NutLens.
+                  </p>
+                </div>
+              </li>
+              <li class="how-it-works__step">
+                <span class="how-it-works__number" aria-hidden="true">02</span>
+                <div class="how-it-works__step-content">
+                  <h3 class="how-it-works__step-title">
+                    Analisis Kandungan Gizi
+                  </h3>
+                  <p class="how-it-works__step-description">
+                    NutLens menampilkan estimasi nutrisi seperti kalori,
+                    protein, lemak, karbohidrat, dan skor kesehatan makanan.
+                  </p>
+                </div>
+              </li>
+              <li class="how-it-works__step">
+                <span class="how-it-works__number" aria-hidden="true">03</span>
+                <div class="how-it-works__step-content">
+                  <h3 class="how-it-works__step-title">
+                    Dapatkan Rekomendasi
+                  </h3>
+                  <p class="how-it-works__step-description">
+                    Pengguna menerima saran konsumsi yang mudah dipahami agar
+                    bisa memilih makanan dengan lebih bijak.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <ul class="how-it-works__stats" aria-label="Statistik NutLens">
+          <li class="how-it-works__stat">
+            <strong class="how-it-works__stat-value">1.000+</strong>
+            <span class="how-it-works__stat-label">Resep Sehat</span>
+          </li>
+          <li class="how-it-works__stat">
+            <strong class="how-it-works__stat-value">5+</strong>
+            <span class="how-it-works__stat-label">Indikator Gizi</span>
+          </li>
+          <li class="how-it-works__stat">
+            <strong class="how-it-works__stat-value">24/7</strong>
+            <span class="how-it-works__stat-label">Akses Edukasi</span>
+          </li>
+          <li class="how-it-works__stat">
+            <strong class="how-it-works__stat-value">3</strong>
+            <span class="how-it-works__stat-label">Langkah Mudah</span>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="testimonial"
+        aria-labelledby="testimonial-title"
+        data-testimonial
+      >
+        <header class="testimonial__header">
+          <p class="testimonial__eyebrow">
+            <span class="testimonial__eyebrow-mark" aria-hidden="true"></span>
+            <span>KATA PENGGUNA</span>
+          </p>
+
+          <h2 id="testimonial-title" class="testimonial__title">
+            <span class="testimonial__accent">Cerita</span> Nyata dari Mereka
+            <span class="testimonial__title-line">
+              yang Memilih Makan Lebih Bijak
+            </span>
+          </h2>
+
+          <p class="testimonial__description">
+            Pengalaman pengguna dalam memahami kandungan makanan, dan membangun
+            kebiasaan makan yang lebih baik bersama NutLens.
+          </p>
+        </header>
+
+        <div class="testimonial__layout">
+          <div
+            class="testimonial__gallery"
+            aria-label="Pilih pengguna untuk membaca testimonial"
+            data-testimonial-gallery
+          >
+            <button
+              class="testimonial__portrait testimonial__portrait--alya"
+              type="button"
+              aria-pressed="true"
+              data-testimonial-item
+              data-name="Alya Putri"
+              data-role="Pelajar SMA"
+              data-quote="Sekarang saya tidak hanya memilih makanan karena terlihat enak. NutLens membantu saya memahami kandungan gizinya dan memberikan rekomendasi yang mudah diikuti."
+              data-testimonial-slot="active"
+            >
+              <img
+                src="assets/images/testimonial/Kakak Putri.webp"
+                alt="Alya menikmati makanan sehat di meja makan"
+                width="1632"
+                height="2624"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+
+            <button
+              class="testimonial__portrait testimonial__portrait--bima"
+              type="button"
+              aria-pressed="false"
+              data-testimonial-item
+              data-name="Bima Santoso"
+              data-role="Mahasiswa"
+              data-quote="Informasi gizinya membuat saya lebih mudah menentukan porsi dan memilih menu setelah kuliah tanpa harus menebak-nebak kandungannya."
+              data-testimonial-slot="next"
+            >
+              <img
+                src="assets/images/testimonial/Mas Bima (1).webp"
+                alt="Bima menyiapkan makanan panggang di halaman rumah"
+                width="1632"
+                height="2624"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+
+            <button
+              class="testimonial__portrait testimonial__portrait--maya"
+              type="button"
+              aria-pressed="false"
+              aria-hidden="true"
+              tabindex="-1"
+              data-testimonial-item
+              data-name="Maya Lestari"
+              data-role="Ibu Rumah Tangga"
+              data-quote="Saya jadi lebih percaya diri menyusun menu keluarga karena bisa membandingkan pilihan makanan dan memahami kebutuhan gizinya dengan bahasa yang sederhana."
+              data-testimonial-slot="hidden-before"
+            >
+              <img
+                src="assets/images/testimonial/Bu Maya.webp"
+                alt="Maya membawa hasil panen sayuran segar dari kebun"
+                width="336"
+                height="544"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+
+            <button
+              class="testimonial__portrait testimonial__portrait--raka"
+              type="button"
+              aria-pressed="false"
+              data-testimonial-item
+              data-name="Raka Pradana"
+              data-role="Pekerja Muda"
+              data-quote="Saat memilih makan siang, saya sekarang mempertimbangkan kandungan gizinya, bukan hanya harga dan rasa. Kebiasaan kecil ini membuat pilihan saya lebih terarah."
+              data-testimonial-slot="previous"
+            >
+              <img
+                src="assets/images/testimonial/Bang Raka.webp"
+                alt="Raka menikmati salad saat beristirahat di pegunungan"
+                width="336"
+                height="544"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          </div>
+
+          <article class="testimonial__quote-card">
+            <div
+              class="testimonial__navigation"
+              aria-label="Navigasi testimonial"
+            >
+              <button
+                class="testimonial__navigation-button"
+                type="button"
+                data-testimonial-previous
+                aria-label="Tampilkan testimonial sebelumnya"
+              >
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  chevron_left
+                </span>
+              </button>
+              <button
+                class="testimonial__navigation-button"
+                type="button"
+                data-testimonial-next
+                aria-label="Tampilkan testimonial berikutnya"
+              >
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  chevron_right
+                </span>
+              </button>
+            </div>
+
+            <span class="testimonial__quote-mark material-symbols-outlined" aria-hidden="true">format_quote</span>
+
+            <div
+              class="testimonial__quote-content"
+              aria-live="polite"
+              aria-atomic="true"
+              data-testimonial-quote-content
+            >
+              <blockquote class="testimonial__quote" data-testimonial-quote>
+                Sekarang saya tidak hanya memilih makanan karena terlihat enak.
+                NutLens membantu saya memahami kandungan gizinya dan memberikan
+                rekomendasi yang mudah diikuti.
+              </blockquote>
+              <footer class="testimonial__author">
+                <cite class="testimonial__name" data-testimonial-name>
+                  Alya Putri
+                </cite>
+                <span class="testimonial__role" data-testimonial-role>
+                  Pelajar SMA
+                </span>
+              </footer>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" aria-labelledby="about-title">
+        <div class="about__layout">
+          <div class="about__media">
+            <figure class="about__figure about__figure--top">
+              <img
+                class="about__image"
+                src="assets/images/about-us/atas about us.webp"
+                alt=""
+                width="352"
+                height="216"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <figure class="about__figure about__figure--main">
+              <img
+                class="about__image"
+                src="assets/images/about-us/Tengah about us.webp"
+                alt="Pemandangan perbukitan hijau dengan aneka makanan bergizi di atas meja"
+                width="472"
+                height="456"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
+            <figure class="about__figure about__figure--bottom">
+              <img
+                class="about__image"
+                src="assets/images/about-us/bawah about us.webp"
+                alt=""
+                width="276"
+                height="228"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <div class="about__content">
+            <p class="about__eyebrow">
+              <span class="about__eyebrow-mark" aria-hidden="true"></span>
+              <span>TENTANG KAMI</span>
+            </p>
+
+            <h2 id="about-title" class="about__title">
+              <span class="about__title-line">
+                Kenali <span class="about__accent">Makanan</span>
+              </span>
+              <span class="about__title-line">Pahami Gizinya</span>
+            </h2>
+
+            <p class="about__description">
+              NutLens hadir untuk membantu kamu mengenali makanan, memahami
+              kandungan gizinya, dan membuat pilihan yang lebih bijak melalui
+              informasi yang ringkas dan mudah dipahami.
+            </p>
+
+            <ul class="about__checklist">
+              <li class="about__check-item">
+                <span class="about__check-icon" aria-hidden="true">
+                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                </span>
+                <span>Menyajikan skor kesehatan makanan agar pilihan lebih terarah.</span>
+              </li>
+              <li class="about__check-item">
+                <span class="about__check-icon" aria-hidden="true">
+                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                </span>
+                <span>Menampilkan informasi gizi makanan yang ringkas dan mudah dipahami.</span>
+              </li>
+              <li class="about__check-item">
+                <span class="about__check-icon" aria-hidden="true">
+                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                </span>
+                <span>Memberikan rekomendasi makanan yang akurat dan mudah dipahami.</span>
+              </li>
+              <li class="about__check-item">
+                <span class="about__check-icon" aria-hidden="true">
+                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                </span>
+                <span>Membantu mengenali makanan dengan cara yang cepat dan sederhana.</span>
+              </li>
+            </ul>
+
+            <a
+              class="hero__cta hero__cta--primary about__cta"
+              href="assets/pages/artikel.html"
+            >
+              Pelajari Selengkapnya
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-cta" aria-label="Informasi dan pertanyaan NutLens">
+        <div class="faq-cta__container">
+          <div class="faq-cta__layout">
+            <article class="final-cta" aria-labelledby="final-cta-title">
+              <div class="final-cta__content">
+                <h2 id="final-cta-title" class="final-cta__title">
+                  <span class="final-cta__title-line">
+                    Siap <span class="final-cta__accent">Memahami</span>
+                  </span>
+                  <span class="final-cta__title-line">Makananmu</span>
+                  <span class="final-cta__title-line">Lebih Baik?</span>
+                </h2>
+
+                <p class="final-cta__description">
+                  Unggah foto makananmu dan temukan estimasi kandungan gizi,
+                  skor kesehatan, serta rekomendasi yang mudah dipahami.
+                </p>
+
+                <a
+                  class="hero__cta hero__cta--primary final-cta__button"
+                  href="assets/pages/cek-makanan.html"
+                >
+                  Pelajari Selengkapnya
+                </a>
+              </div>
+            </article>
+
+            <div class="faq" aria-labelledby="faq-title" data-faq>
+              <h2 id="faq-title" class="visually-hidden">
+                Pertanyaan yang sering diajukan tentang NutLens
+              </h2>
+
+              <article
+                class="faq__item is-open"
+                data-faq-item="analysis"
+                data-faq-default-open
+              >
+                <h3 class="faq__heading">
+                  <button
+                    class="faq__trigger"
+                    type="button"
+                    id="faq-trigger-1"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-1"
+                    data-faq-trigger
+                  >
+                    <span class="faq__question"
+                      >Bagaimana Cara NutLens Menganalisis Makanan?</span
+                    >
+                    <span
+                      class="material-symbols-outlined faq__icon"
+                      aria-hidden="true"
+                      data-faq-icon
+                      >close</span
+                    >
+                  </button>
+                </h3>
+                <div class="faq__panel-wrapper">
+                  <div
+                    class="faq__panel"
+                    id="faq-panel-1"
+                    role="region"
+                    aria-labelledby="faq-trigger-1"
+                    data-faq-panel
+                  >
+                    <p>
+                      Pengguna cukup mengunggah foto makanan. NutLens kemudian
+                      mengidentifikasi makanan dan menampilkan estimasi
+                      kandungan gizi beserta rekomendasinya.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq__item" data-faq-item="accuracy">
+                <h3 class="faq__heading">
+                  <button
+                    class="faq__trigger"
+                    type="button"
+                    id="faq-trigger-2"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-2"
+                    data-faq-trigger
+                  >
+                    <span class="faq__question"
+                      >Apakah Hasil Analisis NutLens Selalu Akurat?</span
+                    >
+                    <span
+                      class="material-symbols-outlined faq__icon"
+                      aria-hidden="true"
+                      data-faq-icon
+                      >close</span
+                    >
+                  </button>
+                </h3>
+                <div class="faq__panel-wrapper">
+                  <div
+                    class="faq__panel"
+                    id="faq-panel-2"
+                    role="region"
+                    aria-labelledby="faq-trigger-2"
+                    data-faq-panel
+                  >
+                    <p>
+                      Hasil NutLens merupakan estimasi berdasarkan foto dan
+                      informasi makanan yang tersedia. Hasil dapat berbeda
+                      tergantung kualitas foto, porsi, dan komposisi makanan.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq__item" data-faq-item="foods">
+                <h3 class="faq__heading">
+                  <button
+                    class="faq__trigger"
+                    type="button"
+                    id="faq-trigger-3"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-3"
+                    data-faq-trigger
+                  >
+                    <span class="faq__question"
+                      >Makanan Apa Saja yang Dapat Dianalisis?</span
+                    >
+                    <span
+                      class="material-symbols-outlined faq__icon"
+                      aria-hidden="true"
+                      data-faq-icon
+                      >close</span
+                    >
+                  </button>
+                </h3>
+                <div class="faq__panel-wrapper">
+                  <div
+                    class="faq__panel"
+                    id="faq-panel-3"
+                    role="region"
+                    aria-labelledby="faq-trigger-3"
+                    data-faq-panel
+                  >
+                    <p>
+                      NutLens dirancang untuk mengenali berbagai makanan
+                      sehari-hari, termasuk makanan rumahan, makanan kemasan,
+                      camilan, serta beragam hidangan Indonesia.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq__item" data-faq-item="pricing">
+                <h3 class="faq__heading">
+                  <button
+                    class="faq__trigger"
+                    type="button"
+                    id="faq-trigger-4"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-4"
+                    data-faq-trigger
+                  >
+                    <span class="faq__question"
+                      >Apakah NutLens Dapat Digunakan Secara Gratis?</span
+                    >
+                    <span
+                      class="material-symbols-outlined faq__icon"
+                      aria-hidden="true"
+                      data-faq-icon
+                      >close</span
+                    >
+                  </button>
+                </h3>
+                <div class="faq__panel-wrapper">
+                  <div
+                    class="faq__panel"
+                    id="faq-panel-4"
+                    role="region"
+                    aria-labelledby="faq-trigger-4"
+                    data-faq-panel
+                  >
+                    <p>
+                      NutLens menyediakan fitur dasar yang dapat digunakan
+                      untuk mencoba pengenalan makanan dan memahami informasi
+                      nutrisi dengan lebih mudah.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq__item" data-faq-item="expert">
+                <h3 class="faq__heading">
+                  <button
+                    class="faq__trigger"
+                    type="button"
+                    id="faq-trigger-5"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-5"
+                    data-faq-trigger
+                  >
+                    <span class="faq__question"
+                      >Apakah NutLens Menggantikan Saran Ahli Gizi?</span
+                    >
+                    <span
+                      class="material-symbols-outlined faq__icon"
+                      aria-hidden="true"
+                      data-faq-icon
+                      >close</span
+                    >
+                  </button>
+                </h3>
+                <div class="faq__panel-wrapper">
+                  <div
+                    class="faq__panel"
+                    id="faq-panel-5"
+                    role="region"
+                    aria-labelledby="faq-trigger-5"
+                    data-faq-panel
+                  >
+                    <p>
+                      Tidak. NutLens merupakan sarana edukasi dan pendukung
+                      keputusan, bukan pengganti diagnosis atau rekomendasi
+                      dari dokter dan ahli gizi.
+                    </p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="faq__item" data-faq-item="storage">
+                <h3 class="faq__heading">
+                  <button
+                    class="faq__trigger"
+                    type="button"
+                    id="faq-trigger-6"
+                    aria-expanded="true"
+                    aria-controls="faq-panel-6"
+                    data-faq-trigger
+                  >
+                    <span class="faq__question"
+                      >Apakah Foto yang Diunggah Akan Disimpan?</span
+                    >
+                    <span
+                      class="material-symbols-outlined faq__icon"
+                      aria-hidden="true"
+                      data-faq-icon
+                      >close</span
+                    >
+                  </button>
+                </h3>
+                <div class="faq__panel-wrapper">
+                  <div
+                    class="faq__panel"
+                    id="faq-panel-6"
+                    role="region"
+                    aria-labelledby="faq-trigger-6"
+                    data-faq-panel
+                  >
+                    <p>
+                      Fitur unggah dan penyimpanan foto belum diimplementasikan
+                      pada versi NutLens saat ini. Kebijakan penyimpanan akan
+                      dijelaskan setelah mekanisme tersebut tersedia.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__main">
+          <div class="site-footer__brand">
+            <a
+              class="site-footer__brand-link"
+              href="index.html"
+              aria-label="NutLens, kembali ke beranda"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true">
+                nutrition
+              </span>
+              <span>NutLens</span>
+            </a>
+
+            <p class="site-footer__description">
+              Membantu kamu memahami kandungan makanan dan membuat pilihan yang
+              lebih sehat dengan cara yang sederhana.
+            </p>
+
+            <div class="site-footer__socials" aria-label="Media sosial NutLens">
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi Facebook NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-facebook" aria-hidden="true"></i>
+              </a>
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi X NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-twitter-x" aria-hidden="true"></i>
+              </a>
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi YouTube NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-youtube" aria-hidden="true"></i>
+              </a>
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi Instagram NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="site-footer__navigation">
+            <nav aria-labelledby="footer-navigation-title">
+              <h2 id="footer-navigation-title" class="site-footer__nav-title">
+                Navigasi
+              </h2>
+              <ul class="site-footer__nav-list">
+                <li><a class="site-footer__link" href="index.html">Beranda</a></li>
+                <li>
+                  <a class="site-footer__link" href="assets/pages/cek-makanan.html">
+                    Cek Makanan
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Kecocokan Makanan belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Kecocokan Makanan
+                  </a>
+                </li>
+                <li>
+                  <a class="site-footer__link" href="assets/pages/resep-galeri.html">
+                    Galeri Resep
+                  </a>
+                </li>
+                <li>
+                  <a class="site-footer__link" href="assets/pages/artikel.html">
+                    Tips Kesehatan
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav aria-labelledby="footer-support-title">
+              <h2 id="footer-support-title" class="site-footer__nav-title">
+                Dukungan
+              </h2>
+              <ul class="site-footer__nav-list">
+                <li><a class="site-footer__link" href="#about-title">Tentang Kami</a></li>
+                <li><a class="site-footer__link" href="#faq-title">FAQ</a></li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Hubungi Kami belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Hubungi Kami
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Kebijakan Privasi belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Kebijakan Privasi
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Syarat dan Ketentuan belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Syarat &amp; Ketentuan
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav aria-labelledby="footer-resources-title">
+              <h2 id="footer-resources-title" class="site-footer__nav-title">
+                Sumber Informasi
+              </h2>
+              <ul class="site-footer__nav-list">
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Panduan Nutrisi belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Panduan Nutrisi
+                  </a>
+                </li>
+                <li>
+                  <a class="site-footer__link" href="assets/pages/artikel.html">
+                    Artikel Kesehatan
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Tips Memasak belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Tips Memasak
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Tips Gaya Hidup belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Tips Gaya Hidup
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="site-footer__divider" aria-hidden="true"></div>
+
+        <div class="site-footer__bottom">
+          <p>© 2026 NutLens. Semua hak dilindungi.</p>
+          <p>Desain Oleh Programmer Penipu</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
