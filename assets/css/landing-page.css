@@ -191,6 +191,54 @@
   }
 }
 
+@media (min-width: 80rem) and (min-height: 60rem) {
+  .hero__rating {
+    font-size: clamp(var(--font-size-lg), 2.05dvh, var(--font-size-xl));
+  }
+
+  .hero__recommendation {
+    font-size: clamp(var(--font-size-sm), 1.55dvh, 0.9375rem);
+  }
+
+  .hero__title {
+    font-size: clamp(var(--font-size-display), 5.5dvh, 3.375rem);
+  }
+
+  .hero__description {
+    font-size: clamp(var(--font-size-body-md), 1.75dvh, 1.0625rem);
+  }
+
+  .hero__actions {
+    margin-top: clamp(var(--space-8), 3.6dvh, 2.25rem);
+  }
+
+  .hero__cta {
+    min-height: clamp(3.5rem, 6.1dvh, 3.75rem);
+    padding:
+      clamp(var(--space-4), 1.8dvh, var(--space-5))
+      clamp(var(--space-8), 3vw, var(--space-10));
+    font-size: clamp(var(--font-size-h2), 2.25dvh, 1.375rem);
+  }
+}
+
+@media (min-width: 80rem) and (min-height: 60rem) and (max-width: 99.9375rem) {
+  .hero {
+    width: min(
+      calc(100% - (2 * var(--space-4))),
+      clamp(80rem, 92vw, 90rem)
+    );
+  }
+
+  .hero__artwork {
+    grid-template-columns:
+      repeat(2, minmax(0, clamp(10.5rem, 12.7vw, 12rem)))
+      minmax(0, 1fr)
+      repeat(2, minmax(0, clamp(10.5rem, 12.7vw, 12rem)));
+    gap: clamp(var(--space-4), 1.3vw, var(--space-5));
+    margin-top: calc(var(--space-16) * -2);
+  }
+}
+
 /* ===== Problems ===== */
 
 .problems {
