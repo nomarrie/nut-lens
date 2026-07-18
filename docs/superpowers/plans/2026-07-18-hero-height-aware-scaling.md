@@ -64,7 +64,7 @@ check('hero adds bounded intermediate-width container and artwork scaling', () =
 
   return start >= 0
     && end > start
-    && /\.hero\s*\{[^}]*width:\s*min\(calc\(100% - \(2 \* var\(--space-4\)\)\),\s*clamp\(80rem,\s*92vw,\s*90rem\)\)/s.test(intermediateCss)
+    && /\.hero\s*\{[^}]*width:\s*min\(\s*calc\(100% - \(2 \* var\(--space-4\)\)\),\s*clamp\(80rem,\s*92vw,\s*90rem\)\s*\)/s.test(intermediateCss)
     && /\.hero__artwork\s*\{[^}]*grid-template-columns:[^}]*clamp\(10\.5rem,\s*12\.7vw,\s*12rem\)[^}]*gap:\s*clamp\(var\(--space-4\),\s*1\.3vw,\s*var\(--space-5\)\)[^}]*margin-top:\s*calc\(var\(--space-16\) \* -2\)/s.test(intermediateCss);
 });
 ```
@@ -72,6 +72,7 @@ check('hero adds bounded intermediate-width container and artwork scaling', () =
 - [ ] **Step 2: Run the verifier and confirm the new checks fail**
 
 ```powershell
+$env:NUTLENS_ROOT = (Get-Location).Path
 node D:\nutlens1\tests\verify-site.mjs
 ```
 
@@ -148,6 +149,7 @@ Expected: the two new checks report `FAIL`; every pre-existing check reports `PA
 - [ ] **Step 3: Run the verifier and confirm all checks pass**
 
 ```powershell
+$env:NUTLENS_ROOT = (Get-Location).Path
 node D:\nutlens1\tests\verify-site.mjs
 ```
 
@@ -228,6 +230,7 @@ Expected: all behavior matches master and the browser console has no errors.
 - [ ] **Step 5: Run final verification**
 
 ```powershell
+$env:NUTLENS_ROOT = (Get-Location).Path
 node D:\nutlens1\tests\verify-site.mjs
 git diff --check
 git status --short --branch
