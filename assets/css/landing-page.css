@@ -306,8 +306,11 @@
 }
 
 .hero__image-frame {
+  --hero-artwork-y: 0;
+
   position: relative;
   overflow: visible;
+  transform: translateY(var(--hero-artwork-y));
 }
 
 .hero__image--outer::before,
@@ -369,6 +372,77 @@
   object-position: center;
 }
 
+@media (min-width: 64rem) and (max-height: 51.25rem) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__actions {
+    margin-top: var(--space-6);
+  }
+
+  .hero__image--outer::before,
+  .hero__image--side::before {
+    content: none;
+  }
+
+  .hero__image--outer {
+    --hero-artwork-y: calc(var(--space-4) * -1);
+  }
+
+  .hero__image--side {
+    --hero-artwork-y: calc(var(--space-2) * -1);
+  }
+}
+
+@media (min-width: 100rem) and (min-height: 56.25rem) {
+  .hero {
+    width: min(
+      calc(100% - (2 * var(--space-4))),
+      var(--container-max-wide)
+    );
+    min-height: calc(
+      100vh
+      - var(--navbar-height)
+      - (2 * var(--space-6))
+      - var(--space-10)
+    );
+    min-height: calc(
+      100svh
+      - var(--navbar-height)
+      - (2 * var(--space-6))
+      - var(--space-10)
+    );
+    display: grid;
+    align-content: center;
+  }
+
+  .hero__artwork {
+    grid-template-columns: 168fr 168fr 544fr 168fr 168fr;
+  }
+
+  .hero__image--outer::before {
+    height: auto;
+    aspect-ratio: 21 / 22;
+  }
+
+  .hero__image--side::before {
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .hero__image--outer,
+  .hero__image--side {
+    height: auto;
+    aspect-ratio: 21 / 34;
+  }
+
+  .hero__image--main {
+    height: auto;
+    aspect-ratio: 34 / 15;
+  }
+}
+
 @media (max-width: 48rem) {
   .hero__artwork {
     grid-template-columns:
@@ -384,7 +458,7 @@
 .problems {
   width: min(calc(100% - (2 * var(--space-4))), var(--container-max));
   margin-inline: auto;
-  padding-block: 176px var(--space-4);
+  padding-block: 196px var(--space-4);
 }
 
 .problems__layout {
