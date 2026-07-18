@@ -372,7 +372,7 @@
   object-position: center;
 }
 
-@media (min-width: 64rem) and (max-height: 51.25rem) {
+@media (min-width: 64rem) and (max-width: 95.9375rem) and (max-height: 51.25rem) {
   .hero {
     min-height: auto;
   }
@@ -458,7 +458,7 @@
 .problems {
   width: min(calc(100% - (2 * var(--space-4))), var(--container-max));
   margin-inline: auto;
-  padding-block: 196px var(--space-4);
+  padding-block: 172px var(--space-4);
 }
 
 .problems__layout {
