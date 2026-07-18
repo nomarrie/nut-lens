@@ -1,9 +1,11 @@
 /* ===== Hero ===== */
 
 .hero {
-  min-height: calc(100dvh - var(--navbar-height) - (2 * var(--space-6)) - var(--space-10));
+  --hero-block-gap: var(--space-10);
+
+  min-height: calc(100dvh - var(--navbar-height) - (2 * var(--space-6)) - var(--hero-block-gap));
   width: min(calc(100% - (2 * var(--space-4))), var(--container-max));
-  margin-top: var(--space-10);
+  margin-top: var(--hero-block-gap);
   margin-inline: auto;
   padding-bottom: var(--space-0);
 }
@@ -181,6 +183,20 @@
   object-position: center;
 }
 
+@media (min-width: 48.0625rem) {
+  .hero {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: calc(100dvh - var(--navbar-height) - (2 * var(--space-6)) - var(--hero-block-gap));
+    min-height: 0;
+  }
+
+  .hero__artwork {
+    align-self: end;
+    min-height: 0;
+  }
+}
+
 @media (max-width: 48rem) {
   .hero__artwork {
     grid-template-columns:
@@ -188,6 +204,42 @@
       minmax(0, 3fr)
       repeat(2, minmax(0, 1fr));
     margin-top: calc((var(--space-16) * 3) + var(--space-8));
+  }
+}
+
+@media (min-width: 64rem) and (max-height: 51.9375rem) {
+  .hero {
+    --hero-block-gap: clamp(var(--space-4), 2dvh, var(--space-8));
+  }
+
+  .hero__title {
+    font-size: clamp(var(--font-size-3xl), 6.1dvh, 3rem);
+  }
+
+  .hero__description {
+    margin-top: var(--space-3);
+  }
+
+  .hero__actions {
+    margin-top: var(--space-6);
+  }
+
+  .hero__cta {
+    min-height: 3.5rem;
+    padding-block: var(--space-3);
+  }
+
+  .hero__artwork {
+    width: min(100%, 80rem);
+    margin-inline: auto;
+  }
+
+  .hero__image--outer {
+    margin-bottom: clamp(var(--space-16), 8dvh, var(--space-20));
+  }
+
+  .hero__image--side {
+    margin-bottom: clamp(var(--space-6), 4dvh, var(--space-10));
   }
 }
 
@@ -1924,7 +1976,7 @@ a.site-footer__link:focus-visible {
 
 /* ===== Large-screen scaling ===== */
 
-@media (min-width: 100rem) {
+@media (min-width: 100rem) and (min-height: 60rem) {
   .hero__artwork {
     grid-template-columns:
       repeat(2, minmax(0, 12rem))
@@ -1933,7 +1985,20 @@ a.site-footer__link:focus-visible {
     gap: var(--space-5);
     margin-top: calc(var(--space-16) * -2);
   }
+}
 
+@media (min-width: 120rem) and (min-height: 64rem) {
+  .hero__artwork {
+    grid-template-columns:
+      repeat(2, minmax(0, 13rem))
+      minmax(0, 1fr)
+      repeat(2, minmax(0, 13rem));
+    gap: var(--space-6);
+    margin-top: calc((var(--space-16) * -2) + var(--space-4));
+  }
+}
+
+@media (min-width: 100rem) {
   .problems,
   .how-it-works,
   .testimonial,
@@ -2033,15 +2098,6 @@ a.site-footer__link:focus-visible {
 }
 
 @media (min-width: 120rem) {
-  .hero__artwork {
-    grid-template-columns:
-      repeat(2, minmax(0, 13rem))
-      minmax(0, 1fr)
-      repeat(2, minmax(0, 13rem));
-    gap: var(--space-6);
-    margin-top: calc((var(--space-16) * -2) + var(--space-4));
-  }
-
   .problem-card {
     min-height: 11rem;
     padding-inline: var(--space-10);
