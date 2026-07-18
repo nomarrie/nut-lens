@@ -16,7 +16,6 @@ build/
 tests/
 tmp/
 docs/
-.worktrees/
 
 # Editor files
 .vscode/

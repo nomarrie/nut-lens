@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NutLens | Teman Nutrisimu</title>
+    <title>NutLens — Panduan Nutrisi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,8 +22,7 @@
     <script type="module" src="assets/js/testimonial.mjs"></script>
     <script type="module" src="assets/js/faq.mjs"></script>
   </head>
-  <body class="landing-page">
-    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <body>
     <nav class="nutlens-navbar" aria-label="Navigasi utama">
       <div class="navbar__container">
         <ul class="navbar__menu">
@@ -141,7 +140,7 @@
       </div>
     </nav>
 
-    <main id="main-content" tabindex="-1">
+    <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero__content">
           <div class="hero__rating">
@@ -284,7 +283,7 @@
               <img
                 class="problems__image"
                 src="assets/images/problem/Foto junk food.webp"
-                alt="Sekelompok orang menikmati pizza, burger, dan makanan cepat saji"
+                alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                 width="608"
                 height="432"
                 loading="lazy"
@@ -456,7 +455,7 @@
                 <img
                   class="solution__image"
                   src="assets/images/solution/kenali.webp"
-                  alt="Perempuan memotret makanan sehat menggunakan ponsel"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                   width="528"
                   height="328"
                   loading="lazy"
@@ -482,7 +481,7 @@
                 <img
                   class="solution__image"
                   src="assets/images/solution/analisis 2.webp"
-                  alt="Hidangan nasi, lauk, sayur, dan telur sedang dipindai NutLens"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                   width="528"
                   height="328"
                   loading="lazy"
@@ -508,7 +507,7 @@
                 <img
                   class="solution__image"
                   src="assets/images/solution/pilih.webp"
-                  alt="Perempuan membandingkan burger dan salad sebagai pilihan makanan"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                   width="528"
                   height="328"
                   loading="lazy"
@@ -534,7 +533,7 @@
                 <img
                   class="solution__image"
                   src="assets/images/solution/biasakan.webp"
-                  alt="Perempuan menyiapkan bahan makanan sehat di dapur"
+                  alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                   width="528"
                   height="328"
                   loading="lazy"
@@ -1233,34 +1232,38 @@
             </p>
 
             <div class="site-footer__socials" aria-label="Media sosial NutLens">
-              <span
+              <a
                 class="site-footer__social-link"
-                role="img"
-                aria-label="Facebook NutLens — belum tersedia"
+                aria-label="Kunjungi Facebook NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
               >
                 <i class="bi bi-facebook" aria-hidden="true"></i>
-              </span>
-              <span
+              </a>
+              <a
                 class="site-footer__social-link"
-                role="img"
-                aria-label="X NutLens — belum tersedia"
+                aria-label="Kunjungi X NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
               >
                 <i class="bi bi-twitter-x" aria-hidden="true"></i>
-              </span>
-              <span
+              </a>
+              <a
                 class="site-footer__social-link"
-                role="img"
-                aria-label="YouTube NutLens — belum tersedia"
+                aria-label="Kunjungi YouTube NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
               >
                 <i class="bi bi-youtube" aria-hidden="true"></i>
-              </span>
-              <span
+              </a>
+              <a
                 class="site-footer__social-link"
-                role="img"
-                aria-label="Instagram NutLens — belum tersedia"
+                aria-label="Kunjungi Instagram NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
               >
                 <i class="bi bi-instagram" aria-hidden="true"></i>
-              </span>
+              </a>
             </div>
           </div>
 
@@ -1277,9 +1280,14 @@
                   </a>
                 </li>
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Kecocokan Makanan belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Kecocokan Makanan
-                  </span>
+                  </a>
                 </li>
                 <li>
                   <a class="site-footer__link" href="assets/pages/resep-galeri.html">
@@ -1302,19 +1310,34 @@
                 <li><a class="site-footer__link" href="#about-title">Tentang Kami</a></li>
                 <li><a class="site-footer__link" href="#faq-title">FAQ</a></li>
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Hubungi Kami belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Hubungi Kami
-                  </span>
+                  </a>
                 </li>
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Kebijakan Privasi belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Kebijakan Privasi
-                  </span>
+                  </a>
                 </li>
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Syarat dan Ketentuan belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Syarat &amp; Ketentuan
-                  </span>
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -1325,9 +1348,14 @@
               </h2>
               <ul class="site-footer__nav-list">
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Panduan Nutrisi belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Panduan Nutrisi
-                  </span>
+                  </a>
                 </li>
                 <li>
                   <a class="site-footer__link" href="assets/pages/artikel.html">
@@ -1335,14 +1363,24 @@
                   </a>
                 </li>
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Tips Memasak belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Tips Memasak
-                  </span>
+                  </a>
                 </li>
                 <li>
-                  <span class="site-footer__link site-footer__link--disabled">
+                  <a
+                    class="site-footer__link"
+                    aria-label="Tips Gaya Hidup belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
                     Tips Gaya Hidup
-                  </span>
+                  </a>
                 </li>
               </ul>
             </nav>
