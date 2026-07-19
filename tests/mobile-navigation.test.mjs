@@ -5,6 +5,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const index = readFileSync(resolve(projectRoot, 'index.html'), 'utf8');
+const globalCss = readFileSync(
+  resolve(projectRoot, 'assets/css/global.css'),
+  'utf8',
+);
 const failures = [];
 const mobileModulePath = resolve(projectRoot, 'assets/js/mobile-navigation.mjs');
 const mobileModule = existsSync(mobileModulePath)
@@ -184,6 +188,26 @@ check('mobile services use approved labels and project URLs', () => {
         .test(index),
     );
 });
+
+check('mobile drawer uses safe viewport sizing and approved transitions', () =>
+  /\.mobile-nav\s*\{[\s\S]*?position:\s*fixed[\s\S]*?z-index:\s*var\(--z-index-mobile-nav\)[\s\S]*?inset:\s*0/.test(globalCss)
+  && /\.mobile-nav__drawer\s*\{[\s\S]*?width:\s*min\(88vw,\s*22\.5rem\)[\s\S]*?height:\s*100vh[\s\S]*?height:\s*100dvh[\s\S]*?transform:\s*translateX\(100%\)/.test(globalCss)
+  && /transform\s+320ms\s+cubic-bezier\(0\.22,\s*1,\s*0\.36,\s*1\)/.test(globalCss)
+  && /opacity\s+260ms\s+ease/.test(globalCss),
+);
+
+check('mobile layout hides desktop controls only at the existing breakpoint', () =>
+  /@media\s*\(max-width:\s*48rem\)[\s\S]*?\.navbar__menu,[\s\S]*?\.navbar__profile\s*\{[\s\S]*?display:\s*none/.test(globalCss)
+  && /@media\s*\(max-width:\s*48rem\)[\s\S]*?\.mobile-nav__open\s*\{[\s\S]*?display:\s*inline-flex/.test(globalCss)
+  && /\.mobile-nav__open,[\s\S]*?\.mobile-nav\s*\{[\s\S]*?display:\s*none/.test(globalCss),
+);
+
+check('drawer supports scrolling focus and reduced motion', () =>
+  /body\.is-mobile-nav-open\s*\{[^}]*overflow:\s*hidden/.test(globalCss)
+  && /\.mobile-nav__body\s*\{[^}]*flex:\s*1[^}]*min-height:\s*0[^}]*overflow-y:\s*auto/s.test(globalCss)
+  && /\.mobile-nav__footer\s*\{[^}]*flex-shrink:\s*0[^}]*margin-top:\s*auto/s.test(globalCss)
+  && /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.mobile-nav__drawer[\s\S]*?transition-duration:\s*1ms/.test(globalCss),
+);
 
 check('drawer synchronizes ARIA scroll lock focus and close controls', () => {
   if (typeof mobileModule?.initMobileNavigation !== 'function') return false;
