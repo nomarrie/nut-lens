@@ -18,13 +18,18 @@
     <link rel="stylesheet" href="assets/css/landing-page.css" />
     <script type="module" src="assets/js/navbar.mjs"></script>
     <script type="module" src="assets/js/profile-dropdown.mjs"></script>
+    <script type="module" src="assets/js/mobile-navigation.mjs"></script>
     <script type="module" src="assets/js/solution.mjs"></script>
     <script type="module" src="assets/js/how-it-works.mjs"></script>
     <script type="module" src="assets/js/testimonial.mjs"></script>
     <script type="module" src="assets/js/faq.mjs"></script>
   </head>
   <body>
-    <nav class="nutlens-navbar" aria-label="Navigasi utama">
+    <nav
+      class="nutlens-navbar"
+      aria-label="Navigasi utama"
+      data-mobile-navigation
+    >
       <div class="navbar__container">
         <ul class="navbar__menu">
           <li>
@@ -198,6 +203,192 @@
             </button>
           </div>
         </div>
+
+        <button
+          class="mobile-nav__open"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="mobile-navigation"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div
+        class="mobile-nav"
+        id="mobile-navigation"
+        aria-hidden="true"
+      >
+        <button
+          class="mobile-nav__overlay"
+          type="button"
+          aria-label="Tutup menu navigasi"
+          tabindex="-1"
+        ></button>
+
+        <aside
+          class="mobile-nav__drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-nav-title"
+          inert
+        >
+          <header class="mobile-nav__header">
+            <span class="mobile-nav__brand" aria-hidden="true">
+              <span class="material-symbols-outlined">nutrition</span>
+              <span>NutLens</span>
+            </span>
+            <h2 id="mobile-nav-title" class="visually-hidden">
+              Menu NutLens
+            </h2>
+            <button
+              class="mobile-nav__close"
+              type="button"
+              aria-label="Tutup menu navigasi"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >close</span
+              >
+            </button>
+          </header>
+
+          <div class="mobile-nav__body">
+            <section
+              class="mobile-nav__section"
+              aria-labelledby="mobile-account-title"
+            >
+              <h3
+                id="mobile-account-title"
+                class="mobile-nav__section-title"
+              >
+                Akun
+              </h3>
+              <a
+                class="mobile-nav__account"
+                href="assets/pages/profil.html"
+              >
+                <img
+                  class="mobile-nav__avatar"
+                  src="assets/images/testimonial/Bang Raka.webp"
+                  alt=""
+                  width="48"
+                  height="48"
+                />
+                <span class="mobile-nav__account-text">
+                  <strong>Denny Pramana</strong>
+                  <span>Lihat profil saya</span>
+                </span>
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >chevron_right</span
+                >
+              </a>
+            </section>
+
+            <section
+              class="mobile-nav__section"
+              aria-labelledby="mobile-navigation-title"
+            >
+              <h3
+                id="mobile-navigation-title"
+                class="mobile-nav__section-title"
+              >
+                Navigasi
+              </h3>
+              <nav aria-label="Navigasi mobile">
+                <ul class="mobile-nav__list">
+                  <li>
+                    <a
+                      class="mobile-nav__item is-active"
+                      href="index.html"
+                      aria-current="page"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        aria-hidden="true"
+                        >home</span
+                      >
+                      <span>Beranda</span>
+                    </a>
+                  </li>
+                  <li>
+                    <button
+                      class="mobile-nav__submenu-trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="mobile-services-menu"
+                    >
+                      <span class="mobile-nav__item-main">
+                        <span
+                          class="material-symbols-outlined"
+                          aria-hidden="true"
+                          >grid_view</span
+                        >
+                        <span>Layanan</span>
+                      </span>
+                      <span
+                        class="material-symbols-outlined mobile-nav__submenu-icon"
+                        aria-hidden="true"
+                        >expand_more</span
+                      >
+                    </button>
+                    <div
+                      class="mobile-nav__submenu-shell"
+                      id="mobile-services-menu"
+                      aria-hidden="true"
+                      inert
+                    >
+                      <ul class="mobile-nav__submenu">
+                        <li>
+                          <a href="assets/pages/cek-makanan.html"
+                            >Analisis Gizi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="assets/pages/resep-galeri.html"
+                            >Resep Sehat</a
+                          >
+                        </li>
+                        <li>
+                          <a href="assets/pages/buat-resep.html"
+                            >Perencanaan Nutrisi</a
+                          >
+                        </li>
+                        <li>
+                          <a href="assets/pages/challenge-sehat.html"
+                            >Challenge Sehat</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a
+                      class="mobile-nav__item"
+                      href="assets/pages/artikel.html"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        aria-hidden="true"
+                        >article</span
+                      >
+                      <span>Artikel</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </section>
+          </div>
+
+          <div class="mobile-nav__footer">
+            <button class="mobile-nav__logout" type="button">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >logout</span
+              >
+              <span>Logout</span>
+            </button>
+          </div>
+        </aside>
       </div>
     </nav>
 
