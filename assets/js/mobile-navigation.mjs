@@ -48,19 +48,23 @@ export function initMobileNavigation(root, environment = globalThis) {
 
   const close = ({ restoreFocus = true } = {}) => {
     const wasOpen = isOpen();
-    openButton.setAttribute('aria-expanded', 'false');
-    mobileRoot.setAttribute('aria-hidden', 'true');
-    mobileRoot.classList.remove('is-open');
-    drawer.inert = true;
-    body.classList.remove('is-mobile-nav-open');
-    closeSubmenu();
+    const focusWasInDrawer = drawer.contains?.(documentRef.activeElement);
 
-    if (restoreFocus && wasOpen) {
+    if (wasOpen && restoreFocus) {
       const target = openButton.isConnected === false
         ? previousFocus
         : openButton;
       target?.focus?.();
+    } else if (wasOpen && focusWasInDrawer) {
+      documentRef.activeElement?.blur?.();
     }
+
+    drawer.inert = true;
+    openButton.setAttribute('aria-expanded', 'false');
+    mobileRoot.setAttribute('aria-hidden', 'true');
+    mobileRoot.classList.remove('is-open');
+    body.classList.remove('is-mobile-nav-open');
+    closeSubmenu();
   };
 
   const open = () => {

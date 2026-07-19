@@ -72,6 +72,11 @@ function createTarget(documentRef) {
     focus() {
       documentRef.activeElement = this;
     },
+    blur() {
+      if (documentRef.activeElement === this) {
+        documentRef.activeElement = null;
+      }
+    },
     closest() {
       return null;
     },
@@ -92,6 +97,9 @@ function createMediaTarget() {
       this.matches = matches;
       listeners.forEach((listener) => listener({ matches }));
     },
+    listenerCount() {
+      return listeners.size;
+    },
   };
 }
 
@@ -110,7 +118,8 @@ function createMobileNavigationHarness() {
   const logoutButton = createTarget(documentRef);
   const accountLink = createTarget(documentRef);
   const articleLink = createTarget(documentRef);
-  const links = [accountLink, articleLink];
+  const submenuLink = createTarget(documentRef);
+  const links = [accountLink, articleLink, submenuLink];
   const lastFocusable = logoutButton;
   const media = createMediaTarget();
 
@@ -127,6 +136,14 @@ function createMobileNavigationHarness() {
   drawer.querySelectorAll = (selector) => selector === 'a[href]'
     ? links
     : [closeButton, accountLink, submenuTrigger, lastFocusable];
+  drawer.contains = (element) => [
+    closeButton,
+    accountLink,
+    articleLink,
+    submenuLink,
+    submenuTrigger,
+    logoutButton,
+  ].includes(element);
 
   openButton.setAttribute('aria-expanded', 'false');
   mobileRoot.setAttribute('aria-hidden', 'true');
@@ -143,6 +160,7 @@ function createMobileNavigationHarness() {
     submenuTrigger,
     submenuShell,
     logoutButton,
+    submenuLink,
     links,
     lastFocusable,
     body,
@@ -242,6 +260,77 @@ check('drawer synchronizes ARIA scroll lock focus and close controls', () => {
   return opened && overlayClosed && escapeClosed;
 });
 
+check('focus leaves the dialog before its subtree becomes aria-hidden', () => {
+  if (typeof mobileModule?.initMobileNavigation !== 'function') return false;
+  const harness = createMobileNavigationHarness();
+  const operations = [];
+  const setMobileRootAttribute = harness.mobileRoot.setAttribute.bind(
+    harness.mobileRoot,
+  );
+  const focusOpenButton = harness.openButton.focus.bind(harness.openButton);
+
+  harness.mobileRoot.setAttribute = (name, value) => {
+    if (name === 'aria-hidden' && value === 'true') operations.push('hide');
+    setMobileRootAttribute(name, value);
+  };
+  harness.openButton.focus = () => {
+    operations.push('focus');
+    focusOpenButton();
+  };
+
+  const destroy = mobileModule.initMobileNavigation(
+    harness.navbar,
+    harness.environment,
+  );
+  operations.length = 0;
+  harness.openButton.dispatch('click');
+  harness.closeButton.dispatch('click');
+  destroy();
+
+  return operations.indexOf('focus') !== -1
+    && operations.indexOf('focus') < operations.indexOf('hide');
+});
+
+check('every close control and registered listener is covered', () => {
+  if (typeof mobileModule?.initMobileNavigation !== 'function') return false;
+  const harness = createMobileNavigationHarness();
+  const destroy = mobileModule.initMobileNavigation(
+    harness.navbar,
+    harness.environment,
+  );
+
+  harness.openButton.dispatch('click');
+  harness.closeButton.dispatch('click');
+  const closeButtonClosed = harness.openButton.getAttribute('aria-expanded')
+    === 'false';
+
+  harness.openButton.dispatch('click');
+  harness.logoutButton.dispatch('click');
+  const logoutClosed = harness.openButton.getAttribute('aria-expanded')
+    === 'false';
+
+  harness.openButton.dispatch('click');
+  harness.submenuTrigger.dispatch('click');
+  harness.submenuLink.dispatch('click');
+  const submenuLinkClosed = harness.openButton.getAttribute('aria-expanded')
+    === 'false';
+
+  destroy();
+  const listenersRemoved = [
+    [harness.openButton, 'click'],
+    [harness.closeButton, 'click'],
+    [harness.overlay, 'click'],
+    [harness.submenuTrigger, 'click'],
+    [harness.logoutButton, 'click'],
+    [harness.mobileRoot, 'keydown'],
+    ...harness.links.map((link) => [link, 'click']),
+  ].every(([target, type]) => target.listenerCount(type) === 0)
+    && harness.media.listenerCount() === 0;
+
+  return closeButtonClosed && logoutClosed && submenuLinkClosed
+    && listenersRemoved;
+});
+
 check('services toggle is independent and links close the drawer', () => {
   if (typeof mobileModule?.initMobileNavigation !== 'function') return false;
   const harness = createMobileNavigationHarness();
@@ -298,7 +387,8 @@ check('focus wraps and desktop reset removes all modal state', () => {
   harness.media.dispatchChange(true);
   const reset = harness.openButton.getAttribute('aria-expanded') === 'false'
     && !harness.body.classList.contains('is-mobile-nav-open')
-    && harness.submenuTrigger.getAttribute('aria-expanded') === 'false';
+    && harness.submenuTrigger.getAttribute('aria-expanded') === 'false'
+    && harness.documentRef.activeElement === null;
   destroy();
   return wrappedForward && wrappedBackward && reset
     && harness.mobileRoot.listenerCount('keydown') === 0;
