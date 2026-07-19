@@ -372,8 +372,10 @@
   object-position: center;
 }
 
-@media (min-width: 64rem) and (max-width: 95.9375rem) and (max-height: 51.25rem) {
+@media (min-width: 64rem) and (max-height: 42.5rem) {
   .hero {
+    --hero-compact-side-offset: -7.625rem;
+
     min-height: auto;
   }
 
@@ -381,17 +383,25 @@
     margin-top: var(--space-6);
   }
 
+  .hero__artwork {
+    min-height: calc(17rem + (var(--space-16) * 2));
+  }
+
   .hero__image--outer::before,
   .hero__image--side::before {
     content: none;
   }
 
-  .hero__image--outer {
-    --hero-artwork-y: calc(var(--space-4) * -1);
+  .hero__image--outer,
+  .hero__image--side {
+    --hero-artwork-y: var(--hero-compact-side-offset);
+
+    align-self: start;
+    margin-bottom: 0;
   }
 
-  .hero__image--side {
-    --hero-artwork-y: calc(var(--space-2) * -1);
+  .hero__image--main {
+    align-self: end;
   }
 }
 
