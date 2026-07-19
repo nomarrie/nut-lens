@@ -400,8 +400,16 @@
     margin-bottom: 0;
   }
 
+  .hero__image--side {
+    --hero-artwork-y: calc(
+      var(--hero-compact-side-offset) + var(--space-24)
+    );
+  }
+
   .hero__image--main {
+    height: 11rem;
     align-self: end;
+    transform: translateY(-72px);
   }
 }
 
