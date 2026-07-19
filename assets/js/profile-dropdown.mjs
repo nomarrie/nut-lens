@@ -12,6 +12,9 @@ export function initProfileDropdown(root, environment = globalThis) {
   const reducedMotion = environment
     .matchMedia?.('(prefers-reduced-motion: reduce)')
     ?.matches;
+  const supportsHover = environment
+    .matchMedia?.('(hover: hover) and (pointer: fine)')
+    ?.matches;
   const closeDelay = reducedMotion ? 0 : PROFILE_CLOSE_DELAY;
   const requestFrame = environment.requestAnimationFrame?.bind(environment)
     ?? ((callback) => {
@@ -70,6 +73,16 @@ export function initProfileDropdown(root, environment = globalThis) {
     if (restoreFocus) trigger.focus();
   };
 
+  const handlePointerEnter = () => {
+    if (supportsHover) open();
+  };
+
+  const handlePointerLeave = () => {
+    const focusIsInside = root.contains(documentRef.activeElement);
+
+    if (supportsHover && !focusIsInside) close();
+  };
+
   const handleTriggerClick = () => {
     if (isOpen()) close();
     else open();
@@ -98,6 +111,8 @@ export function initProfileDropdown(root, environment = globalThis) {
   };
 
   trigger.addEventListener('click', handleTriggerClick);
+  root.addEventListener('pointerenter', handlePointerEnter);
+  root.addEventListener('pointerleave', handlePointerLeave);
   root.addEventListener('keydown', handleKeyDown);
   root.addEventListener('focusout', handleFocusOut);
   documentRef.addEventListener('pointerdown', handleOutsidePointerDown);
@@ -116,6 +131,8 @@ export function initProfileDropdown(root, environment = globalThis) {
     panel.hidden = true;
     panel.inert = true;
     trigger.removeEventListener('click', handleTriggerClick);
+    root.removeEventListener('pointerenter', handlePointerEnter);
+    root.removeEventListener('pointerleave', handlePointerLeave);
     root.removeEventListener('keydown', handleKeyDown);
     root.removeEventListener('focusout', handleFocusOut);
     documentRef.removeEventListener('pointerdown', handleOutsidePointerDown);

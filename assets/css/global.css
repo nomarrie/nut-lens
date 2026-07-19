@@ -545,6 +545,14 @@ a {
     visibility 0s linear var(--profile-dropdown-duration);
 }
 
+.navbar__profile-panel::before {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 100%;
+  height: var(--space-3);
+  content: '';
+}
+
 .navbar__profile-panel.is-open {
   opacity: 1;
   transform: translateY(0);
