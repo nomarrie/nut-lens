@@ -20,7 +20,25 @@ function check(name, test) {
   }
 }
 
+function readCssBlock(source, marker) {
+  const markerIndex = source.indexOf(marker);
+  if (markerIndex < 0) return '';
+
+  const openingBrace = source.indexOf('{', markerIndex);
+  if (openingBrace < 0) return '';
+
+  let depth = 0;
+  for (let index = openingBrace; index < source.length; index += 1) {
+    if (source[index] === '{') depth += 1;
+    if (source[index] === '}') depth -= 1;
+    if (depth === 0) return source.slice(openingBrace + 1, index);
+  }
+
+  return '';
+}
+
 const index = read('index.html');
+const globalCss = read('assets/css/global.css');
 const profileDropdownModulePath = resolve(root, 'assets/js/profile-dropdown.mjs');
 const profileDropdownModuleExists = existsSync(profileDropdownModulePath);
 const profilePagePath = resolve(root, 'assets/pages/profil.html');
@@ -58,6 +76,21 @@ check('profile page is a complete empty-main document', () =>
   && /<link\b[^>]*href=["']\.\.\/css\/global\.css["']/i.test(profilePage)
   && /<main>\s*<\/main>/i.test(profilePage),
 );
+
+check('shared CSS owns the responsive profile dropdown presentation', () => {
+  const profilePanelCss = readCssBlock(globalCss, '.navbar__profile-panel');
+  return /\.navbar__profile\s*\{[^}]*position:\s*relative[^}]*justify-self:\s*end/s.test(globalCss)
+    && /\.navbar__profile-trigger\s*\{[^}]*min-width:\s*2\.75rem[^}]*min-height:\s*2\.75rem[^}]*background:\s*transparent[^}]*border:\s*0/s.test(globalCss)
+    && /position:\s*absolute/.test(profilePanelCss)
+    && /top:\s*calc\(100%\s*\+\s*var\(--space-3\)\)/.test(profilePanelCss)
+    && /right:\s*0/.test(profilePanelCss)
+    && /width:\s*min\(18\.75rem,\s*calc\(100vw\s*-\s*\(2\s*\*\s*var\(--space-4\)\)\)\)/.test(profilePanelCss)
+    && /z-index:\s*var\(--z-index-dropdown\)/.test(profilePanelCss)
+    && /\.navbar__profile-panel\.is-open\s*\{[^}]*opacity:\s*1[^}]*transform:\s*translateY\(0\)[^}]*visibility:\s*visible/s.test(globalCss)
+    && /\.navbar__profile-panel\[hidden\]\s*\{[^}]*display:\s*none/s.test(globalCss)
+    && /\.navbar__profile-action:is\(:hover,\s*:focus-visible\)\s*\{[^}]*background-color:\s*var\(--color-surface-container-high\)/s.test(globalCss)
+    && /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.navbar__profile-panel[\s\S]*?transition-duration:\s*1ms/s.test(globalCss);
+});
 
 if (failures.length > 0) {
   console.error(`\n${failures.length} profile dropdown check(s) failed.`);
