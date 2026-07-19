@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/global.css" />
     <link rel="stylesheet" href="assets/css/landing-page.css" />
     <script type="module" src="assets/js/navbar.mjs"></script>
+    <script type="module" src="assets/js/profile-dropdown.mjs"></script>
     <script type="module" src="assets/js/solution.mjs"></script>
     <script type="module" src="assets/js/how-it-works.mjs"></script>
     <script type="module" src="assets/js/testimonial.mjs"></script>
@@ -131,11 +132,71 @@
           >
         </div>
 
-        <div class="navbar__profile">
-          <span class="navbar__profile-label">
-            Profil
-            <span class="visually-hidden">— belum tersedia</span>
-          </span>
+        <div class="navbar__profile" data-profile-dropdown>
+          <button
+            class="navbar__profile-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="profile-menu"
+            aria-label="Buka menu profil Denny Pramana"
+          >
+            <img
+              class="navbar__profile-avatar navbar__profile-avatar--trigger"
+              src="assets/images/testimonial/Bang Raka.webp"
+              alt=""
+              width="40"
+              height="40"
+            />
+            <span
+              class="navbar__profile-chevron material-symbols-outlined"
+              aria-hidden="true"
+              >expand_more</span
+            >
+          </button>
+
+          <div
+            id="profile-menu"
+            class="navbar__profile-panel"
+            hidden
+            inert
+          >
+            <div class="navbar__profile-identity">
+              <img
+                class="navbar__profile-avatar navbar__profile-avatar--panel"
+                src="assets/images/testimonial/Bang Raka.webp"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <div class="navbar__profile-copy">
+                <p class="navbar__profile-name">Denny Pramana</p>
+                <p class="navbar__profile-email">denprama@email.com</p>
+              </div>
+            </div>
+
+            <hr class="navbar__profile-divider" />
+
+            <a
+              class="navbar__profile-action"
+              href="assets/pages/profil.html"
+              data-profile-link
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >person</span
+              >
+              <span>Profile</span>
+            </a>
+            <button
+              class="navbar__profile-action"
+              type="button"
+              data-profile-logout
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >logout</span
+              >
+              <span>Logout</span>
+            </button>
+          </div>
         </div>
       </div>
     </nav>

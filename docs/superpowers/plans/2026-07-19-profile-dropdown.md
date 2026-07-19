@@ -20,6 +20,16 @@
 - Verifier saat ini memiliki tepat 20 kegagalan baseline. Implementasi tidak boleh menambah kegagalan baru atau mengubah perilaku di luar scope.
 - Gunakan `apply_patch` untuk seluruh perubahan file.
 
+## Approved Execution Adjustment
+
+Folder `tests/` pada workspace utama diabaikan Git dan `tests/verify-site.mjs` tidak dilacak, sehingga verifier global tidak tersedia di linked worktree. Pengguna menyetujui penyesuaian berikut sebelum implementasi dimulai:
+
+- seluruh kontrak baru Profile Dropdown ditulis pada file terfokus `tests/profile-dropdown.test.mjs` dan di-force-add ke feature branch;
+- `tests/verify-site.mjs` lokal tidak dimodifikasi atau dimasukkan ke repository;
+- regression gate global dijalankan dari workspace utama dengan `NUTLENS_ROOT` diarahkan ke worktree;
+- siklus test-fail dan test-pass pada Task 1–3 menggunakan `node tests/profile-dropdown.test.mjs`;
+- acceptance criteria produksi, markup, CSS, JavaScript, halaman profil, dan baseline 20 kegagalan tetap sama.
+
 ---
 
 ## File Structure
