@@ -604,21 +604,30 @@
   border-radius: var(--radius-2xl);
 
   translate: 0 0;
-  transition:
-    background-color var(--transition-medium),
-    translate var(--transition-base),
-    box-shadow var(--transition-base);
+  transition: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .problem-card:hover {
-    translate: var(--space-2) 0;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  .problem-card {
+    transition:
+      background-color var(--transition-medium),
+      translate var(--transition-base),
+      box-shadow var(--transition-base);
   }
-}
 
-.problem-card:is(:hover, :focus-within) {
-  background-color: var(--color-surface-container-high);
+  .problem-card:hover {
+    background-color: var(--color-surface-container-high);
+    translate: var(--space-2) 0;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.05);
+  }
+
+  .problem-card__icon {
+    transition: background-color var(--transition-medium);
+  }
+
+  .problem-card:hover .problem-card__icon {
+    background-color: var(--color-primary-container);
+  }
 }
 
 .problem-card__icon {
@@ -629,11 +638,7 @@
   color: var(--color-primary);
   background-color: var(--color-surface-container-high);
   border-radius: var(--radius-full);
-  transition: background-color var(--transition-medium);
-}
-
-.problem-card:is(:hover, :focus-within) .problem-card__icon {
-  background-color: var(--color-primary-container);
+  transition: none;
 }
 
 .problem-card__icon .material-symbols-outlined {
@@ -688,24 +693,56 @@
   }
 }
 
-@media (max-width: 30rem) {
+@media (max-width: 48rem) {
   .problems {
-    padding-block: var(--space-16);
+    padding-block: 0 var(--space-24);
+  }
+
+  .problems__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .problems__eyebrow {
+    font-size: clamp(0.6875rem, 2.8vw, 0.75rem);
+    letter-spacing: 0.08em;
   }
 
   .problems__title {
-    font-size: clamp(2.25rem, 10vw, var(--font-size-display));
+    width: 100%;
+    max-width: 12ch;
+    margin-top: var(--space-6);
+    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .problems__media {
+    width: 100%;
+    max-width: none;
+    margin-top: var(--space-8);
+  }
+
+  .problems__list {
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    padding-top: 0;
   }
 
   .problem-card {
     grid-template-columns: 3.5rem minmax(0, 1fr);
     gap: var(--space-4);
     height: auto;
-    padding: var(--space-5);
+    padding: clamp(var(--space-5), 5vw, var(--space-6));
   }
 
   .problem-card__title {
-    font-size: var(--font-size-xl);
+    font-size: clamp(1.125rem, 4.8vw, 1.375rem);
+    line-height: 1.2;
+  }
+
+  .problem-card__description {
+    font-size: clamp(0.875rem, 3.6vw, 1rem);
+    line-height: 1.5;
   }
 }
 
@@ -932,11 +969,10 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .problem-card {
-    transition:
-      background-color var(--transition-fast),
-      box-shadow var(--transition-fast);
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
+  .problem-card,
+  .problem-card__icon {
+    transition-duration: 1ms;
   }
 
   .problem-card:hover {
