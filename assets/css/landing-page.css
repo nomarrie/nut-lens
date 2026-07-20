@@ -465,7 +465,7 @@
   .hero {
     height: auto;
     min-height: auto;
-    margin-top: var(--space-10);
+    margin-top: var(--space-20);
     margin-bottom: var(--space-24);
   }
 
