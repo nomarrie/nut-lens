@@ -466,6 +466,7 @@
     height: auto;
     min-height: auto;
     margin-top: var(--space-10);
+    margin-bottom: var(--space-24);
   }
 
   .hero__content {
@@ -477,7 +478,7 @@
     width: 100%;
     max-width: 20ch;
     margin-top: var(--space-6);
-    font-size: clamp(2rem, 9vw, 2.375rem);
+    font-size: clamp(28px, 9vw, 38px);
     line-height: 1.08;
     text-wrap: balance;
   }
