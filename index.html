@@ -18,13 +18,19 @@
         try {
           if (window.sessionStorage.getItem(key)) return;
           root.classList.add("hero-intro-pending");
-          window.setTimeout(() => {
-            root.classList.remove(
-              "hero-intro-pending",
-              "hero-intro-playing",
-            );
-            root.classList.add("hero-intro-complete");
-          }, 1600);
+          document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+              window.setTimeout(() => {
+                root.classList.remove(
+                  "hero-intro-pending",
+                  "hero-intro-playing",
+                );
+                root.classList.add("hero-intro-complete");
+              }, 1600);
+            },
+            { once: true },
+          );
         } catch {
           root.classList.remove(
             "hero-intro-pending",

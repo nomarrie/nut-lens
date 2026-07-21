@@ -14,6 +14,9 @@ const heroIntroExists = existsSync(heroIntroPath);
 const heroIntro = heroIntroExists
   ? await import(`${pathToFileURL(heroIntroPath).href}?test=${Date.now()}`)
   : null;
+const earlyBootstrap = index.match(
+  /<title>[\s\S]*?<script>([\s\S]*?)<\/script>/i,
+)?.[1] ?? '';
 const failures = [];
 
 function check(name, test) {
@@ -136,6 +139,46 @@ function createHeroIntroHarness({
   };
 }
 
+function createEarlyBootstrapHarness() {
+  const rootElement = { classList: createClassList() };
+  const listeners = new Map();
+  const timers = [];
+  const documentRef = {
+    documentElement: rootElement,
+    addEventListener(type, listener) {
+      listeners.set(type, listener);
+    },
+  };
+  const environment = {
+    matchMedia() {
+      return { matches: false };
+    },
+    sessionStorage: {
+      getItem() {
+        return null;
+      },
+    },
+    setTimeout(callback) {
+      timers.push(callback);
+      return callback;
+    },
+  };
+
+  Function('document', 'window', earlyBootstrap)(
+    documentRef,
+    environment,
+  );
+
+  return {
+    root: rootElement,
+    listenerCount: (type) => Number(listeners.has(type)),
+    timerCount: () => timers.length,
+    dispatch(type) {
+      listeners.get(type)?.();
+    },
+  };
+}
+
 check('all five Hero frames use an inner motion wrapper', () => {
   const hero = index.match(
     /<section\b[^>]*class=["']hero["'][\s\S]*?<\/section>/i,
@@ -158,6 +201,22 @@ check('early bootstrap is fail-safe and session-scoped', () =>
   && /classList\.remove\([\s\S]*hero-intro-pending[\s\S]*hero-intro-playing/.test(index)
   && /try\s*\{[\s\S]*sessionStorage[\s\S]*\}\s*catch/.test(index),
 );
+
+check('early fail-safe countdown starts after DOM readiness', () => {
+  const harness = createEarlyBootstrapHarness();
+  const pendingBeforeReady = harness.root.classList.contains(
+    'hero-intro-pending',
+  );
+  const noEarlyTimer = harness.timerCount() === 0;
+  const waitsForDom = harness.listenerCount('DOMContentLoaded') === 1;
+
+  harness.dispatch('DOMContentLoaded');
+
+  return pendingBeforeReady
+    && noEarlyTimer
+    && waitsForDom
+    && harness.timerCount() === 1;
+});
 
 check('motion wrapper owns only composited entrance properties', () =>
   /\.hero__image-motion\s*\{[^}]*width:\s*100%[^}]*height:\s*100%[^}]*overflow:\s*hidden/s.test(landingCss)
