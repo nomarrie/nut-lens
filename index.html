@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NutLens | Teman Nutrisimu</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const key = "nutlens-hero-intro-played";
+        const mobile = window.matchMedia("(max-width: 48rem)").matches;
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        if (mobile || reducedMotion) return;
+
+        try {
+          if (window.sessionStorage.getItem(key)) return;
+          root.classList.add("hero-intro-pending");
+          window.setTimeout(() => {
+            root.classList.remove(
+              "hero-intro-pending",
+              "hero-intro-playing",
+            );
+            root.classList.add("hero-intro-complete");
+          }, 1600);
+        } catch {
+          root.classList.remove(
+            "hero-intro-pending",
+            "hero-intro-playing",
+          );
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -434,83 +463,93 @@
 
         <div class="hero__artwork">
           <div class="hero__image-frame hero__image--outer">
-            <img
-              class="hero__image"
-              src="assets/images/hero/kiri luar.webp"
-              srcset="
-                assets/images/hero/kiri luar.webp 168w,
-                assets/images/hero/kiri luar.webp 336w
-              "
-              sizes="(max-width: 46rem) 18vw, 10.5rem"
-              alt=""
-              width="168"
-              height="272"
-              fetchpriority="low"
-            />
+            <div class="hero__image-motion">
+              <img
+                class="hero__image"
+                src="assets/images/hero/kiri luar.webp"
+                srcset="
+                  assets/images/hero/kiri luar.webp 168w,
+                  assets/images/hero/kiri luar.webp 336w
+                "
+                sizes="(max-width: 46rem) 18vw, 10.5rem"
+                alt=""
+                width="168"
+                height="272"
+                fetchpriority="low"
+              />
+            </div>
           </div>
           <div
             class="hero__image-frame hero__image--side hero__image-frame--left"
           >
-            <img
-              class="hero__image"
-              src="assets/images/hero/kiri.webp"
-              srcset="
-                assets/images/hero/kiri.webp 168w,
-                assets/images/hero/kiri.webp 336w
-              "
-              sizes="(max-width: 46rem) 18vw, 10.5rem"
-              alt=""
-              width="168"
-              height="272"
-              fetchpriority="low"
-            />
+            <div class="hero__image-motion">
+              <img
+                class="hero__image"
+                src="assets/images/hero/kiri.webp"
+                srcset="
+                  assets/images/hero/kiri.webp 168w,
+                  assets/images/hero/kiri.webp 336w
+                "
+                sizes="(max-width: 46rem) 18vw, 10.5rem"
+                alt=""
+                width="168"
+                height="272"
+                fetchpriority="low"
+              />
+            </div>
           </div>
           <div class="hero__image-frame hero__image--main">
-            <img
-              class="hero__image"
-              src="assets/images/hero/tengah.webp"
-              srcset="
-                assets/images/hero/tengah.webp 544w,
-                assets/images/hero/tengah.webp 1088w
-              "
-              sizes="(max-width: 46rem) 24vw, min(37.778vw, 34rem)"
-              alt="Sekelompok orang menikmati makanan sehat bersama di meja makan"
-              width="544"
-              height="240"
-              fetchpriority="high"
-            />
+            <div class="hero__image-motion">
+              <img
+                class="hero__image"
+                src="assets/images/hero/tengah.webp"
+                srcset="
+                  assets/images/hero/tengah.webp 544w,
+                  assets/images/hero/tengah.webp 1088w
+                "
+                sizes="(max-width: 46rem) 24vw, min(37.778vw, 34rem)"
+                alt="Sekelompok orang menikmati makanan sehat bersama di meja makan"
+                width="544"
+                height="240"
+                fetchpriority="high"
+              />
+            </div>
           </div>
           <div
             class="hero__image-frame hero__image--side hero__image-frame--right"
           >
-            <img
-              class="hero__image"
-              src="assets/images/hero/kanan.webp"
-              srcset="
-                assets/images/hero/kanan.webp 168w,
-                assets/images/hero/kanan.webp 336w
-              "
-              sizes="(max-width: 46rem) 18vw, 10.5rem"
-              alt=""
-              width="168"
-              height="272"
-              fetchpriority="low"
-            />
+            <div class="hero__image-motion">
+              <img
+                class="hero__image"
+                src="assets/images/hero/kanan.webp"
+                srcset="
+                  assets/images/hero/kanan.webp 168w,
+                  assets/images/hero/kanan.webp 336w
+                "
+                sizes="(max-width: 46rem) 18vw, 10.5rem"
+                alt=""
+                width="168"
+                height="272"
+                fetchpriority="low"
+              />
+            </div>
           </div>
           <div class="hero__image-frame hero__image--outer">
-            <img
-              class="hero__image"
-              src="assets/images/hero/kanan luar.webp"
-              srcset="
-                assets/images/hero/kanan luar.webp 168w,
-                assets/images/hero/kanan luar.webp 336w
-              "
-              sizes="(max-width: 46rem) 18vw, 10.5rem"
-              alt=""
-              width="168"
-              height="272"
-              fetchpriority="low"
-            />
+            <div class="hero__image-motion">
+              <img
+                class="hero__image"
+                src="assets/images/hero/kanan luar.webp"
+                srcset="
+                  assets/images/hero/kanan luar.webp 168w,
+                  assets/images/hero/kanan luar.webp 336w
+                "
+                sizes="(max-width: 46rem) 18vw, 10.5rem"
+                alt=""
+                width="168"
+                height="272"
+                fetchpriority="low"
+              />
+            </div>
           </div>
         </div>
       </section>
