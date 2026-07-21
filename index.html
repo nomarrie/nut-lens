@@ -7,7 +7,6 @@
     <script>
       (() => {
         const root = document.documentElement;
-        const key = "nutlens-hero-intro-played";
         const mobile = window.matchMedia("(max-width: 48rem)").matches;
         const reducedMotion = window.matchMedia(
           "(prefers-reduced-motion: reduce)",
@@ -15,28 +14,20 @@
 
         if (mobile || reducedMotion) return;
 
-        try {
-          if (window.sessionStorage.getItem(key)) return;
-          root.classList.add("hero-intro-pending");
-          document.addEventListener(
-            "DOMContentLoaded",
-            () => {
-              window.setTimeout(() => {
-                root.classList.remove(
-                  "hero-intro-pending",
-                  "hero-intro-playing",
-                );
-                root.classList.add("hero-intro-complete");
-              }, 1600);
-            },
-            { once: true },
-          );
-        } catch {
-          root.classList.remove(
-            "hero-intro-pending",
-            "hero-intro-playing",
-          );
-        }
+        root.classList.add("hero-intro-pending");
+        document.addEventListener(
+          "DOMContentLoaded",
+          () => {
+            window.setTimeout(() => {
+              root.classList.remove(
+                "hero-intro-pending",
+                "hero-intro-playing",
+              );
+              root.classList.add("hero-intro-complete");
+            }, 1600);
+          },
+          { once: true },
+        );
       })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />

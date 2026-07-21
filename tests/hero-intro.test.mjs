@@ -64,7 +64,6 @@ function createListenerTarget() {
 }
 
 function createHeroIntroHarness({
-  played = false,
   mobile = false,
   reducedMotion = false,
   storageThrows = false,
@@ -80,9 +79,6 @@ function createHeroIntroHarness({
       return selector === '.hero__artwork' ? artwork : null;
     },
   };
-  const storage = new Map(
-    played ? [['nutlens-hero-intro-played', 'true']] : [],
-  );
   const frames = [];
   const timers = [];
 
@@ -95,13 +91,12 @@ function createHeroIntroHarness({
       };
     },
     sessionStorage: {
-      getItem(key) {
+      getItem() {
         if (storageThrows) throw new Error('storage unavailable');
-        return storage.get(key) ?? null;
+        return null;
       },
-      setItem(key, value) {
+      setItem() {
         if (storageThrows) throw new Error('storage unavailable');
-        storage.set(key, value);
       },
     },
     requestAnimationFrame(callback) {
@@ -126,7 +121,6 @@ function createHeroIntroHarness({
     root: rootElement,
     documentRef,
     environment,
-    storage,
     frameCount: () => frames.length,
     listenerCount: (type) => documentEvents.listenerCount(type),
     runFrame() {
@@ -193,13 +187,13 @@ check('all five Hero frames use an inner motion wrapper', () => {
   return wrappers.length === 5 && wrappedImages.length === 5;
 });
 
-check('early bootstrap is fail-safe and session-scoped', () =>
-  /nutlens-hero-intro-played/.test(index)
+check('early bootstrap is fail-safe and reload-scoped', () =>
+  !/nutlens-hero-intro-played/.test(earlyBootstrap)
+  && !/sessionStorage/.test(earlyBootstrap)
   && /matchMedia\(["']\(max-width:\s*48rem\)["']\)/.test(index)
   && /matchMedia\([\s\S]*["']\(prefers-reduced-motion:\s*reduce\)["']/.test(index)
   && /classList\.add\(["']hero-intro-pending["']\)/.test(index)
-  && /classList\.remove\([\s\S]*hero-intro-pending[\s\S]*hero-intro-playing/.test(index)
-  && /try\s*\{[\s\S]*sessionStorage[\s\S]*\}\s*catch/.test(index),
+  && /classList\.remove\([\s\S]*hero-intro-pending[\s\S]*hero-intro-playing/.test(index),
 );
 
 check('early fail-safe countdown starts after DOM readiness', () => {
@@ -241,9 +235,9 @@ check('homepage loads the isolated Hero intro module', () =>
   && /<script\b[^>]*type=["']module["'][^>]*src=["']assets\/js\/hero-intro\.mjs["'][^>]*><\/script>/i.test(index),
 );
 
-check('first eligible session plays after two frames and records the session', () => {
+check('every eligible reload plays without session storage', () => {
   if (typeof heroIntro?.initHeroIntro !== 'function') return false;
-  const harness = createHeroIntroHarness();
+  const harness = createHeroIntroHarness({ storageThrows: true });
   harness.root.classList.add('hero-intro-pending');
   const destroy = heroIntro.initHeroIntro(
     harness.documentRef,
@@ -254,8 +248,7 @@ check('first eligible session plays after two frames and records the session', (
   const stillPending = harness.root.classList.contains('hero-intro-pending');
   harness.runFrame();
   const playing = harness.root.classList.contains('hero-intro-playing')
-    && !harness.root.classList.contains('hero-intro-pending')
-    && harness.storage.get('nutlens-hero-intro-played') === 'true';
+    && !harness.root.classList.contains('hero-intro-pending');
   harness.runTimers();
   const complete = harness.root.classList.contains('hero-intro-complete')
     && !harness.root.classList.contains('hero-intro-playing');
@@ -264,37 +257,25 @@ check('first eligible session plays after two frames and records the session', (
   return stillPending && playing && complete;
 });
 
-check('played sessions, mobile, and reduced motion skip animation work', () => {
+check('mobile and reduced motion skip animation work', () => {
   if (typeof heroIntro?.initHeroIntro !== 'function') return false;
-  const played = createHeroIntroHarness({ played: true });
   const mobile = createHeroIntroHarness({ mobile: true });
   const reduced = createHeroIntroHarness({ reducedMotion: true });
 
-  [played, mobile, reduced].forEach((harness) => {
+  [mobile, reduced].forEach((harness) => {
     harness.root.classList.add('hero-intro-pending');
     heroIntro.initHeroIntro(harness.documentRef, harness.environment);
   });
 
-  return [played, mobile, reduced].every((harness) =>
+  return [mobile, reduced].every((harness) =>
     harness.frameCount() === 0
     && harness.listenerCount('DOMContentLoaded') === 0
     && !harness.root.classList.contains('hero-intro-pending')
     && harness.root.classList.contains('hero-intro-complete'));
 });
 
-check('storage failure restores the visible completed state', () => {
-  if (typeof heroIntro?.initHeroIntro !== 'function') return false;
-  const harness = createHeroIntroHarness({ storageThrows: true });
-  harness.root.classList.add('hero-intro-pending');
-  heroIntro.initHeroIntro(harness.documentRef, harness.environment);
-
-  return !harness.root.classList.contains('hero-intro-pending')
-    && harness.root.classList.contains('hero-intro-complete')
-    && harness.frameCount() === 0;
-});
-
-check('Hero intro exports the approved session key and cleanup timing', () =>
-  heroIntro?.HERO_INTRO_STORAGE_KEY === 'nutlens-hero-intro-played'
+check('Hero intro exports only the approved cleanup timing', () =>
+  heroIntro?.HERO_INTRO_STORAGE_KEY === undefined
   && heroIntro?.HERO_INTRO_CLEANUP_DELAY === 1350,
 );
 

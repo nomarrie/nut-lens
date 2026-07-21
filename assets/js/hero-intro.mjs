@@ -1,4 +1,3 @@
-export const HERO_INTRO_STORAGE_KEY = 'nutlens-hero-intro-played';
 export const HERO_INTRO_CLEANUP_DELAY = 1350;
 
 const PENDING = 'hero-intro-pending';
@@ -20,21 +19,9 @@ export function initHeroIntro(documentRef, environment = globalThis) {
   const mobile = mediaMatches('(max-width: 48rem)');
   const reducedMotion = mediaMatches('(prefers-reduced-motion: reduce)');
 
-  let played;
-
-  try {
-    played = environment.sessionStorage?.getItem(
-      HERO_INTRO_STORAGE_KEY,
-    ) === 'true';
-  } catch {
-    finish();
-    return () => {};
-  }
-
   if (
     mobile
     || reducedMotion
-    || played
     || !root.classList.contains(PENDING)
   ) {
     finish();
@@ -60,16 +47,6 @@ export function initHeroIntro(documentRef, environment = globalThis) {
         secondFrame = null;
         root.classList.remove(PENDING, COMPLETE);
         root.classList.add(PLAYING);
-
-        try {
-          environment.sessionStorage?.setItem(
-            HERO_INTRO_STORAGE_KEY,
-            'true',
-          );
-        } catch {
-          finish();
-          return;
-        }
 
         cleanupTimer = schedule(() => {
           cleanupTimer = null;
