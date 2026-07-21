@@ -464,9 +464,8 @@
 @media (max-width: 48rem) {
   .hero {
     height: auto;
-    min-height: auto;
+    min-height: 100dvh;
     margin-top: var(--space-20);
-    margin-bottom: var(--space-24);
   }
 
   .hero__content {
@@ -477,8 +476,8 @@
   .hero__title {
     width: 100%;
     max-width: 20ch;
-    margin-top: var(--space-6);
-    font-size: clamp(28px, 9vw, 38px);
+    margin-top: var(--space-2);
+    font-size: clamp(32px, 10vw, 44px);
     line-height: 1.08;
     text-wrap: balance;
   }
@@ -695,7 +694,7 @@
 
 @media (max-width: 48rem) {
   .problems {
-    padding-block: 0 var(--space-24);
+    margin-top: -256px;
   }
 
   .problems__layout {
@@ -711,7 +710,7 @@
     width: 100%;
     max-width: 12ch;
     margin-top: var(--space-6);
-    font-size: clamp(2rem, 8.5vw, 2.5rem);
+    font-size: clamp(32px, 10vw, 44px);
     line-height: 1.08;
     letter-spacing: -0.02em;
   }
