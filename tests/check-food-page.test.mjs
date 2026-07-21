@@ -68,13 +68,14 @@ check('desktop layout uses proportional grid and bounded floating cards', () =>
   && !/height:\s*100(?:s|d|l)?vh/.test(css),
 );
 
-check('mobile layout stacks safely and restores cards to flow', () => {
+check('mobile layout stacks safely, hides the image frame, and restores cards to flow', () => {
   const mobileStart = css.indexOf('@media (max-width: 48rem)');
   const mobile = mobileStart >= 0 ? css.slice(mobileStart) : '';
 
   return /\.scan-hero__layout\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s.test(mobile)
     && /\.scan-hero__content\s*\{[^}]*text-align:\s*center/s.test(mobile)
     && /\.scan-hero__cta\s*\{[^}]*width:\s*100%/s.test(mobile)
+    && /\.scan-hero__image-frame\s*\{[^}]*display:\s*none/s.test(mobile)
     && /\.scan-hero__feature\s*\{[^}]*position:\s*static/s.test(mobile);
 });
 

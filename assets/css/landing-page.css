@@ -484,8 +484,7 @@
 @media (max-width: 48rem) {
   .hero {
     height: auto;
-    min-height: 100dvh;
-    /* margin-top: var(--space-20); */
+    min-height: 75svh;
   }
 
   .hero__content {
@@ -719,7 +718,7 @@
 
 @media (max-width: 48rem) {
   .problems {
-    margin-top: -256px;
+    margin-top: 0;
   }
 
   .problems__layout {

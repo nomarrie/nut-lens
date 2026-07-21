@@ -1,5 +1,5 @@
 .scan-hero {
-  padding-block: clamp(var(--space-10), 7vw, 7.5rem);
+  padding-block: clamp(var(--space-10), 1vw, 7.5rem);
 }
 
 .scan-hero__layout {
@@ -53,15 +53,15 @@
   vertical-align: -0.1em;
   font-variation-settings:
     "FILL" 0,
-    "wght" 500,
+    "wght" 700,
     "GRAD" 0,
     "opsz" 48;
 }
 
 .scan-hero__description {
-  max-width: 52ch;
+  max-width: 50ch;
   margin: var(--space-16) 0 0;
-  color: var(--color-on-surface-variant);
+  color: var(--color-gray-500);
   font-size: var(--font-size-body-md);
   line-height: var(--line-height-body-lg);
 }
@@ -107,7 +107,7 @@
   margin: 0;
   overflow: hidden;
   aspect-ratio: 528 / 576;
-  border-radius: var(--radius-3xl);
+  border-radius: 40px;
 }
 
 .scan-hero__image {
@@ -127,9 +127,9 @@
   padding: var(--space-4);
   color: var(--color-on-surface);
   background-color: var(--color-surface-container-high);
-  border: 0.5rem solid color-mix(in srgb, var(--color-white) 82%, transparent);
-  border-radius: var(--radius-2xl);
-  box-shadow: var(--shadow-md);
+  border: 0.5rem solid var(--color-background);
+  border-radius: var(--radius-3xl);
+  /* box-shadow: var(--shadow-md); */
 }
 
 .scan-hero__feature--accuracy {
@@ -192,11 +192,11 @@
   line-height: var(--line-height-h2);
 }
 
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
   .scan-hero__cta:hover {
     background-color: var(--color-primary-hover);
   }
-}
+} */
 
 @media (max-width: 78rem) {
   .scan-hero__feature--accuracy {
@@ -272,6 +272,7 @@
   }
 
   .scan-hero__image-frame {
+    display: none;
     border-radius: var(--radius-2xl);
   }
 
@@ -281,6 +282,7 @@
   }
 
   .scan-hero__feature {
+    display: none;
     position: static;
     width: 100%;
     border-width: 0;
