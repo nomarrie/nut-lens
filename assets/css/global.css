@@ -734,6 +734,7 @@ body.is-mobile-nav-open {
   padding: 0;
   color: var(--color-on-surface);
   background: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav__body {
