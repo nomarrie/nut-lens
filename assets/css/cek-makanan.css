@@ -1,0 +1,295 @@
+.scan-hero {
+  padding-block: clamp(var(--space-10), 7vw, 7.5rem);
+}
+
+.scan-hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 33rem);
+  align-items: center;
+  width: min(calc(100% - (2 * var(--space-4))), var(--container-max));
+  margin-inline: auto;
+  column-gap: clamp(var(--space-10), 5vw, 4.5rem);
+}
+
+.scan-hero__content {
+  min-width: 0;
+}
+
+.scan-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-primary);
+  background-color: var(--color-surface-container-high);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-label);
+}
+
+.scan-hero__badge .material-symbols-outlined {
+  font-size: var(--font-size-xl);
+}
+
+.scan-hero__title {
+  max-width: 12ch;
+  margin: var(--space-10) 0 0;
+  color: var(--color-black);
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: var(--letter-spacing-display);
+}
+
+.scan-hero__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.scan-hero__inline-logo {
+  color: var(--color-primary);
+  font-size: 0.9em;
+  vertical-align: -0.1em;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.scan-hero__description {
+  max-width: 52ch;
+  margin: var(--space-16) 0 0;
+  color: var(--color-on-surface-variant);
+  font-size: var(--font-size-body-md);
+  line-height: var(--line-height-body-lg);
+}
+
+.scan-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  margin-top: var(--space-10);
+  padding: var(--space-4) var(--space-8);
+  color: var(--color-on-primary);
+  background-color: var(--color-on-primary-fixed);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-h2);
+  font-weight: 500;
+  line-height: var(--line-height-label);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.scan-hero__cta:focus-visible {
+  background-color: var(--color-primary-hover);
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.scan-hero__cta:active {
+  transform: translateY(1px);
+}
+
+.scan-hero__visual {
+  position: relative;
+  width: 100%;
+  max-width: 33rem;
+  justify-self: end;
+}
+
+.scan-hero__image-frame {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 528 / 576;
+  border-radius: var(--radius-3xl);
+}
+
+.scan-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scan-hero__feature {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: min(15rem, 46%);
+  padding: var(--space-4);
+  color: var(--color-on-surface);
+  background-color: var(--color-surface-container-high);
+  border: 0.5rem solid color-mix(in srgb, var(--color-white) 82%, transparent);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.scan-hero__feature--accuracy {
+  top: 4.5rem;
+  left: -4rem;
+}
+
+.scan-hero__feature--instant {
+  right: -4rem;
+  bottom: 4.5rem;
+}
+
+.scan-hero__score {
+  display: grid;
+  flex: 0 0 4.5rem;
+  place-items: center;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(
+      closest-side,
+      var(--color-surface-container-high) 78%,
+      transparent 79%
+    ),
+    conic-gradient(
+      var(--color-primary) 99%,
+      var(--color-primary-fixed-dim) 0
+    );
+  border-radius: var(--radius-full);
+  font-weight: 600;
+}
+
+.scan-hero__feature-icon {
+  display: grid;
+  flex: 0 0 3.5rem;
+  place-items: center;
+  width: 3.5rem;
+  aspect-ratio: 1;
+  color: var(--color-primary);
+  background-color: var(--color-primary-container);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-2xl);
+}
+
+.scan-hero__feature-content {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.scan-hero__feature-content strong {
+  font-weight: 500;
+  line-height: var(--line-height-label);
+}
+
+.scan-hero__feature-content span,
+.scan-hero__feature-content small {
+  color: var(--color-on-surface-variant);
+  font-size: var(--font-size-label-sm);
+  line-height: var(--line-height-h2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .scan-hero__cta:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+@media (max-width: 78rem) {
+  .scan-hero__feature--accuracy {
+    left: var(--space-4);
+  }
+
+  .scan-hero__feature--instant {
+    right: var(--space-4);
+  }
+}
+
+@media (max-width: 68rem) {
+  .scan-hero__layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 48rem;
+    row-gap: var(--space-16);
+  }
+
+  .scan-hero__content {
+    text-align: center;
+  }
+
+  .scan-hero__badge {
+    justify-content: center;
+  }
+
+  .scan-hero__title,
+  .scan-hero__description {
+    margin-inline: auto;
+  }
+
+  .scan-hero__visual {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 48rem) {
+  .scan-hero {
+    padding-block: var(--space-10) var(--space-20);
+  }
+
+  .scan-hero__layout {
+    grid-template-columns: minmax(0, 1fr);
+    width: min(calc(100% - (2 * var(--space-4))), var(--container-max));
+    row-gap: var(--space-12);
+  }
+
+  .scan-hero__content {
+    text-align: center;
+  }
+
+  .scan-hero__title {
+    max-width: 14ch;
+    margin-top: var(--space-8);
+    font-size: clamp(2.25rem, 10vw, 3rem);
+  }
+
+  .scan-hero__title-line {
+    white-space: normal;
+  }
+
+  .scan-hero__description {
+    margin-top: var(--space-8);
+  }
+
+  .scan-hero__cta {
+    width: 100%;
+  }
+
+  .scan-hero__visual {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .scan-hero__image-frame {
+    border-radius: var(--radius-2xl);
+  }
+
+  .scan-hero__feature-list {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .scan-hero__feature {
+    position: static;
+    width: 100%;
+    border-width: 0;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-hero__cta {
+    transition-duration: 1ms;
+  }
+}

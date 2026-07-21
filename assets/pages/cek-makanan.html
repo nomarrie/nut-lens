@@ -1,19 +1,441 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cek Makanan — NutLens</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">
-  <link rel="stylesheet" href="../css/global.css">
-</head>
-<body>
-  <main class="page-shell placeholder-page">
-    <a class="back-link" href="../../index.html">Kembali ke beranda</a>
-    <h1>Cek Makanan</h1>
-    <p>Fitur pemeriksaan informasi makanan sedang disiapkan.</p>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Analisis makanan dan temukan estimasi kalori, protein, lemak, karbohidrat, serat, serta gula bersama NutLens."
+    />
+    <title>Cek Makanan | NutLens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Outfit:wght@100..900&display=swap"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/cek-makanan.css" />
+    <script type="module" src="../js/navbar.mjs"></script>
+    <script type="module" src="../js/profile-dropdown.mjs"></script>
+    <script type="module" src="../js/mobile-navigation.mjs"></script>
+  </head>
+  <body>
+    <nav
+      class="nutlens-navbar"
+      aria-label="Navigasi utama"
+      data-mobile-navigation
+    >
+      <div class="navbar__container">
+        <ul class="navbar__menu">
+          <li><a href="../../index.html">Beranda</a></li>
+          <li>
+            <div class="navbar__services" data-services-dropdown>
+              <button
+                class="navbar__services-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="services-menu"
+              >
+                Layanan
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >expand_more</span
+                >
+              </button>
+              <ul id="services-menu" class="navbar__submenu" hidden>
+                <li>
+                  <a href="cek-makanan.html" aria-current="page">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--check material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      nutrition
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Cek Makanan</span>
+                      <span class="navbar__submenu-description">
+                        Analisis nutrisi dari makananmu
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="buat-resep.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--recipe material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      restaurant_menu
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Buat Resep</span>
+                      <span class="navbar__submenu-description">
+                        Buat resep dari bahan yang tersedia
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="resep-galeri.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--gallery material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      menu_book
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Galeri Resep</span>
+                      <span class="navbar__submenu-description">
+                        Temukan inspirasi resep sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="challenge-sehat.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--challenge material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      emoji_events
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Challenge Sehat</span>
+                      <span class="navbar__submenu-description">
+                        Ikuti tantangan hidup lebih sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="artikel.html">Artikel</a></li>
+        </ul>
+
+        <div class="navbar__logo">
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >nutrition</span
+          >
+          <a href="../../index.html" aria-label="NutLens, kembali ke beranda"
+            >NutLens</a
+          >
+        </div>
+
+        <div class="navbar__profile" data-profile-dropdown>
+          <button
+            class="navbar__profile-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="profile-menu"
+            aria-label="Buka menu profil Denny Pramana"
+          >
+            <img
+              class="navbar__profile-avatar navbar__profile-avatar--trigger"
+              src="../images/testimonial/Bang Raka.webp"
+              alt=""
+              width="40"
+              height="40"
+            />
+            <span
+              class="navbar__profile-chevron material-symbols-outlined"
+              aria-hidden="true"
+              >expand_more</span
+            >
+          </button>
+
+          <div
+            id="profile-menu"
+            class="navbar__profile-panel"
+            hidden
+            inert
+          >
+            <div class="navbar__profile-identity">
+              <img
+                class="navbar__profile-avatar navbar__profile-avatar--panel"
+                src="../images/testimonial/Bang Raka.webp"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <div class="navbar__profile-copy">
+                <p class="navbar__profile-name">Denny Pramana</p>
+                <p class="navbar__profile-email">denprama@email.com</p>
+              </div>
+            </div>
+            <hr class="navbar__profile-divider" />
+            <a
+              class="navbar__profile-action"
+              href="profil.html"
+              data-profile-link
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >person</span
+              >
+              <span>Profile</span>
+            </a>
+            <button
+              class="navbar__profile-action"
+              type="button"
+              data-profile-logout
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >logout</span
+              >
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+
+        <button
+          class="mobile-nav__open"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="mobile-navigation"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div
+        class="mobile-nav"
+        id="mobile-navigation"
+        aria-hidden="true"
+      >
+        <button
+          class="mobile-nav__overlay"
+          type="button"
+          aria-label="Tutup menu navigasi"
+          tabindex="-1"
+        ></button>
+
+        <aside
+          class="mobile-nav__drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-nav-title"
+          inert
+        >
+          <header class="mobile-nav__header">
+            <span class="mobile-nav__brand" aria-hidden="true">
+              <span class="material-symbols-outlined">nutrition</span>
+              <span>NutLens</span>
+            </span>
+            <h2 id="mobile-nav-title" class="visually-hidden">
+              Menu NutLens
+            </h2>
+            <button
+              class="mobile-nav__close"
+              type="button"
+              aria-label="Tutup menu navigasi"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >close</span
+              >
+            </button>
+          </header>
+
+          <div class="mobile-nav__body">
+            <section
+              class="mobile-nav__section"
+              aria-labelledby="mobile-account-title"
+            >
+              <h3
+                id="mobile-account-title"
+                class="mobile-nav__section-title"
+              >
+                Akun
+              </h3>
+              <a class="mobile-nav__account" href="profil.html">
+                <img
+                  class="mobile-nav__avatar"
+                  src="../images/testimonial/Bang Raka.webp"
+                  alt=""
+                  width="48"
+                  height="48"
+                />
+                <span class="mobile-nav__account-text">
+                  <strong>Denny Pramana</strong>
+                  <span>Lihat profil saya</span>
+                </span>
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >chevron_right</span
+                >
+              </a>
+            </section>
+
+            <section
+              class="mobile-nav__section"
+              aria-labelledby="mobile-navigation-title"
+            >
+              <h3
+                id="mobile-navigation-title"
+                class="mobile-nav__section-title"
+              >
+                Navigasi
+              </h3>
+              <nav aria-label="Navigasi mobile">
+                <ul class="mobile-nav__list">
+                  <li>
+                    <a class="mobile-nav__item" href="../../index.html">
+                      <span
+                        class="material-symbols-outlined"
+                        aria-hidden="true"
+                        >home</span
+                      >
+                      <span>Beranda</span>
+                    </a>
+                  </li>
+                  <li>
+                    <button
+                      class="mobile-nav__submenu-trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="mobile-services-menu"
+                    >
+                      <span class="mobile-nav__item-main">
+                        <span
+                          class="material-symbols-outlined"
+                          aria-hidden="true"
+                          >grid_view</span
+                        >
+                        <span>Layanan</span>
+                      </span>
+                      <span
+                        class="material-symbols-outlined mobile-nav__submenu-icon"
+                        aria-hidden="true"
+                        >expand_more</span
+                      >
+                    </button>
+                    <div
+                      class="mobile-nav__submenu-shell"
+                      id="mobile-services-menu"
+                      aria-hidden="true"
+                      inert
+                    >
+                      <ul class="mobile-nav__submenu">
+                        <li>
+                          <a href="cek-makanan.html" aria-current="page"
+                            >Analisis Gizi</a
+                          >
+                        </li>
+                        <li><a href="resep-galeri.html">Resep Sehat</a></li>
+                        <li>
+                          <a href="buat-resep.html">Perencanaan Nutrisi</a>
+                        </li>
+                        <li>
+                          <a href="challenge-sehat.html">Challenge Sehat</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a class="mobile-nav__item" href="artikel.html">
+                      <span
+                        class="material-symbols-outlined"
+                        aria-hidden="true"
+                        >article</span
+                      >
+                      <span>Artikel</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </section>
+          </div>
+
+          <div class="mobile-nav__footer">
+            <button class="mobile-nav__logout" type="button">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >logout</span
+              >
+              <span>Logout</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </nav>
+
+    <main>
+      <section class="scan-hero" aria-labelledby="scan-hero-title">
+        <div class="scan-hero__layout">
+          <div class="scan-hero__content">
+            <p class="scan-hero__badge">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >psychology</span
+              >
+              <span>Analisis Nutrisi Berbasis AI</span>
+            </p>
+
+            <h1 class="scan-hero__title" id="scan-hero-title">
+              <span class="scan-hero__title-line">Mulai Pola Hidup</span>
+              <span class="scan-hero__title-line">
+                Sehat
+                <span
+                  class="scan-hero__inline-logo material-symbols-outlined"
+                  aria-hidden="true"
+                  >nutrition</span
+                >
+                Dengan
+              </span>
+              <span class="scan-hero__title-line">Nutrisi Yang Tepat</span>
+            </h1>
+
+            <p class="scan-hero__description">
+              Temukan informasi nutrisi dari setiap makanan hanya dengan satu
+              kali scan. NutLens membantu Anda mengetahui kandungan kalori,
+              protein, lemak, karbohidrat, serat, serta gula secara cepat dan
+              mudah.
+            </p>
+
+            <a class="scan-hero__cta" href="#upload-makanan">
+              Mulai Analisis Sekarang
+            </a>
+          </div>
+
+          <div class="scan-hero__visual">
+            <figure class="scan-hero__image-frame">
+              <img
+                class="scan-hero__image"
+                src="../images/problem/Foto junk food.webp"
+                alt="Makanan sehat sebagai contoh analisis nutrisi NutLens"
+                width="528"
+                height="576"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </figure>
+
+            <div class="scan-hero__feature-list">
+              <div
+                class="scan-hero__feature scan-hero__feature--accuracy"
+              >
+                <div class="scan-hero__score"><span>99%</span></div>
+                <div class="scan-hero__feature-content">
+                  <strong>Akurasi Tinggi</strong>
+                  <span>Hasil sangat akurat berdasarkan gizi terbaru</span>
+                </div>
+              </div>
+
+              <div
+                class="scan-hero__feature scan-hero__feature--instant"
+              >
+                <span
+                  class="scan-hero__feature-icon material-symbols-outlined"
+                  aria-hidden="true"
+                  >document_scanner</span
+                >
+                <div class="scan-hero__feature-content">
+                  <strong>Scan Instan</strong>
+                  <small>Hasil dalam &lt; 2 detik</small>
+                  <span>Scan makananmu dan dapatkan analisis gizi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
