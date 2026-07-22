@@ -315,6 +315,134 @@
   outline-offset: 3px;
 }
 
+.hero__cta--text-swap,
+.hero__cta--icon-focus {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__cta-label,
+.hero__cta-text,
+.hero__cta-icon {
+  will-change: transform, opacity;
+}
+
+.hero__cta-label--current,
+.hero__cta-text,
+.hero__cta-icon--end {
+  position: relative;
+}
+
+.hero__cta-label--replacement {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(110%);
+  filter: blur(3px);
+}
+
+.hero__cta-icon--center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: currentColor;
+  background-color: transparent;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(calc(-50% + 2.8em), -50%) scale(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__cta-label,
+  .hero__cta-text,
+  .hero__cta-icon {
+    transition:
+      transform 220ms cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 180ms ease-out,
+      filter 180ms ease-out;
+  }
+
+  .hero__cta-icon--center {
+    transition:
+      transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 220ms ease-in,
+      filter 220ms ease-in;
+  }
+
+  .hero__cta--icon-focus .hero__cta-text,
+  .hero__cta--icon-focus .hero__cta-icon--end {
+    transition:
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1) 40ms,
+      opacity 240ms ease-out 40ms,
+      filter 240ms ease-out 40ms;
+  }
+
+  .hero__cta-label--replacement {
+    transition:
+      transform 280ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 160ms ease-out,
+      filter 180ms ease-out;
+  }
+
+  .hero__cta-label--current {
+    transition:
+      transform 280ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 180ms ease-out,
+      filter 180ms ease-out;
+  }
+
+  .hero__cta--text-swap,
+  .hero__cta--icon-focus {
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .hero__cta--text-swap:active,
+  .hero__cta--icon-focus:active {
+    transform: scale(0.97);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero__cta--text-swap:hover .hero__cta-label--current {
+    transition:
+      transform 220ms cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 180ms ease-out,
+      filter 180ms ease-out;
+    opacity: 0;
+    transform: translateY(-110%);
+    filter: blur(3px);
+  }
+
+  .hero__cta--text-swap:hover .hero__cta-label--replacement {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .hero__cta--icon-focus:hover .hero__cta-text,
+  .hero__cta--icon-focus:hover .hero__cta-icon--end {
+    transition:
+      transform 180ms cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 160ms ease-out,
+      filter 160ms ease-out;
+    opacity: 0;
+    transform: scale(0.92);
+    filter: blur(2px);
+  }
+
+  .hero__cta--icon-focus:hover .hero__cta-icon--center {
+    transition:
+      transform 280ms cubic-bezier(0.34, 1.4, 0.64, 1),
+      opacity 140ms ease-out,
+      filter 180ms ease-out;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    filter: blur(0);
+  }
+}
+
 .hero__artwork {
   display: grid;
   grid-template-columns:
