@@ -222,6 +222,7 @@ check('main, side, outer, and ghost timing follows the approved order', () =>
   /\.hero__image--main\s*\{[^}]*--hero-intro-distance:\s*28px[^}]*--hero-intro-delay:\s*350ms/s.test(landingCss)
   && /\.hero__image--side\s*\{[^}]*--hero-intro-distance:\s*36px[^}]*--hero-intro-delay:\s*520ms/s.test(landingCss)
   && /\.hero__image--outer\s*\{[^}]*--hero-intro-distance:\s*44px[^}]*--hero-intro-delay:\s*680ms/s.test(landingCss)
+  && /\.hero-intro-pending\s+\.hero__image--outer::before,[\s\S]*?\.hero__image--side::before\s*\{[^}]*--hero-ghost-y:\s*-12px/s.test(landingCss)
   && /--hero-ghost-delay:\s*820ms/.test(landingCss),
 );
 

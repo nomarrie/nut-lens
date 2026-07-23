@@ -12,6 +12,21 @@
           "(prefers-reduced-motion: reduce)",
         ).matches;
 
+        if (!reducedMotion && "IntersectionObserver" in window) {
+          root.classList.add("reveal-ready");
+          document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+              window.setTimeout(() => {
+                if (!root.classList.contains("reveal-runtime-ready")) {
+                  root.classList.remove("reveal-ready");
+                }
+              }, 1600);
+            },
+            { once: true },
+          );
+        }
+
         if (mobile || reducedMotion) return;
 
         root.classList.add("hero-intro-pending");
@@ -46,6 +61,7 @@
     <script type="module" src="assets/js/profile-dropdown.mjs"></script>
     <script type="module" src="assets/js/mobile-navigation.mjs"></script>
     <script type="module" src="assets/js/hero-intro.mjs"></script>
+    <script type="module" src="assets/js/scroll-reveal.mjs"></script>
     <script type="module" src="assets/js/solution.mjs"></script>
     <script type="module" src="assets/js/how-it-works.mjs"></script>
     <script type="module" src="assets/js/testimonial.mjs"></script>
@@ -88,7 +104,7 @@
                     </span>
 
                     <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Cek Makanan</span>
+                      <span class="navbar__submenu-title">Analisis Gizi</span>
                       <span class="navbar__submenu-description">
                         Analisis nutrisi dari makananmu
                       </span>
@@ -106,7 +122,7 @@
                     </span>
 
                     <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Buat Resep</span>
+                      <span class="navbar__submenu-title">Perancangan Nutrisi</span>
                       <span class="navbar__submenu-description">
                         Buat resep dari bahan yang tersedia
                       </span>
@@ -373,7 +389,7 @@
                         </li>
                         <li>
                           <a href="assets/pages/resep-galeri.html"
-                            >Resep Sehat</a
+                            >Galeri Resep</a
                           >
                         </li>
                         <li>
@@ -422,25 +438,43 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero__content">
-          <div class="hero__rating">
+          <div class="hero__rating" data-reveal="fade-up">
             <span aria-hidden="true">★★★★★</span>
             <span class="visually-hidden">5 dari 5 bintang</span>
           </div>
-          <p class="hero__recommendation">
+          <p
+            class="hero__recommendation"
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+          >
             1.000+ rekomendasi makanan sehat tersedia
           </p>
 
-          <h1 id="hero-title" class="hero__title">
+          <h1
+            id="hero-title"
+            class="hero__title"
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+          >
             Lihat Makananmu dengan<br />
             Cara yang <span class="hero__accent">Lebih Sehat</span>
           </h1>
 
-          <p class="hero__description">
+          <p
+            class="hero__description"
+            data-reveal="fade-up"
+            data-reveal-delay="300"
+          >
             Kenali pilihan makanan yang lebih baik dan temukan inspirasi resep
             sehat yang sesuai dengan kebutuhanmu setiap hari.
           </p>
 
-          <div class="hero__actions" aria-label="Aksi utama">
+          <div
+            class="hero__actions"
+            aria-label="Aksi utama"
+            data-reveal="fade-up"
+            data-reveal-delay="400"
+          >
             <a
               href="assets/pages/cek-makanan.html"
               class="hero__cta hero__cta--primary hero__cta--text-swap"
@@ -564,7 +598,7 @@
       <section class="problems" aria-labelledby="problems-title">
         <div class="problems__layout">
           <div class="problems__intro">
-            <p class="problems__eyebrow">
+            <p class="problems__eyebrow" data-reveal="fade-up">
               <span
                 class="problems__eyebrow-mark"
                 aria-hidden="true"
@@ -572,11 +606,20 @@
               <span class="problems__eyebrow-title">PERMASALAHAN</span>
             </p>
 
-            <h2 id="problems-title" class="problems__title">
+            <h2
+              id="problems-title"
+              class="problems__title"
+              data-reveal="fade-up"
+              data-reveal-delay="100"
+            >
               Masalah <span class="problems__accent">Gizi</span> Yang Sering Diabaikan
             </h2>
 
-            <figure class="problems__media">
+            <figure
+              class="problems__media"
+              data-reveal="slide-left"
+              data-reveal-delay="100"
+            >
               <img
                 class="problems__image"
                 src="assets/images/problem/Foto junk food.webp"
@@ -590,7 +633,11 @@
           </div>
 
           <div class="problems__list">
-            <article class="problem-card">
+            <article
+              class="problem-card"
+              data-reveal="fade-up"
+              data-reveal-delay="100"
+            >
               <span class="problem-card__icon">
                 <span
                   class="material-symbols-outlined"
@@ -609,7 +656,11 @@
               </div>
             </article>
 
-            <article class="problem-card">
+            <article
+              class="problem-card"
+              data-reveal="fade-up"
+              data-reveal-delay="200"
+            >
               <span class="problem-card__icon">
                 <span
                   class="material-symbols-outlined"
@@ -628,7 +679,11 @@
               </div>
             </article>
 
-            <article class="problem-card">
+            <article
+              class="problem-card"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
+            >
               <span class="problem-card__icon">
                 <span
                   class="material-symbols-outlined"
@@ -656,7 +711,7 @@
         aria-labelledby="solution-title"
         data-solution
       >
-        <header class="solution__header">
+        <header class="solution__header" data-reveal="fade-up">
           <p class="solution__eyebrow">
             <span class="solution__eyebrow-mark" aria-hidden="true"></span>
             <span>CARA NUTLENS MEMBANTU</span>
@@ -683,6 +738,8 @@
               aria-controls="solution-panel-kenali"
               tabindex="0"
               data-solution-step="kenali"
+              data-reveal="fade-up"
+              data-reveal-delay="100"
             >
               <span class="solution__step-content">
                 <span class="solution__step-label">Kenali</span>
@@ -699,6 +756,8 @@
               aria-controls="solution-panel-analisis"
               tabindex="-1"
               data-solution-step="analisis"
+              data-reveal="fade-up"
+              data-reveal-delay="200"
             >
               <span class="solution__step-content">
                 <span class="solution__step-label">Analisis</span>
@@ -715,6 +774,8 @@
               aria-controls="solution-panel-pilih"
               tabindex="-1"
               data-solution-step="pilih"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
             >
               <span class="solution__step-content">
                 <span class="solution__step-label">Pilih</span>
@@ -731,6 +792,8 @@
               aria-controls="solution-panel-biasakan"
               tabindex="-1"
               data-solution-step="biasakan"
+              data-reveal="fade-up"
+              data-reveal-delay="400"
             >
               <span class="solution__step-content">
                 <span class="solution__step-label">Biasakan</span>
@@ -748,7 +811,11 @@
               aria-hidden="false"
               data-solution-panel="kenali"
             >
-              <figure class="solution__media">
+              <figure
+                class="solution__media"
+                data-reveal="slide-left"
+                data-reveal-delay="100"
+              >
                 <img
                   class="solution__image"
                   src="assets/images/solution/kenali.webp"
@@ -774,7 +841,11 @@
               aria-hidden="true"
               data-solution-panel="analisis"
             >
-              <figure class="solution__media">
+              <figure
+                class="solution__media"
+                data-reveal="slide-left"
+                data-reveal-delay="100"
+              >
                 <img
                   class="solution__image"
                   src="assets/images/solution/analisis 2.webp"
@@ -800,7 +871,11 @@
               aria-hidden="true"
               data-solution-panel="pilih"
             >
-              <figure class="solution__media">
+              <figure
+                class="solution__media"
+                data-reveal="slide-left"
+                data-reveal-delay="100"
+              >
                 <img
                   class="solution__image"
                   src="assets/images/solution/pilih.webp"
@@ -826,7 +901,11 @@
               aria-hidden="true"
               data-solution-panel="biasakan"
             >
-              <figure class="solution__media">
+              <figure
+                class="solution__media"
+                data-reveal="slide-left"
+                data-reveal-delay="100"
+              >
                 <img
                   class="solution__image"
                   src="assets/images/solution/biasakan.webp"
@@ -854,7 +933,7 @@
       >
         <div class="how-it-works__content">
           <header class="how-it-works__intro">
-            <p class="how-it-works__eyebrow">
+            <p class="how-it-works__eyebrow" data-reveal="fade-up">
               <span
                 class="how-it-works__eyebrow-mark"
                 aria-hidden="true"
@@ -862,14 +941,23 @@
               <span>CARA KERJA NUTRILENS</span>
             </p>
 
-            <h2 id="how-it-works-title" class="how-it-works__title">
+            <h2
+              id="how-it-works-title"
+              class="how-it-works__title"
+              data-reveal="fade-up"
+              data-reveal-delay="100"
+            >
               Pahami Makananmu Dalam
               <span class="how-it-works__title-line">
                 Beberapa <span class="how-it-works__accent">Langkah</span> Mudah
               </span>
             </h2>
 
-            <p class="how-it-works__description">
+            <p
+              class="how-it-works__description"
+              data-reveal="fade-up"
+              data-reveal-delay="200"
+            >
               NutLens membantu kamu mengenali makanan, membaca kandungan
               nutrisinya, dan menemukan rekomendasi yang lebih sehat untuk
               kebutuhan harianmu.
@@ -878,6 +966,8 @@
             <div
               class="hero__actions how-it-works__actions"
               aria-label="Aksi Cara Kerja NutLens"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
             >
               <a
                 href="assets/pages/cek-makanan.html"
@@ -928,7 +1018,11 @@
             </svg>
 
             <ol class="how-it-works__timeline">
-              <li class="how-it-works__step">
+              <li
+                class="how-it-works__step"
+                data-reveal="fade-up"
+                data-reveal-delay="100"
+              >
                 <span class="how-it-works__number" aria-hidden="true">01</span>
                 <div class="how-it-works__step-content">
                   <h3 class="how-it-works__step-title">Scan Makanan</h3>
@@ -938,7 +1032,11 @@
                   </p>
                 </div>
               </li>
-              <li class="how-it-works__step">
+              <li
+                class="how-it-works__step"
+                data-reveal="fade-up"
+                data-reveal-delay="200"
+              >
                 <span class="how-it-works__number" aria-hidden="true">02</span>
                 <div class="how-it-works__step-content">
                   <h3 class="how-it-works__step-title">
@@ -950,7 +1048,11 @@
                   </p>
                 </div>
               </li>
-              <li class="how-it-works__step">
+              <li
+                class="how-it-works__step"
+                data-reveal="fade-up"
+                data-reveal-delay="300"
+              >
                 <span class="how-it-works__number" aria-hidden="true">03</span>
                 <div class="how-it-works__step-content">
                   <h3 class="how-it-works__step-title">
@@ -967,20 +1069,52 @@
         </div>
 
         <ul class="how-it-works__stats" aria-label="Statistik NutLens">
-          <li class="how-it-works__stat">
-            <strong class="how-it-works__stat-value">1.000+</strong>
+          <li
+            class="how-it-works__stat"
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+          >
+            <strong
+              class="how-it-works__stat-value"
+              data-count-target="1000"
+              data-count-suffix="+"
+            >1.000+</strong>
             <span class="how-it-works__stat-label">Resep Sehat</span>
           </li>
-          <li class="how-it-works__stat">
-            <strong class="how-it-works__stat-value">5+</strong>
+          <li
+            class="how-it-works__stat"
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+          >
+            <strong
+              class="how-it-works__stat-value"
+              data-count-target="5"
+              data-count-suffix="+"
+            >5+</strong>
             <span class="how-it-works__stat-label">Indikator Gizi</span>
           </li>
-          <li class="how-it-works__stat">
-            <strong class="how-it-works__stat-value">24/7</strong>
+          <li
+            class="how-it-works__stat"
+            data-reveal="fade-up"
+            data-reveal-delay="300"
+          >
+            <strong
+              class="how-it-works__stat-value"
+              data-count-target="24"
+              data-count-suffix="/7"
+            >24/7</strong>
             <span class="how-it-works__stat-label">Akses Edukasi</span>
           </li>
-          <li class="how-it-works__stat">
-            <strong class="how-it-works__stat-value">3</strong>
+          <li
+            class="how-it-works__stat"
+            data-reveal="fade-up"
+            data-reveal-delay="400"
+          >
+            <strong
+              class="how-it-works__stat-value"
+              data-count-target="3"
+              data-count-suffix=""
+            >3</strong>
             <span class="how-it-works__stat-label">Langkah Mudah</span>
           </li>
         </ul>
@@ -991,7 +1125,7 @@
         aria-labelledby="testimonial-title"
         data-testimonial
       >
-        <header class="testimonial__header">
+        <header class="testimonial__header" data-reveal="fade-up">
           <p class="testimonial__eyebrow">
             <span class="testimonial__eyebrow-mark" aria-hidden="true"></span>
             <span>KATA PENGGUNA</span>
@@ -1015,6 +1149,8 @@
             class="testimonial__gallery"
             aria-label="Pilih pengguna untuk membaca testimonial"
             data-testimonial-gallery
+            data-reveal="slide-left"
+            data-reveal-delay="100"
           >
             <button
               class="testimonial__portrait testimonial__portrait--alya"
@@ -1099,7 +1235,11 @@
             </button>
           </div>
 
-          <article class="testimonial__quote-card">
+          <article
+            class="testimonial__quote-card"
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+          >
             <div
               class="testimonial__navigation"
               aria-label="Navigasi testimonial"
@@ -1154,7 +1294,7 @@
 
       <section class="about" aria-labelledby="about-title">
         <div class="about__layout">
-          <div class="about__media">
+          <div class="about__media" data-reveal="slide-left">
             <figure class="about__figure about__figure--top">
               <img
                 class="about__image"
@@ -1193,44 +1333,69 @@
           </div>
 
           <div class="about__content">
-            <p class="about__eyebrow">
+            <p class="about__eyebrow" data-reveal="fade-up">
               <span class="about__eyebrow-mark" aria-hidden="true"></span>
               <span>TENTANG KAMI</span>
             </p>
 
-            <h2 id="about-title" class="about__title">
+            <h2
+              id="about-title"
+              class="about__title"
+              data-reveal="fade-up"
+              data-reveal-delay="100"
+            >
               <span class="about__title-line">
                 Kenali <span class="about__accent">Makanan</span>
               </span>
               <span class="about__title-line">Pahami Gizinya</span>
             </h2>
 
-            <p class="about__description">
+            <p
+              class="about__description"
+              data-reveal="fade-up"
+              data-reveal-delay="200"
+            >
               NutLens hadir untuk membantu kamu mengenali makanan, memahami
               kandungan gizinya, dan membuat pilihan yang lebih bijak melalui
               informasi yang ringkas dan mudah dipahami.
             </p>
 
             <ul class="about__checklist">
-              <li class="about__check-item">
+              <li
+                class="about__check-item"
+                data-reveal="fade-up"
+                data-reveal-delay="100"
+              >
                 <span class="about__check-icon" aria-hidden="true">
                   <span class="material-symbols-outlined" aria-hidden="true">check</span>
                 </span>
                 <span>Menyajikan skor kesehatan makanan agar pilihan lebih terarah.</span>
               </li>
-              <li class="about__check-item">
+              <li
+                class="about__check-item"
+                data-reveal="fade-up"
+                data-reveal-delay="200"
+              >
                 <span class="about__check-icon" aria-hidden="true">
                   <span class="material-symbols-outlined" aria-hidden="true">check</span>
                 </span>
                 <span>Menampilkan informasi gizi makanan yang ringkas dan mudah dipahami.</span>
               </li>
-              <li class="about__check-item">
+              <li
+                class="about__check-item"
+                data-reveal="fade-up"
+                data-reveal-delay="300"
+              >
                 <span class="about__check-icon" aria-hidden="true">
                   <span class="material-symbols-outlined" aria-hidden="true">check</span>
                 </span>
                 <span>Memberikan rekomendasi makanan yang akurat dan mudah dipahami.</span>
               </li>
-              <li class="about__check-item">
+              <li
+                class="about__check-item"
+                data-reveal="fade-up"
+                data-reveal-delay="400"
+              >
                 <span class="about__check-icon" aria-hidden="true">
                   <span class="material-symbols-outlined" aria-hidden="true">check</span>
                 </span>
@@ -1241,6 +1406,8 @@
             <a
               class="hero__cta hero__cta--primary hero__cta--text-swap about__cta"
               href="assets/pages/artikel.html"
+              data-reveal="fade-up"
+              data-reveal-delay="500"
             >
               <span class="hero__cta-label hero__cta-label--current">Pelajari Selengkapnya</span>
               <span
@@ -1256,7 +1423,7 @@
         <div class="faq-cta__container">
           <div class="faq-cta__layout">
             <article class="final-cta" aria-labelledby="final-cta-title">
-              <div class="final-cta__content">
+              <div class="final-cta__content" data-reveal="fade-up">
                 <h2 id="final-cta-title" class="final-cta__title">
                   <span class="final-cta__title-line">
                     Siap <span class="final-cta__accent">Memahami</span>
@@ -1292,6 +1459,8 @@
                 class="faq__item is-open"
                 data-faq-item="analysis"
                 data-faq-default-open
+                data-reveal="fade-up"
+                data-reveal-delay="100"
               >
                 <h3 class="faq__heading">
                   <button
@@ -1330,7 +1499,12 @@
                 </div>
               </article>
 
-              <article class="faq__item" data-faq-item="accuracy">
+              <article
+                class="faq__item"
+                data-faq-item="accuracy"
+                data-reveal="fade-up"
+                data-reveal-delay="200"
+              >
                 <h3 class="faq__heading">
                   <button
                     class="faq__trigger"
@@ -1368,7 +1542,12 @@
                 </div>
               </article>
 
-              <article class="faq__item" data-faq-item="foods">
+              <article
+                class="faq__item"
+                data-faq-item="foods"
+                data-reveal="fade-up"
+                data-reveal-delay="300"
+              >
                 <h3 class="faq__heading">
                   <button
                     class="faq__trigger"
@@ -1406,7 +1585,12 @@
                 </div>
               </article>
 
-              <article class="faq__item" data-faq-item="pricing">
+              <article
+                class="faq__item"
+                data-faq-item="pricing"
+                data-reveal="fade-up"
+                data-reveal-delay="400"
+              >
                 <h3 class="faq__heading">
                   <button
                     class="faq__trigger"
@@ -1444,7 +1628,12 @@
                 </div>
               </article>
 
-              <article class="faq__item" data-faq-item="expert">
+              <article
+                class="faq__item"
+                data-faq-item="expert"
+                data-reveal="fade-up"
+                data-reveal-delay="500"
+              >
                 <h3 class="faq__heading">
                   <button
                     class="faq__trigger"
@@ -1482,7 +1671,12 @@
                 </div>
               </article>
 
-              <article class="faq__item" data-faq-item="storage">
+              <article
+                class="faq__item"
+                data-faq-item="storage"
+                data-reveal="fade-up"
+                data-reveal-delay="600"
+              >
                 <h3 class="faq__heading">
                   <button
                     class="faq__trigger"
