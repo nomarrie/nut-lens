@@ -228,7 +228,7 @@
   justify-content: center;
   gap: var(--space-3);
   /* cursor: pointer; */
-  box-shadow: var(--shadow-sm);
+  /* box-shadow: var(--shadow-sm); */
   color: var(--color-on-surface);
   font-family: var(--font-family);
   font-size: var(--font-size-body-md);
@@ -248,7 +248,7 @@
 }
 
 .start-scan-tab button.is-active {
-  background-color: var(--color-primary-fixed);
+  background-color: var(--color-surface-container-high);
   color: var(--color-on-primary-fixed);
 }
 

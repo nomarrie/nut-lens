@@ -95,10 +95,14 @@
   --color-yellow-100: #fff1b8;
   --color-yellow-500: #facc15;
 
-  --color-orange-50: #fff7ed;
-  --color-orange-100: #ffedd5;
-  --color-orange-500: #f97316;
-  --color-orange-600: #ea580c;
+--color-orange-50:  #fff7ed;
+--color-orange-100: #ffedd5;
+--color-orange-200: #fed7aa;
+--color-orange-300: #fdba74;
+--color-orange-400: #fb923c;
+--color-orange-500: #f97316;
+--color-orange-600: #ea580c;
+--color-orange-700: #c2410c;
 
   --color-red-50: #fef2f2;
   --color-red-100: #fee2e2;
@@ -269,7 +273,7 @@ a {
   margin: 0 auto;
   padding: 0 var(--space-8);
   background-color: var(--color-surface-container-lowest);
-  background-color: color-mix(in srgb, var(--color-white) 85%, transparent);
+  background-color: color-mix(in srgb, var(--color-white) 48%, transparent);
   border-radius: var(--radius-full);
   -webkit-backdrop-filter: blur(var(--navbar-backdrop-blur));
   backdrop-filter: blur(var(--navbar-backdrop-blur));

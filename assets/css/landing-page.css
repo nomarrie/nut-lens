@@ -2031,7 +2031,7 @@
     url("../images/cta/cta.png");
   background-position: center;
   background-size: cover;
-  border-radius: var(--radius-3xl);
+  border-radius: 56px;
 }
 
 .final-cta__content {
@@ -2109,7 +2109,7 @@
   cursor: pointer;
   background: transparent;
   border: 0;
-  border-radius: inherit;
+  border-radius: var(--space-5);
 }
 
 .faq__trigger:focus-visible {
