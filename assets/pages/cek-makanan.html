@@ -19,6 +19,7 @@
     <script type="module" src="../js/navbar.mjs"></script>
     <script type="module" src="../js/profile-dropdown.mjs"></script>
     <script type="module" src="../js/mobile-navigation.mjs"></script>
+    <script type="module" src="../js/cek-makanan.mjs"></script>
   </head>
   <body>
     <nav
@@ -436,104 +437,131 @@
           </div>
         </div>
       </section>
-      <section class="start-scan">
-        <div class="start-scan-container">
-          <div class="start-scan-tab">
-            <button class="is-active">
-              <span class="start-scan-tab-icon">
-                <span class="material-symbols-outlined">image</span>
-              </span>
-              <span class="start-scan-tab-label">Upload Makanan</span>
-            </button>
-            <button>              
-              <span class="start-scan-tab-icon">
-                <span class="material-symbols-outlined">photo_camera</span>
-              </span>
-              <span class="start-scan-tab-label">Camera</span>
-            </button>
-            <button>
-              <span class="start-scan-tab-icon">
-                <span class="material-symbols-outlined">edit</span>
-              </span>
-              <span class="start-scan-tab-label">Edit Manual</span>
-            </button>
-          </div>
-          <div class="start-scan-grid">
-            <div class="start-scan-zone">
-              <div class="start-scan-upload-content">
-                <div class="start-scan-icon-circle">
-                  <span class="material-symbols-outlined">photo_camera</span>
+      <section class="scan-section" id="upload-makanan" aria-label="Analisis dan Scan Makanan">
+        <div class="scan-section__container">
+          <div class="scan-section__grid">
+            
+            <!-- Card 1: Upload Makanan -->
+            <div class="scan-card scan-card--upload">
+              <header class="scan-card__header">
+                <h2 class="scan-card__title">Upload Makanan</h2>
+                <p class="scan-card__subtitle">Pilih foto makananmu untuk melihat kandungan gizi</p>
+              </header>
+
+              <div class="scan-dropzone" id="scan-dropzone">
+                <input type="file" id="food-file-input" accept="image/jpeg,image/png,image/webp" class="visually-hidden" hidden />
+                
+                <div class="scan-dropzone__content" id="dropzone-default">
+                  <div class="scan-dropzone__icon-circle" aria-hidden="true">
+                    <span class="material-symbols-outlined">upload</span>
+                  </div>
+                  <h3 class="scan-dropzone__title">Unggah foto makanan</h3>
+                  <p class="scan-dropzone__subtext">JPG/PNG • Maks 5MB</p>
+
+                  <div class="scan-dropzone__actions">
+                    <button type="button" class="scan-btn-pill scan-btn-pill--dark" id="btn-browse-file">
+                      Jelajahi
+                    </button>
+                    <button type="button" class="scan-btn-pill scan-btn-pill--light" id="btn-camera">
+                      <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+                      <span>Ambil foto</span>
+                    </button>
+                  </div>
                 </div>
-                <h3 class="start-scan-zone-title">Upload Makanan</h3>
-                <p class="start-scan-zone-desc">Pilih lalu upload foto makananmu yang ingin kamu ketahui kandungan gizi</p>
-                <button class="start-scan-zone-button-summit">Analisis Sekarang</button>
+
+                <div class="scan-dropzone__preview" id="dropzone-preview" hidden>
+                  <img id="food-image-preview" src="" alt="Foto makanan yang diunggah" />
+                  <button type="button" class="scan-dropzone__remove-btn" id="btn-remove-image" aria-label="Hapus foto makanan">
+                    <span class="material-symbols-outlined">close</span>
+                  </button>
+                </div>
               </div>
+
+              <button type="button" class="scan-btn-primary" id="btn-analyze-now">
+                Analisis Sekarang
+              </button>
+
+              <p class="scan-card__tips">
+                Tips: gunakan foto yang terang dan jelas agar hasil analisis lebih akurat.
+              </p>
             </div>
-            <div class="start-scan-nutrition">
-              <h3>Informasi Nutrisi Gizi</h3>
-              <ul class="start-scan-nutrition-list">
-                <!-- progress bar protein -->
-                <li class="start-scan-nutrition-item">
-                  <div class="start-scan-item-header">
-                    <span class="start-scan-dot dot-protein"></span>
-                    <span class="start-scan-label">Protein</span>
+
+            <!-- Card 2: Informasi Gizi -->
+            <div class="scan-card scan-card--nutrition">
+              <header class="scan-card__header">
+                <h2 class="scan-card__title">Informasi Gizi</h2>
+                <p class="scan-card__subtitle">Lihat informasi gizi lengkap: kalori, protein, lemak, dan karbohidrat</p>
+              </header>
+
+              <ul class="nutrition-list">
+                <li class="nutrition-item">
+                  <div class="nutrition-item__info">
+                    <span class="nutrition-item__dot dot--protein" aria-hidden="true"></span>
+                    <span class="nutrition-item__label">Protein</span>
                   </div>
-                  <div class="start-scan-bar-track">
-                    <div class="start-scan-bar-fill bar-protein"></div>
+                  <div class="nutrition-item__track">
+                    <div class="nutrition-item__bar bar--protein" id="bar-protein" style="width: 0%;"></div>
                   </div>
+                  <span class="nutrition-item__value" id="val-protein">--</span>
                 </li>
-                <!-- progress bar kalori -->
-                <li class="start-scan-nutrition-item">
-                  <div class="start-scan-item-header">
-                    <span class="start-scan-dot dot-kalori"></span>
-                    <span class="start-scan-label">Kalori</span>
+
+                <li class="nutrition-item">
+                  <div class="nutrition-item__info">
+                    <span class="nutrition-item__dot dot--kalori" aria-hidden="true"></span>
+                    <span class="nutrition-item__label">Kalori</span>
                   </div>
-                  <div class="start-scan-bar-track">
-                    <div class="start-scan-bar-fill bar-kalori"></div>
+                  <div class="nutrition-item__track">
+                    <div class="nutrition-item__bar bar--kalori" id="bar-kalori" style="width: 0%;"></div>
                   </div>
+                  <span class="nutrition-item__value" id="val-kalori">--</span>
                 </li>
-                <!-- progress bar protein -->
-                <li class="start-scan-nutrition-item">
-                  <div class="start-scan-item-header">
-                    <span class="start-scan-dot dot-karbohidrat"></span>
-                    <span class="start-scan-label">Karbohidrat</span>
+
+                <li class="nutrition-item">
+                  <div class="nutrition-item__info">
+                    <span class="nutrition-item__dot dot--karbohidrat" aria-hidden="true"></span>
+                    <span class="nutrition-item__label">Karbohidrat</span>
                   </div>
-                  <div class="start-scan-bar-track">
-                    <div class="start-scan-bar-fill bar-karbohidrat"></div>
+                  <div class="nutrition-item__track">
+                    <div class="nutrition-item__bar bar--karbohidrat" id="bar-karbohidrat" style="width: 0%;"></div>
                   </div>
+                  <span class="nutrition-item__value" id="val-karbohidrat">--</span>
                 </li>
-                <!-- progress bar protein -->
-                <li class="start-scan-nutrition-item">
-                  <div class="start-scan-item-header">
-                    <span class="start-scan-dot dot-lemak"></span>
-                    <span class="start-scan-label">Lemak</span>
+
+                <li class="nutrition-item">
+                  <div class="nutrition-item__info">
+                    <span class="nutrition-item__dot dot--lemak" aria-hidden="true"></span>
+                    <span class="nutrition-item__label">Lemak</span>
                   </div>
-                  <div class="start-scan-bar-track">
-                    <div class="start-scan-bar-fill bar-lemak"></div>
+                  <div class="nutrition-item__track">
+                    <div class="nutrition-item__bar bar--lemak" id="bar-lemak" style="width: 0%;"></div>
                   </div>
+                  <span class="nutrition-item__value" id="val-lemak">--</span>
                 </li>
-                <!-- progress bar protein -->
-                <li class="start-scan-nutrition-item">
-                  <div class="start-scan-item-header">
-                    <span class="start-scan-dot dot-serat"></span>
-                    <span class="start-scan-label">Serat</span>
+
+                <li class="nutrition-item">
+                  <div class="nutrition-item__info">
+                    <span class="nutrition-item__dot dot--serat" aria-hidden="true"></span>
+                    <span class="nutrition-item__label">Serat</span>
                   </div>
-                  <div class="start-scan-bar-track">
-                    <div class="start-scan-bar-fill bar-serat"></div>
+                  <div class="nutrition-item__track">
+                    <div class="nutrition-item__bar bar--serat" id="bar-serat" style="width: 0%;"></div>
                   </div>
+                  <span class="nutrition-item__value" id="val-serat">--</span>
                 </li>
-                <!-- progress bar protein -->
-                <li class="start-scan-nutrition-item">
-                  <div class="start-scan-item-header">
-                    <span class="start-scan-dot dot-gula"></span>
-                    <span class="start-scan-label">Gula</span>
+
+                <li class="nutrition-item">
+                  <div class="nutrition-item__info">
+                    <span class="nutrition-item__dot dot--gula" aria-hidden="true"></span>
+                    <span class="nutrition-item__label">Gula</span>
                   </div>
-                  <div class="start-scan-bar-track">
-                    <div class="start-scan-bar-fill bar-gula"></div>
+                  <div class="nutrition-item__track">
+                    <div class="nutrition-item__bar bar--gula" id="bar-gula" style="width: 0%;"></div>
                   </div>
+                  <span class="nutrition-item__value" id="val-gula">--</span>
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
       </section>

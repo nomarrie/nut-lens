@@ -151,9 +151,8 @@
 .site-footer__brand-link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
   color: var(--color-on-primary-container);
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: 600;
   line-height: var(--line-height-h2);
   text-decoration: none;
@@ -161,7 +160,7 @@
 
 .site-footer__brand-link .material-symbols-outlined {
   color: var(--color-primary);
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-5xl);
   font-variation-settings:
     "FILL" 0,
     "wght" 500,

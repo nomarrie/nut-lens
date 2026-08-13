@@ -199,214 +199,344 @@
   }
 } */
 
-.start-scan {
-  padding: var(--space-12);
-  /* margin-top: var(--space-20); */
+/* ==========================================================================
+   Scan Section (Cek Makanan)
+   ========================================================================== */
+
+.scan-section {
+  padding-block: var(--space-8) var(--space-20);
+  background-color: var(--color-background);
 }
 
-.start-scan-container {
+.scan-section__container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--space-8);
+  padding-inline: var(--space-6);
 }
 
-.start-scan-tab {
+.scan-section__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+/* Card General */
+.scan-card {
+  background-color: var(--color-surface-container-lowest);
+  border-radius: var(--radius-3xl, 28px);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.scan-card__header {
   margin-bottom: var(--space-6);
 }
 
-.start-scan-tab button {
-  background-color: var(--color-surface-container-lowest);
-  border: none;
-  border-radius: var(--radius-2xl);
-  padding: var(--space-6) var(--space-8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
-  /* cursor: pointer; */
-  /* box-shadow: var(--shadow-sm); */
-  color: var(--color-on-surface);
+.scan-card__title {
+  margin: 0 0 var(--space-2) 0;
   font-family: var(--font-family);
-  font-size: var(--font-size-body-md);
-  font-weight: 500;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-weight: 600;
+  color: var(--color-on-background);
+  line-height: 1.25;
 }
 
-.start-scan-tab-icon {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: var(--color-surface-container-high);
-  color: var(--color-primary);
-  border-radius: var(--radius-full);
-  transition: background-color var(--transition-fast), color var(--transition-fast);
+.scan-card__subtitle {
+  margin: 0;
+  font-size: var(--font-size-sm, 0.9375rem);
+  color: var(--color-on-surface-variant);
+  line-height: 1.5;
 }
 
-.start-scan-tab button.is-active {
-  background-color: var(--color-surface-container-high);
-  color: var(--color-on-primary-fixed);
-}
-
-.start-scan-tab button.is-active .start-scan-tab-icon {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
-
-.start-scan-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
-}
-
-.start-scan-zone {
-  background-color: var(--color-surface-container-lowest);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-10) var(--space-6);
+/* Upload Card Specifics */
+.scan-dropzone {
+  position: relative;
+  background-color: #f2f7ec;
+  border: 2px dashed #cae0ba;
+  border-radius: var(--radius-2xl, 20px);
+  padding: clamp(1.75rem, 2.5vw, 2.5rem) var(--space-6);
+  margin-bottom: var(--space-6);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+  min-height: 240px;
 }
 
-.start-scan-upload-content {
+.scan-dropzone.is-dragover {
+  border-color: var(--color-primary);
+  background-color: #e5f2da;
+}
+
+.scan-dropzone__content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  width: 100%;
 }
 
-.start-scan-icon-circle {
-  width: 4rem;
-  height: 4rem;
-  background-color: var(--color-surface-container-high);
+.scan-dropzone__icon-circle {
+  width: 4.25rem;
+  height: 4.25rem;
+  background-color: var(--color-surface-container-lowest);
   border-radius: var(--radius-full);
   display: grid;
   place-items: center;
-  color: var(--color-primary);
+  color: #385e36;
+  margin-bottom: var(--space-4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
 }
 
-.start-scan-zone-title {
-  margin: 0;
-  font-size: var(--font-size-h2);
+.scan-dropzone__icon-circle .material-symbols-outlined {
+  font-size: 2.25rem;
+}
+
+.scan-dropzone__title {
+  margin: 0 0 var(--space-1) 0;
+  font-size: var(--font-size-body-lg, 1.125rem);
+  font-weight: 600;
   color: var(--color-on-background);
 }
 
-.start-scan-zone-desc {
-  margin: 0;
+.scan-dropzone__subtext {
+  margin: 0 0 var(--space-5) 0;
+  font-size: var(--font-size-xs, 0.85rem);
   color: var(--color-on-surface-variant);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-body-md);
-  max-width: 300px;
 }
 
-.start-scan-zone-button-summit {
-  margin-top: var(--space-2);
-  background-color: var(--color-on-primary-fixed);
-  color: var(--color-on-primary);
+.scan-dropzone__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Pill Buttons */
+.scan-btn-pill {
   border: none;
   border-radius: var(--radius-full);
-  padding: var(--space-3) var(--space-8);
-  font-size: var(--font-size-body-md);
-  font-weight: 600;
+  padding: 0.65rem 1.6rem;
   font-family: var(--font-family);
-  /* cursor: pointer; */
+  font-size: var(--font-size-sm, 0.9375rem);
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.scan-btn-pill:hover {
+  transform: translateY(-1px);
+}
+
+.scan-btn-pill:active {
+  transform: translateY(0);
+}
+
+.scan-btn-pill--dark {
+  background-color: #1c2b18;
+  color: var(--color-white);
+}
+
+.scan-btn-pill--dark:hover {
+  background-color: #293d24;
+}
+
+.scan-btn-pill--light {
+  background-color: #d6eda8;
+  color: #1c2b18;
+}
+
+.scan-btn-pill--light:hover {
+  background-color: #c9e598;
+}
+
+.scan-btn-pill .material-symbols-outlined {
+  font-size: 1.2rem;
+}
+
+/* Preview Image in Dropzone */
+.scan-dropzone__preview {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--radius-2xl, 20px) - 2px);
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+
+.scan-dropzone__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scan-dropzone__remove-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
   transition: background-color var(--transition-fast);
 }
 
-.start-scan-zone-button-summit:hover {
-  background-color: var(--color-primary-hover);
+.scan-dropzone__remove-btn:hover {
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
-.start-scan-nutrition {
-  background-color: var(--color-surface-container-lowest);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-sm);
+/* Primary Button "Analisis Sekarang" */
+.scan-btn-primary {
+  width: 100%;
+  background-color: #1c2b18;
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 1.1rem 1.5rem;
+  font-family: var(--font-family);
+  font-size: var(--font-size-body-lg, 1.125rem);
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: var(--space-4);
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(28, 43, 24, 0.15);
 }
 
-.start-scan-nutrition h3 {
-  margin: 0 0 var(--space-6) 0;
-  font-size: var(--font-size-h2);
-  color: var(--color-on-background);
+.scan-btn-primary:hover {
+  background-color: #2b3e26;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(28, 43, 24, 0.25);
 }
 
-.start-scan-nutrition-list {
+.scan-btn-primary:active {
+  transform: translateY(0);
+}
+
+.scan-card__tips {
+  margin: 0;
+  font-size: var(--font-size-xs, 0.85rem);
+  color: var(--color-on-surface-variant);
+  line-height: 1.4;
+}
+
+/* Nutrition Card Specifics */
+.nutrition-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 1.6rem;
+  justify-content: center;
+  flex: 1;
 }
 
-.start-scan-nutrition-item {
+.nutrition-item {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
 }
 
-.start-scan-item-header {
+.nutrition-item__info {
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  flex-shrink: 0;
+  width: 130px;
 }
 
-.start-scan-dot {
-  width: 12px;
-  height: 12px;
+.nutrition-item__dot {
+  width: 14px;
+  height: 14px;
   border-radius: var(--radius-full);
+  flex-shrink: 0;
 }
 
-.start-scan-label {
-  font-size: var(--font-size-body-md);
-  color: var(--color-on-surface);
+.nutrition-item__label {
+  font-size: var(--font-size-body-md, 1.0625rem);
   font-weight: 500;
+  color: var(--color-on-background);
 }
 
-.start-scan-bar-track {
-  width: 100%;
-  height: 6px;
-  background-color: var(--color-surface-variant);
+.nutrition-item__track {
+  flex: 1;
+  height: 8px;
+  background-color: #e9ece4;
   border-radius: var(--radius-full);
   overflow: hidden;
+  position: relative;
 }
 
-.start-scan-bar-fill {
+.nutrition-item__bar {
   height: 100%;
   border-radius: var(--radius-full);
-  width: 0;
-  transition: width var(--transition-medium);
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dot-protein, .bar-protein { 
-  background-color: #9B72CF;
+.nutrition-item__value {
+  flex-shrink: 0;
+  min-width: 3.5rem;
+  text-align: right;
+  font-size: var(--font-size-body-md, 1rem);
+  font-weight: 500;
+  color: #8d9387;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
 }
 
-.dot-kalori, .bar-kalori { 
-  background-color: var(--color-green-500);
+.nutrition-item__value.has-value {
+  color: var(--color-on-background);
+  font-weight: 600;
 }
 
-.dot-karbohidrat, .bar-karbohidrat { 
-  background-color: var(--color-yellow-500);
+/* Color definitions matching mockup exact colors */
+.dot--protein, .bar--protein { background-color: #9d85c7; }
+.dot--kalori, .bar--kalori { background-color: #90b368; }
+.dot--karbohidrat, .bar--karbohidrat { background-color: #e5c158; }
+.dot--lemak, .bar--lemak { background-color: #7faec4; }
+.dot--serat, .bar--serat { background-color: #c68c75; }
+.dot--gula, .bar--gula { background-color: #ea9db4; }
+
+/* Responsive layout */
+@media (max-width: 64rem) {
+  .scan-section__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.dot-lemak, .bar-lemak { 
-  background-color: var(--color-blue-500);
-}
+@media (max-width: 36rem) {
+  .scan-section__container {
+    padding-inline: var(--space-4);
+  }
 
-.dot-serat, .bar-serat { 
-  background-color: var(--color-orange-500);
-}
+  .scan-card {
+    padding: 1.5rem 1.25rem;
+  }
 
-.dot-gula, .bar-gula { 
-  background-color: var(--color-red-500);
+  .nutrition-item__info {
+    width: 110px;
+  }
+
+  .nutrition-item__label {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 78rem) {
