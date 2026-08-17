@@ -419,8 +419,17 @@
               mudah.
             </p>
 
-            <a class="scan-hero__cta" href="#upload-makanan" data-reveal="fade-up" data-reveal-delay="300">
-              Mulai Analisis Sekarang
+            <a
+              class="scan-hero__cta"
+              href="#upload-makanan"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
+            >
+              <span class="hero__cta-label hero__cta-label--current">Mulai Analisis Sekarang</span>
+              <span
+                class="hero__cta-label hero__cta-label--replacement"
+                aria-hidden="true"
+              >Mulai Analisis Sekarang</span>
             </a>
           </div>
 
@@ -581,7 +590,11 @@
                 id="btn-analyze-now"
                 disabled
               >
-                <span class="scan-btn-primary__text">Analisis Sekarang</span>
+                <span class="scan-btn-primary__label scan-btn-primary__label--current scan-btn-primary__text">Analisis Sekarang</span>
+                <span
+                  class="scan-btn-primary__label scan-btn-primary__label--replacement"
+                  aria-hidden="true"
+                >Analisis Sekarang</span>
               </button>
 
               <div class="scan-status-ticker" id="scan-status-ticker" hidden>

@@ -118,10 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     nutritionLoading.hidden = state !== 'loading';
     nutritionResult.hidden = state !== 'result';
     nutritionPanel.setAttribute('aria-busy', String(state === 'loading'));
-    if (state === 'loading') {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    if (state === 'loading' || state === 'result') {
+      nutritionPanel.classList.add('is-revealed');
     }
   };
 
@@ -158,9 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
     stopScanningAnimation();
 
     analyzeButton.disabled = !currentFile;
-    const btnText = analyzeButton.querySelector('.scan-btn-primary__text');
-    if (btnText) {
-      btnText.textContent = 'Analisis Sekarang';
+    const btnLabels = analyzeButton.querySelectorAll('.scan-btn-primary__label, .scan-btn-primary__text');
+    if (btnLabels.length > 0) {
+      btnLabels.forEach((el) => {
+        el.textContent = 'Analisis Sekarang';
+      });
     } else {
       analyzeButton.textContent = 'Analisis Sekarang';
     }
@@ -296,14 +296,20 @@ document.addEventListener('DOMContentLoaded', () => {
   analyzeButton.addEventListener('click', () => {
     if (!currentFile || analysisTimer) return;
 
+    const setBtnText = (text) => {
+      const btnLabels = analyzeButton.querySelectorAll('.scan-btn-primary__label, .scan-btn-primary__text');
+      if (btnLabels.length > 0) {
+        btnLabels.forEach((el) => {
+          el.textContent = text;
+        });
+      } else {
+        analyzeButton.textContent = text;
+      }
+    };
+
     showError();
     analyzeButton.disabled = true;
-    const btnText = analyzeButton.querySelector('.scan-btn-primary__text');
-    if (btnText) {
-      btnText.textContent = 'Menganalisis...';
-    } else {
-      analyzeButton.textContent = 'Menganalisis...';
-    }
+    setBtnText('Menganalisis...');
 
     dropzonePreview.classList.add('is-scanning');
     const loadingStatus = document.getElementById('nutrition-loading-status');
@@ -330,17 +336,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 380);
 
     setNutritionState('loading');
+    nutritionPanel.classList.add('is-revealed');
+    if (window.innerWidth <= 768) {
+      nutritionPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     analysisTimer = window.setTimeout(() => {
       analysisTimer = null;
       stopScanningAnimation();
 
       analyzeButton.disabled = false;
-      if (btnText) {
-        btnText.textContent = 'Analisis Ulang';
-      } else {
-        analyzeButton.textContent = 'Analisis Ulang';
-      }
+      setBtnText('Analisis Ulang');
 
       const activeData = getActiveNutritionData();
       populateNutritionResult(activeData);
