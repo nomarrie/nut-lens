@@ -244,6 +244,7 @@
 
 .scan-panel__header {
   margin-bottom: var(--space-5);
+  padding: var(--space-2);
 }
 
 .scan-panel__title {
@@ -768,6 +769,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -777,6 +779,7 @@
   0% {
     transform: scale(0.96);
   }
+
   100% {
     transform: scale(1.04);
   }
@@ -787,6 +790,7 @@
     opacity: 0;
     transform: scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -1258,8 +1262,25 @@
     box-shadow: none;
   }
 
+  .scan-panel {
+    border-radius: var(--radius-2xl);
+  }
+
+  .scan-panel--nutrition {
+    padding-bottom: var(--space-8);
+  }
+
+  .scan-dropzone,
+  .scan-dropzone__preview {
+    border-radius: var(--radius-xl);
+  }
+
   .scan-guide__grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scan-guide-card {
+    border-radius: var(--radius-2xl);
   }
 
   .site-footer__navigation {
@@ -1271,11 +1292,21 @@
 @media (max-width: 36rem) {
   .scan-panel {
     padding: var(--space-5);
+    border-radius: 24px;
+  }
+
+  .scan-panel--nutrition {
+    padding-bottom: var(--space-8);
   }
 
   .scan-dropzone {
     min-height: 16rem;
     padding: var(--space-4) var(--space-3);
+    border-radius: var(--space-4);
+  }
+
+  .scan-dropzone__preview {
+    border-radius: var(--radius-lg);
   }
 
   .scan-dropzone__content {
