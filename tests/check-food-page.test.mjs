@@ -6,8 +6,10 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const pagePath = resolve(root, 'assets/pages/cek-makanan.html');
 const cssPath = resolve(root, 'assets/css/cek-makanan.css');
+const scriptPath = resolve(root, 'assets/js/cek-makanan.mjs');
 const page = readFileSync(pagePath, 'utf8');
 const css = existsSync(cssPath) ? readFileSync(cssPath, 'utf8') : '';
+const script = existsSync(scriptPath) ? readFileSync(scriptPath, 'utf8') : '';
 const failures = [];
 
 function check(name, predicate) {
@@ -78,6 +80,40 @@ check('mobile layout stacks safely, hides the image frame, and restores cards to
     && /\.scan-hero__image-frame\s*\{[^}]*display:\s*none/s.test(mobile)
     && /\.scan-hero__feature\s*\{[^}]*position:\s*static/s.test(mobile);
 });
+
+check('upload workspace is labelled and keeps native file input semantics', () =>
+  /<section[\s\S]*?id="upload-makanan"[\s\S]*?aria-labelledby="scan-section-title"/.test(page)
+  && /<h2 id="scan-section-title">Kenali isi piringmu<\/h2>/.test(page)
+  && /type="file"[\s\S]*?id="food-file-input"[\s\S]*?accept="image\/jpeg,image\/png,image\/webp"/.test(page)
+  && /id="upload-error"[^>]*role="alert"[^>]*hidden/.test(page)
+  && /id="btn-analyze-now"[\s\S]*?disabled/.test(page),
+);
+
+check('nutrition preview exposes empty, loading, and result states', () =>
+  /id="nutrition-empty"/.test(page)
+  && /id="nutrition-loading"[^>]*hidden/.test(page)
+  && /id="nutrition-result"[^>]*hidden/.test(page)
+  && /aria-live="polite"[\s\S]*?aria-busy="false"/.test(page)
+  && /<dl class="nutrition-metrics">/.test(page)
+  && !/nutrition-item__track|nutrition-item__bar/.test(page),
+);
+
+check('upload behavior validates files and releases preview URLs', () =>
+  /ALLOWED_FILE_TYPES/.test(script)
+  && /MAX_FILE_SIZE/.test(script)
+  && /URL\.createObjectURL/.test(script)
+  && /URL\.revokeObjectURL/.test(script)
+  && /setNutritionState\('loading'\)/.test(script)
+  && /setNutritionState\('result'\)/.test(script)
+  && !/\balert\s*\(/.test(script),
+);
+
+check('upload workspace has explicit desktop and mobile layout rules', () =>
+  /\.scan-workspace\s*\{[^}]*display:\s*grid[^}]*grid-template-columns:\s*minmax\(0,\s*0\.92fr\)\s+minmax\(0,\s*1\.08fr\)/s.test(css)
+  && /@media \(max-width: 64rem\)[\s\S]*?\.scan-workspace\s*\{[^}]*grid-template-columns:\s*minmax\(0,\s*1fr\)/s.test(css)
+  && /\.scan-btn-primary:disabled\s*\{/.test(css)
+  && /\.scan-btn-primary:focus-visible/.test(css),
+);
 
 if (failures.length) {
   console.error(`\n${failures.length} Cek Makanan check(s) failed.`);
