@@ -399,6 +399,10 @@ a {
   text-decoration: none;
 }
 
+.navbar__submenu a::after {
+  display: none;
+}
+
 .navbar__submenu a:hover {
   background-color: var(--color-gray-100);
 }

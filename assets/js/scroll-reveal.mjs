@@ -41,6 +41,13 @@ export function initScrollReveal(elements, environment = globalThis) {
         }
 
         entry.target.classList.add(VISIBLE_CLASS);
+        entry.target.addEventListener(
+          'animationend',
+          () => {
+            entry.target.style.animation = 'none';
+          },
+          { once: true },
+        );
         observer.unobserve(entry.target);
       });
     },
