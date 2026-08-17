@@ -1,19 +1,1071 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galeri Resep — NutLens</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap">
-  <link rel="stylesheet" href="../css/global.css">
-</head>
-<body>
-  <main class="page-shell placeholder-page">
-    <a class="back-link" href="../../index.html">Kembali ke beranda</a>
-    <h1>Galeri Resep</h1>
-    <p>Koleksi resep sehat sedang disiapkan.</p>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Temukan inspirasi resep sehat, lezat, dan bernutrisi seimbang lengkap dengan takaran kalori, makronutrien, serta panduan memasak bersama NutLens."
+    />
+    <title>Galeri Resep Sehat | NutLens</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        if (!reducedMotion && "IntersectionObserver" in window) {
+          root.classList.add("reveal-ready");
+          document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+              window.setTimeout(() => {
+                if (!root.classList.contains("reveal-runtime-ready")) {
+                  root.classList.remove("reveal-ready");
+                }
+              }, 1600);
+            },
+            { once: true },
+          );
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Outfit:wght@100..900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/resep-galeri.css" />
+    <script type="module" src="../js/navbar.mjs"></script>
+    <script type="module" src="../js/profile-dropdown.mjs"></script>
+    <script type="module" src="../js/mobile-navigation.mjs"></script>
+    <script type="module" src="../js/scroll-reveal.mjs"></script>
+    <script type="module" src="../js/resep-galeri.mjs"></script>
+  </head>
+  <body>
+    <a class="visually-hidden" href="#main-content">Lewati ke konten utama</a>
+
+    <!-- Floating Sticky Navbar -->
+    <nav
+      class="nutlens-navbar"
+      aria-label="Navigasi utama"
+      data-mobile-navigation
+    >
+      <div class="navbar__container">
+        <ul class="navbar__menu">
+          <li><a href="../../index.html">Beranda</a></li>
+          <li>
+            <div class="navbar__services" data-services-dropdown>
+              <button
+                class="navbar__services-toggle is-active"
+                type="button"
+                aria-expanded="false"
+                aria-controls="services-menu"
+              >
+                Layanan
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >expand_more</span
+                >
+              </button>
+              <ul id="services-menu" class="navbar__submenu" hidden>
+                <li>
+                  <a href="cek-makanan.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--check material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      nutrition
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Cek Makanan</span>
+                      <span class="navbar__submenu-description">
+                        Analisis nutrisi dari makananmu
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="buat-resep.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--recipe material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      restaurant_menu
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Buat Resep</span>
+                      <span class="navbar__submenu-description">
+                        Buat resep dari bahan yang tersedia
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="resep-galeri.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--gallery material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      menu_book
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Galeri Resep</span>
+                      <span class="navbar__submenu-description">
+                        Temukan inspirasi resep sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="challenge-sehat.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--challenge material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      emoji_events
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Challenge Sehat</span>
+                      <span class="navbar__submenu-description">
+                        Ikuti tantangan hidup lebih sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="artikel.html">Artikel</a></li>
+        </ul>
+
+        <div class="navbar__logo">
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >nutrition</span
+          >
+          <a href="../../index.html" aria-label="NutLens, kembali ke beranda"
+            >NutLens</a
+          >
+        </div>
+
+        <div class="navbar__profile" data-profile-dropdown>
+          <button
+            class="navbar__profile-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="profile-menu"
+            aria-label="Buka menu profil Denny Pramana"
+          >
+            <img
+              class="navbar__profile-avatar navbar__profile-avatar--trigger"
+              src="../images/testimonial/Bang Raka.webp"
+              alt=""
+              width="40"
+              height="40"
+            />
+            <span
+              class="navbar__profile-chevron material-symbols-outlined"
+              aria-hidden="true"
+              >expand_more</span
+            >
+          </button>
+
+          <div
+            id="profile-menu"
+            class="navbar__profile-panel"
+            hidden
+            inert
+          >
+            <div class="navbar__profile-identity">
+              <img
+                class="navbar__profile-avatar navbar__profile-avatar--panel"
+                src="../images/testimonial/Bang Raka.webp"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <div class="navbar__profile-copy">
+                <p class="navbar__profile-name">Denny Pramana</p>
+                <p class="navbar__profile-email">denprama@email.com</p>
+              </div>
+            </div>
+            <hr class="navbar__profile-divider" />
+            <button
+              class="navbar__profile-action"
+              type="button"
+              data-profile-link
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >person</span
+              >
+              <span>Profile</span>
+            </button>
+            <button
+              class="navbar__profile-action"
+              type="button"
+              data-profile-logout
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >logout</span
+              >
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+
+        <button
+          class="mobile-nav__open"
+          type="button"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="mobile-navigation"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div
+        class="mobile-nav"
+        id="mobile-navigation"
+        aria-hidden="true"
+      >
+        <button
+          class="mobile-nav__overlay"
+          type="button"
+          aria-label="Tutup menu navigasi"
+          tabindex="-1"
+        ></button>
+
+        <aside
+          class="mobile-nav__drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="mobile-nav-title"
+          inert
+        >
+          <header class="mobile-nav__header">
+            <span class="mobile-nav__brand" aria-hidden="true">
+              <span class="material-symbols-outlined">nutrition</span>
+              <span>NutLens</span>
+            </span>
+            <h2 id="mobile-nav-title" class="visually-hidden">
+              Menu NutLens
+            </h2>
+            <button
+              class="mobile-nav__close"
+              type="button"
+              aria-label="Tutup menu navigasi"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >close</span
+              >
+            </button>
+          </header>
+
+          <div class="mobile-nav__body">
+            <section
+              class="mobile-nav__section"
+              aria-labelledby="mobile-account-title"
+            >
+              <h3
+                id="mobile-account-title"
+                class="mobile-nav__section-title"
+              >
+                Akun
+              </h3>
+              <a class="mobile-nav__account" href="profil.html">
+                <img
+                  class="mobile-nav__avatar"
+                  src="../images/testimonial/Bang Raka.webp"
+                  alt=""
+                  width="48"
+                  height="48"
+                />
+                <span class="mobile-nav__account-text">
+                  <strong>Denny Pramana</strong>
+                  <span>Lihat profil saya</span>
+                </span>
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >chevron_right</span
+                >
+              </a>
+            </section>
+
+            <section
+              class="mobile-nav__section"
+              aria-labelledby="mobile-navigation-title"
+            >
+              <h3
+                id="mobile-navigation-title"
+                class="mobile-nav__section-title"
+              >
+                Navigasi
+              </h3>
+              <nav aria-label="Navigasi mobile">
+                <ul class="mobile-nav__list">
+                  <li>
+                    <a class="mobile-nav__item" href="../../index.html">
+                      <span
+                        class="material-symbols-outlined"
+                        aria-hidden="true"
+                        >home</span
+                      >
+                      <span>Beranda</span>
+                    </a>
+                  </li>
+                  <li>
+                    <button
+                      class="mobile-nav__submenu-trigger"
+                      type="button"
+                      aria-expanded="false"
+                      aria-controls="mobile-services-menu"
+                    >
+                      <span class="mobile-nav__item-main is-active">
+                        <span
+                          class="material-symbols-outlined"
+                          aria-hidden="true"
+                          >grid_view</span
+                        >
+                        <span>Layanan</span>
+                      </span>
+                      <span
+                        class="material-symbols-outlined mobile-nav__submenu-icon"
+                        aria-hidden="true"
+                        >expand_more</span
+                      >
+                    </button>
+                    <div
+                      class="mobile-nav__submenu-shell"
+                      id="mobile-services-menu"
+                      aria-hidden="true"
+                      inert
+                    >
+                      <ul class="mobile-nav__submenu">
+                        <li><a href="cek-makanan.html">Cek Makanan</a></li>
+                        <li><a href="buat-resep.html">Buat Resep</a></li>
+                        <li>
+                          <a href="resep-galeri.html">Galeri Resep</a>
+                        </li>
+                        <li>
+                          <a href="challenge-sehat.html">Challenge Sehat</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a class="mobile-nav__item" href="artikel.html">
+                      <span
+                        class="material-symbols-outlined"
+                        aria-hidden="true"
+                        >article</span
+                      >
+                      <span>Artikel</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </section>
+          </div>
+
+          <div class="mobile-nav__footer">
+            <button class="mobile-nav__logout" type="button">
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >logout</span
+              >
+              <span>Logout</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+      <!-- Recipe Gallery Hero Section -->
+      <section class="recipe-hero" aria-labelledby="recipe-hero-title">
+        <div class="recipe-hero__container">
+          <!-- Left Column: Copy & Call-to-Action -->
+          <div class="recipe-hero__content">
+            <div class="recipe-hero__badge" data-reveal="fade-up">
+              <span class="material-symbols-outlined" aria-hidden="true">eco</span>
+              <span>Nutrisi Lezat Dan Praktis</span>
+            </div>
+
+            <h1 class="recipe-hero__title" id="recipe-hero-title" data-reveal="fade-up" data-reveal-delay="100">
+              Sentuhan Ahli<br />
+              untuk Resep <span class="recipe-hero__leaf-icon material-symbols-outlined" aria-hidden="true">eco</span><br />
+              Kuliner Sehat
+            </h1>
+
+            <p class="recipe-hero__description" data-reveal="fade-up" data-reveal-delay="200">
+              Temukan berbagai pilihan resep bergizi tinggi yang dirancang untuk gaya hidup sehat modern Anda, mudah diikuti dan lezat untuk dinikmati setiap hari.
+            </p>
+
+            <a
+              href="#recipe-showcase"
+              class="hero__cta hero__cta--primary hero__cta--text-swap recipe-hero__cta"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
+            >
+              <span class="hero__cta-label hero__cta-label--current">Mulai Jelajahi Resep</span>
+              <span
+                class="hero__cta-label hero__cta-label--replacement"
+                aria-hidden="true"
+              >Mulai Jelajahi Resep</span>
+            </a>
+          </div>
+
+          <!-- Right Column: Staggered Masonry Recipe Photo Grid -->
+          <div class="recipe-hero__gallery" data-reveal="slide-left" data-reveal-delay="200">
+            <!-- Left Column: Tall on top, Short below -->
+            <div class="recipe-hero__gallery-col">
+              <div class="recipe-hero__photo-card recipe-hero__photo-card--tall">
+                <img
+                  src="../images/recipes/avocado-toast.jpg"
+                  alt="Avocado Egg Toast gandum utuh bernutrisi"
+                  class="recipe-hero__photo"
+                  loading="eager"
+                />
+                <span class="recipe-hero__sparkle material-symbols-outlined" aria-hidden="true">sparkle</span>
+              </div>
+              <div class="recipe-hero__photo-card recipe-hero__photo-card--short">
+                <img
+                  src="../images/recipes/chicken-soup.jpg"
+                  alt="Sup herbal hangat bernutrisi tinggi"
+                  class="recipe-hero__photo"
+                  loading="eager"
+                />
+                <span class="recipe-hero__sparkle material-symbols-outlined" aria-hidden="true">sparkle</span>
+              </div>
+            </div>
+
+            <!-- Right Column: Short on top, Tall below -->
+            <div class="recipe-hero__gallery-col">
+              <div class="recipe-hero__photo-card recipe-hero__photo-card--short">
+                <img
+                  src="../images/recipes/berry-smoothie.jpg"
+                  alt="Superfood Berry Smoothie bowl kaya antioksidan"
+                  class="recipe-hero__photo"
+                  loading="eager"
+                />
+                <span class="recipe-hero__sparkle material-symbols-outlined" aria-hidden="true">sparkle</span>
+              </div>
+              <div class="recipe-hero__photo-card recipe-hero__photo-card--tall">
+                <img
+                  src="../images/recipes/tempe-bakar.jpg"
+                  alt="Olahan menu sehat bergizi lezat"
+                  class="recipe-hero__photo"
+                  loading="eager"
+                />
+                <span class="recipe-hero__sparkle material-symbols-outlined" aria-hidden="true">sparkle</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recipe Showcase & Category Explorer Section (Reference Design) -->
+      <section class="recipe-showcase" id="recipe-showcase" aria-labelledby="recipe-category-heading">
+        <div class="recipe-showcase__container">
+          <!-- Left Sidebar: Categories Navigation -->
+          <aside class="recipe-category-sidebar" aria-label="Kategori Resep" data-reveal="fade-up">
+            <h2 class="recipe-category-heading" id="recipe-category-heading">KATEGORI</h2>
+            <nav class="recipe-category-nav" aria-label="Pilih Kategori Resep">
+              <ul class="recipe-category-list">
+                <li>
+                  <button
+                    type="button"
+                    class="recipe-category-btn is-active"
+                    data-recipe-category="semua"
+                    aria-pressed="true"
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true">grid_view</span>
+                    <span>Semua</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="recipe-category-btn"
+                    data-recipe-category="protein"
+                    aria-pressed="false"
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true">fitness_center</span>
+                    <span>Tinggi Protein</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="recipe-category-btn"
+                    data-recipe-category="serat"
+                    aria-pressed="false"
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true">eco</span>
+                    <span>Tinggi Serat</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="recipe-category-btn"
+                    data-recipe-category="sarapan"
+                    aria-pressed="false"
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true">bakery_dining</span>
+                    <span>Sarapan</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="recipe-category-btn"
+                    data-recipe-category="camilan"
+                    aria-pressed="false"
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true">lunch_dining</span>
+                    <span>Camilan</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="recipe-category-btn"
+                    data-recipe-category="cepat-saji"
+                    aria-pressed="false"
+                  >
+                    <span class="material-symbols-outlined" aria-hidden="true">room_service</span>
+                    <span>Cepat Saji</span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </aside>
+
+          <!-- Right Spotlight / Featured Recipe Card -->
+          <article
+            class="recipe-spotlight-card"
+            id="recipe-spotlight-card"
+            aria-labelledby="spotlight-title"
+            data-reveal="fade-up"
+            data-reveal-delay="150"
+          >
+            <!-- Media Preview -->
+            <div class="recipe-spotlight__media">
+              <span class="recipe-spotlight__badge" id="spotlight-badge">
+                REKOMENDASI MAKAN SIANG
+              </span>
+              <img
+                id="spotlight-image"
+                class="recipe-spotlight__image"
+                src="../images/recipes/pepes-ayam.jpg"
+                alt="Pepes Ayam disajikan segar di atas daun pisang dengan rempah pilihan"
+                width="520"
+                height="440"
+                loading="eager"
+              />
+            </div>
+
+            <!-- Recipe Details -->
+            <div class="recipe-spotlight__content">
+              <h3 class="recipe-spotlight__title" id="spotlight-title">Pepes Ayam</h3>
+              <p class="recipe-spotlight__desc" id="spotlight-desc">
+                Rekomendasi resep dari NutLens. Perpaduan sempurna antara protein tanpa lemak dan rempah-rempah kaya antioksidan, diolah tanpa minyak melalui metode kukus untuk menjaga nutrisi tetap utuh, dan memberikan energi yang stabil.
+              </p>
+
+              <div class="recipe-spotlight__stats" aria-label="Informasi nutrisi dan penyajian">
+                <span class="recipe-spotlight__stat-chip">
+                  <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                  <span id="spotlight-calories">310 kkal</span>
+                </span>
+                <span class="recipe-spotlight__stat-chip">
+                  <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                  <span id="spotlight-time">25 Menit</span>
+                </span>
+                <span class="recipe-spotlight__stat-chip">
+                  <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                  <span id="spotlight-servings">1 Porsi</span>
+                </span>
+              </div>
+
+              <a
+                href="#recipe-grid-section"
+                class="hero__cta hero__cta--primary hero__cta--text-swap recipe-spotlight__cta"
+              >
+                <span class="hero__cta-label hero__cta-label--current">Lihat Koleksi Resep</span>
+                <span
+                  class="hero__cta-label hero__cta-label--replacement"
+                  aria-hidden="true"
+                >Lihat Koleksi Resep</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Recipe Grid Collection Section (Reference Design) -->
+      <section class="recipe-grid-section" id="recipe-grid-section" aria-labelledby="recipe-grid-title">
+        <div class="recipe-grid-section__container">
+          <h2 id="recipe-grid-title" class="visually-hidden">Koleksi Resep Pilihan Sehat</h2>
+
+          <div class="recipe-collection-grid">
+            <!-- Col 1, Row 1: Promo Banner Card -->
+            <div class="recipe-promo-card" data-reveal="fade-up">
+              <div class="recipe-promo-card__bg">
+                <img
+                  src="../images/recipes/promo-herbs.jpg"
+                  alt="Rempah dan herba alami NutLens"
+                  class="recipe-promo-card__img"
+                  loading="lazy"
+                />
+                <div class="recipe-promo-card__overlay"></div>
+              </div>
+
+              <div class="recipe-promo-card__content">
+                <h3 class="recipe-promo-card__title">
+                  <span class="recipe-promo-card__title--accent">Makan</span>
+                  <span class="recipe-promo-card__title--white">Sehat</span><br />
+                  <span class="recipe-promo-card__title--accent">Jadi Lebih</span><br />
+                  <span class="recipe-promo-card__title--accent">Mudah</span>
+                </h3>
+
+                <p class="recipe-promo-card__desc">
+                  Temukan resep yang lezat, bergizi, dan mudah dibuat.
+                </p>
+
+                <a
+                  href="#recipe-showcase"
+                  class="hero__cta hero__cta--secondary hero__cta--icon-focus recipe-promo-card__cta"
+                >
+                  <span class="hero__cta-text">Lihat Selengkapnya</span>
+                  <span
+                    class="hero__cta-icon hero__cta-icon--end material-symbols-outlined"
+                    aria-hidden="true"
+                  >arrow_forward</span>
+                  <span
+                    class="hero__cta-icon hero__cta-icon--center material-symbols-outlined"
+                    aria-hidden="true"
+                  >arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Col 2, Row 1: Smoothie Bowl Pisang & Granola -->
+            <article class="recipe-overlay-card" data-reveal="fade-up" data-reveal-delay="100">
+              <div class="recipe-overlay-card__media">
+                <img
+                  src="../images/recipes/smoothie-bowl-green.jpg"
+                  alt="Smoothie Bowl Pisang & Granola"
+                  class="recipe-overlay-card__img"
+                  loading="lazy"
+                />
+                <span class="recipe-overlay-card__badge">Sarapan</span>
+                <div class="recipe-overlay-card__gradient"></div>
+              </div>
+
+              <div class="recipe-overlay-card__content">
+                <h4 class="recipe-overlay-card__title">Smoothie Bowl Pisang &amp; Granola</h4>
+
+                <div class="recipe-overlay-card__stats" aria-label="Informasi nutrisi ringkas">
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>350kkal</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span>5 Menit</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="recipe-overlay-card__btn"
+                >
+                  <span>Lihat resep</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Col 3, Row 1: Wrap Gandum Tuna Alpukat -->
+            <article class="recipe-overlay-card" data-reveal="fade-up" data-reveal-delay="200">
+              <div class="recipe-overlay-card__media">
+                <img
+                  src="../images/recipes/wrap-tuna.jpg"
+                  alt="Wrap Gandum Tuna Alpukat"
+                  class="recipe-overlay-card__img"
+                  loading="lazy"
+                />
+                <span class="recipe-overlay-card__badge">Camilan</span>
+                <div class="recipe-overlay-card__gradient"></div>
+              </div>
+
+              <div class="recipe-overlay-card__content">
+                <h4 class="recipe-overlay-card__title">Wrap Gandum Tuna Alpukat</h4>
+
+                <div class="recipe-overlay-card__stats" aria-label="Informasi nutrisi ringkas">
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>400kkal</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span>5 Menit</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="recipe-overlay-card__btn"
+                >
+                  <span>Lihat resep</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Col 4, Row 1: Pasta Pesto Buncis Arab -->
+            <article class="recipe-overlay-card" data-reveal="fade-up" data-reveal-delay="300">
+              <div class="recipe-overlay-card__media">
+                <img
+                  src="../images/recipes/pasta-pesto.jpg"
+                  alt="Pasta Pesto Buncis Arab"
+                  class="recipe-overlay-card__img"
+                  loading="lazy"
+                />
+                <span class="recipe-overlay-card__badge">Tinggi Serat</span>
+                <div class="recipe-overlay-card__gradient"></div>
+              </div>
+
+              <div class="recipe-overlay-card__content">
+                <h4 class="recipe-overlay-card__title">Pasta Pesto Buncis Arab</h4>
+
+                <div class="recipe-overlay-card__stats" aria-label="Informasi nutrisi ringkas">
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>450kkal</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span>10 Menit</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="recipe-overlay-card__btn"
+                >
+                  <span>Lihat resep</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Col 1, Row 2: Spacer for empty slot in row 2 -->
+            <div class="recipe-grid-spacer" aria-hidden="true"></div>
+
+            <!-- Col 2, Row 2: Nasi Ayam Hainan -->
+            <article class="recipe-overlay-card" data-reveal="fade-up" data-reveal-delay="150">
+              <div class="recipe-overlay-card__media">
+                <img
+                  src="../images/recipes/nasi-ayam-hainan.jpg"
+                  alt="Nasi Ayam Hainan"
+                  class="recipe-overlay-card__img"
+                  loading="lazy"
+                />
+                <span class="recipe-overlay-card__badge">Tinggi Protein</span>
+                <div class="recipe-overlay-card__gradient"></div>
+              </div>
+
+              <div class="recipe-overlay-card__content">
+                <h4 class="recipe-overlay-card__title">Nasi Ayam Hainan</h4>
+
+                <div class="recipe-overlay-card__stats" aria-label="Informasi nutrisi ringkas">
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>400kkal</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span>20 Menit</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="recipe-overlay-card__btn"
+                >
+                  <span>Lihat resep</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Col 3, Row 2: Ikan Kembung Kuah Kuning -->
+            <article class="recipe-overlay-card" data-reveal="fade-up" data-reveal-delay="250">
+              <div class="recipe-overlay-card__media">
+                <img
+                  src="../images/recipes/ikan-kuah-kuning.jpg"
+                  alt="Ikan Kembung Kuah Kuning"
+                  class="recipe-overlay-card__img"
+                  loading="lazy"
+                />
+                <span class="recipe-overlay-card__badge">Tinggi Protein</span>
+                <div class="recipe-overlay-card__gradient"></div>
+              </div>
+
+              <div class="recipe-overlay-card__content">
+                <h4 class="recipe-overlay-card__title">Ikan Kembung Kuah Kuning</h4>
+
+                <div class="recipe-overlay-card__stats" aria-label="Informasi nutrisi ringkas">
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>300kkal</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span>40 Menit</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="recipe-overlay-card__btn"
+                >
+                  <span>Lihat resep</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Col 4, Row 2: Pecel Sayur -->
+            <article class="recipe-overlay-card" data-reveal="fade-up" data-reveal-delay="350">
+              <div class="recipe-overlay-card__media">
+                <img
+                  src="../images/recipes/pecel-sayur.jpg"
+                  alt="Pecel Sayur"
+                  class="recipe-overlay-card__img"
+                  loading="lazy"
+                />
+                <span class="recipe-overlay-card__badge">Tinggi Serat</span>
+                <div class="recipe-overlay-card__gradient"></div>
+              </div>
+
+              <div class="recipe-overlay-card__content">
+                <h4 class="recipe-overlay-card__title">Pecel Sayur</h4>
+
+                <div class="recipe-overlay-card__stats" aria-label="Informasi nutrisi ringkas">
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>365kkal</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span>20 Menit</span>
+                  </span>
+                  <span class="recipe-overlay-card__stat">
+                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="recipe-overlay-card__btn"
+                >
+                  <span>Lihat resep</span>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="site-footer__container">
+        <div class="site-footer__main">
+          <div class="site-footer__brand" data-reveal="fade-up" data-reveal-delay="100">
+            <a
+              class="site-footer__brand-link"
+              href="../../index.html"
+              aria-label="NutLens, kembali ke beranda"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true">
+                nutrition
+              </span>
+              <span>NutLens</span>
+            </a>
+            <p class="site-footer__description">
+              Solusi nutrisi cerdas berbasis AI untuk membantu Anda mencapai pola makan seimbang dan gaya hidup yang lebih sehat setiap hari.
+            </p>
+
+            <div class="site-footer__socials" aria-label="Media sosial NutLens">
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi Facebook NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-facebook" aria-hidden="true"></i>
+              </a>
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi X NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-twitter-x" aria-hidden="true"></i>
+              </a>
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi YouTube NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-youtube" aria-hidden="true"></i>
+              </a>
+              <a
+                class="site-footer__social-link"
+                aria-label="Kunjungi Instagram NutLens — belum tersedia"
+                aria-disabled="true"
+                tabindex="-1"
+              >
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="site-footer__navigation" data-reveal="fade-up" data-reveal-delay="250">
+            <nav aria-labelledby="footer-navigation-title">
+              <h2 id="footer-navigation-title" class="site-footer__nav-title">
+                Navigasi
+              </h2>
+              <ul class="site-footer__nav-list">
+                <li><a class="site-footer__link" href="../../index.html">Beranda</a></li>
+                <li><a class="site-footer__link" href="cek-makanan.html">Cek Makanan</a></li>
+                <li><a class="site-footer__link" href="buat-resep.html">Buat Resep</a></li>
+                <li>
+                  <a class="site-footer__link" href="resep-galeri.html" aria-current="page">
+                    Galeri Resep
+                  </a>
+                </li>
+                <li><a class="site-footer__link" href="challenge-sehat.html">Challenge Sehat</a></li>
+                <li><a class="site-footer__link" href="artikel.html">Artikel</a></li>
+              </ul>
+            </nav>
+
+            <nav aria-labelledby="footer-support-title">
+              <h2 id="footer-support-title" class="site-footer__nav-title">
+                Dukungan
+              </h2>
+              <ul class="site-footer__nav-list">
+                <li><a class="site-footer__link" href="../../index.html#about-title">Tentang Kami</a></li>
+                <li><a class="site-footer__link" href="../../index.html#faq-title">FAQ</a></li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Hubungi Kami belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Hubungi Kami
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Kebijakan Privasi belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Kebijakan Privasi
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Syarat dan Ketentuan belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Syarat &amp; Ketentuan
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav aria-labelledby="footer-resources-title">
+              <h2 id="footer-resources-title" class="site-footer__nav-title">
+                Sumber Informasi
+              </h2>
+              <ul class="site-footer__nav-list">
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Panduan Nutrisi belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Panduan Nutrisi
+                  </a>
+                </li>
+                <li><a class="site-footer__link" href="artikel.html">Artikel Kesehatan</a></li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Tips Memasak belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Tips Memasak
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer__link"
+                    aria-label="Tips Gaya Hidup belum tersedia"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    Tips Gaya Hidup
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <div class="site-footer__divider" aria-hidden="true"></div>
+
+        <div class="site-footer__bottom" data-reveal="fade-up" data-reveal-delay="350">
+          <p>© 2026 NutLens. Semua hak dilindungi.</p>
+          <p>Desain Oleh Programmer Penipu</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
