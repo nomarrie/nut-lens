@@ -95,14 +95,14 @@
   --color-yellow-100: #fff1b8;
   --color-yellow-500: #facc15;
 
---color-orange-50:  #fff7ed;
---color-orange-100: #ffedd5;
---color-orange-200: #fed7aa;
---color-orange-300: #fdba74;
---color-orange-400: #fb923c;
---color-orange-500: #f97316;
---color-orange-600: #ea580c;
---color-orange-700: #c2410c;
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #ffedd5;
+  --color-orange-200: #fed7aa;
+  --color-orange-300: #fdba74;
+  --color-orange-400: #fb923c;
+  --color-orange-500: #f97316;
+  --color-orange-600: #ea580c;
+  --color-orange-700: #c2410c;
 
   --color-red-50: #fef2f2;
   --color-red-100: #fee2e2;
@@ -410,15 +410,11 @@ a {
   width: 3.5rem;
   height: 3.5rem;
 
-  color: var(
-    --submenu-icon-color,
-    var(--color-on-primary-fixed-variant)
-  );
+  color: var(--submenu-icon-color,
+      var(--color-on-primary-fixed-variant));
 
-  background-color: var(
-    --submenu-icon-background,
-    var(--color-surface-container-high)
-  );
+  background-color: var(--submenu-icon-background,
+      var(--color-surface-container-high));
   border-radius: var(--radius-xl);
   font-size: var(--font-size-2xl);
 }
@@ -751,7 +747,7 @@ body.is-mobile-nav-open {
   overflow-y: auto;
 }
 
-.mobile-nav__section + .mobile-nav__section {
+.mobile-nav__section+.mobile-nav__section {
   margin-top: var(--space-8);
 }
 
@@ -849,8 +845,7 @@ body.is-mobile-nav-open {
   transition: transform 220ms ease;
 }
 
-.mobile-nav__submenu-trigger[aria-expanded="true"]
-  .mobile-nav__submenu-icon {
+.mobile-nav__submenu-trigger[aria-expanded="true"] .mobile-nav__submenu-icon {
   transform: rotate(180deg);
 }
 
@@ -863,8 +858,7 @@ body.is-mobile-nav-open {
     opacity 280ms ease;
 }
 
-.mobile-nav__submenu-trigger[aria-expanded="true"]
-  + .mobile-nav__submenu-shell {
+.mobile-nav__submenu-trigger[aria-expanded="true"]+.mobile-nav__submenu-shell {
   grid-template-rows: 1fr;
   opacity: 1;
 }
@@ -909,6 +903,7 @@ body.is-mobile-nav-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .navbar__profile-panel,
   .navbar__profile-chevron,
   .navbar__profile-action,
