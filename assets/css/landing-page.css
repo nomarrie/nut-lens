@@ -194,7 +194,8 @@
   border-radius: var(--radius-full);
   transition:
     color var(--transition-base),
-    background-color var(--transition-base);
+    background-color var(--transition-base),
+    transform var(--transition-base);
 }
 
 .site-footer__social-link i {
@@ -205,6 +206,7 @@
 .site-footer__social-link:not([aria-disabled="true"]):is(:hover, :focus-visible) {
   color: var(--color-on-primary);
   background-color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 .site-footer__social-link[aria-disabled="true"],
