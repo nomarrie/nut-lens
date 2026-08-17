@@ -8,6 +8,30 @@
       content="Analisis makanan dan temukan estimasi kalori, protein, lemak, karbohidrat, serat, serta gula bersama NutLens."
     />
     <title>Cek Makanan | NutLens</title>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const mobile = window.matchMedia("(max-width: 48rem)").matches;
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        if (!reducedMotion && "IntersectionObserver" in window) {
+          root.classList.add("reveal-ready");
+          document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+              window.setTimeout(() => {
+                if (!root.classList.contains("reveal-runtime-ready")) {
+                  root.classList.remove("reveal-ready");
+                }
+              }, 1600);
+            },
+            { once: true },
+          );
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +47,7 @@
     <script type="module" src="../js/navbar.mjs"></script>
     <script type="module" src="../js/profile-dropdown.mjs"></script>
     <script type="module" src="../js/mobile-navigation.mjs"></script>
+    <script type="module" src="../js/scroll-reveal.mjs"></script>
     <script type="module" src="../js/cek-makanan.mjs"></script>
   </head>
   <body>
@@ -366,14 +391,14 @@
       <section class="scan-hero" aria-labelledby="scan-hero-title">
         <div class="scan-hero__layout">
           <div class="scan-hero__content">
-            <p class="scan-hero__badge">
+            <p class="scan-hero__badge" data-reveal="fade-up">
               <span class="material-symbols-outlined" aria-hidden="true"
                 >psychology</span
               >
               <span>Analisis Nutrisi Berbasis AI</span>
             </p>
 
-            <h1 class="scan-hero__title" id="scan-hero-title">
+            <h1 class="scan-hero__title" id="scan-hero-title" data-reveal="fade-up" data-reveal-delay="100">
               <span class="scan-hero__title-line">Mulai Pola Hidup</span>
               <span class="scan-hero__title-line">
                 Sehat
@@ -387,20 +412,20 @@
               <span class="scan-hero__title-line">Nutrisi Yang Tepat</span>
             </h1>
 
-            <p class="scan-hero__description">
+            <p class="scan-hero__description" data-reveal="fade-up" data-reveal-delay="200">
               Temukan informasi nutrisi dari setiap makanan hanya dengan satu
               kali scan. NutLens membantu Anda mengetahui kandungan kalori,
               protein, lemak, karbohidrat, serat, serta gula secara cepat dan
               mudah.
             </p>
 
-            <a class="scan-hero__cta" href="#upload-makanan">
+            <a class="scan-hero__cta" href="#upload-makanan" data-reveal="fade-up" data-reveal-delay="300">
               Mulai Analisis Sekarang
             </a>
           </div>
 
           <div class="scan-hero__visual">
-            <figure class="scan-hero__image-frame">
+            <figure class="scan-hero__image-frame" data-reveal="fade-up" data-reveal-delay="200">
               <img
                 class="scan-hero__image"
                 src="../images/problem/Foto junk food.webp"
@@ -415,6 +440,8 @@
             <div class="scan-hero__feature-list">
               <div
                 class="scan-hero__feature scan-hero__feature--accuracy"
+                data-reveal="fade-up"
+                data-reveal-delay="400"
               >
                 <div class="scan-hero__score"><span>99%</span></div>
                 <div class="scan-hero__feature-content">
@@ -425,6 +452,8 @@
 
               <div
                 class="scan-hero__feature scan-hero__feature--instant"
+                data-reveal="fade-up"
+                data-reveal-delay="500"
               >
                 <span
                   class="scan-hero__feature-icon material-symbols-outlined"
@@ -461,6 +490,8 @@
             <section
               class="scan-panel scan-panel--upload"
               aria-labelledby="upload-panel-title"
+              data-reveal="fade-up"
+              data-reveal-delay="100"
             >
               <header class="scan-panel__header">
                 <h3 id="upload-panel-title" class="scan-panel__title">Upload Makanan</h3>
@@ -569,6 +600,8 @@
               aria-labelledby="nutrition-panel-title"
               aria-live="polite"
               aria-busy="false"
+              data-reveal="fade-up"
+              data-reveal-delay="250"
             >
               <header class="scan-panel__header scan-panel__header--nutrition">
                 <h3 id="nutrition-panel-title" class="scan-panel__title">Informasi Gizi</h3>
@@ -765,7 +798,7 @@
       <!-- Scan Guide & Tips Section -->
       <section class="scan-guide" aria-labelledby="scan-guide-title">
         <div class="scan-guide__container">
-          <div class="scan-guide__header">
+          <div class="scan-guide__header" data-reveal="fade-up">
             <span class="scan-guide__badge">
               <span class="material-symbols-outlined" aria-hidden="true">tips_and_updates</span>
               <span>Panduan Pemindaian</span>
@@ -779,7 +812,7 @@
           </div>
 
           <div class="scan-guide__grid">
-            <div class="scan-guide-card">
+            <div class="scan-guide-card" data-reveal="fade-up" data-reveal-delay="100">
               <div class="scan-guide-card__icon scan-guide-card__icon--light">
                 <span class="material-symbols-outlined" aria-hidden="true">wb_sunny</span>
               </div>
@@ -789,7 +822,7 @@
               </p>
             </div>
 
-            <div class="scan-guide-card">
+            <div class="scan-guide-card" data-reveal="fade-up" data-reveal-delay="200">
               <div class="scan-guide-card__icon scan-guide-card__icon--angle">
                 <span class="material-symbols-outlined" aria-hidden="true">crop_free</span>
               </div>
@@ -799,7 +832,7 @@
               </p>
             </div>
 
-            <div class="scan-guide-card">
+            <div class="scan-guide-card" data-reveal="fade-up" data-reveal-delay="300">
               <div class="scan-guide-card__icon scan-guide-card__icon--top">
                 <span class="material-symbols-outlined" aria-hidden="true">center_focus_strong</span>
               </div>
@@ -816,7 +849,7 @@
     <!-- Footer -->
     <footer class="site-footer">
       <div class="site-footer__container">
-        <div class="site-footer__main">
+        <div class="site-footer__main" data-reveal="fade-up">
           <div class="site-footer__brand">
             <a
               class="site-footer__brand-link"
