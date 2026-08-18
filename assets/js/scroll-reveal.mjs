@@ -41,10 +41,12 @@ export function initScrollReveal(elements, environment = globalThis) {
         }
 
         entry.target.classList.add(VISIBLE_CLASS);
-        entry.target.addEventListener(
+        entry.target.addEventListener?.(
           'animationend',
           () => {
-            entry.target.style.animation = 'none';
+            if (entry.target.style) {
+              entry.target.style.animation = 'none';
+            }
           },
           { once: true },
         );
