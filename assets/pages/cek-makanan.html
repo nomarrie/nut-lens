@@ -82,25 +82,9 @@
                       nutrition
                     </span>
                     <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Cek Makanan</span>
+                      <span class="navbar__submenu-title">Analisis Gizi</span>
                       <span class="navbar__submenu-description">
                         Analisis nutrisi dari makananmu
-                      </span>
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="buat-resep.html">
-                    <span
-                      class="navbar__submenu-icon navbar__submenu-icon--recipe material-symbols-outlined"
-                      aria-hidden="true"
-                    >
-                      restaurant_menu
-                    </span>
-                    <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Buat Resep</span>
-                      <span class="navbar__submenu-description">
-                        Buat resep dari bahan yang tersedia
                       </span>
                     </span>
                   </a>
@@ -114,9 +98,25 @@
                       menu_book
                     </span>
                     <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Galeri Resep</span>
+                      <span class="navbar__submenu-title">Resep Sehat</span>
                       <span class="navbar__submenu-description">
                         Temukan inspirasi resep sehat
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="buat-resep.html">
+                    <span
+                      class="navbar__submenu-icon navbar__submenu-icon--recipe material-symbols-outlined"
+                      aria-hidden="true"
+                    >
+                      restaurant_menu
+                    </span>
+                    <span class="navbar__submenu-copy">
+                      <span class="navbar__submenu-title">Perencanaan Nutrisi</span>
+                      <span class="navbar__submenu-description">
+                        Buat resep dari bahan yang tersedia
                       </span>
                     </span>
                   </a>
@@ -387,6 +387,28 @@
       </div>
     </nav>
 
+    <!-- Fullscreen AI Analyzing Loading Overlay -->
+    <div
+      class="nutrition-loading"
+      id="scan-loading-overlay"
+      hidden
+      aria-live="assertive"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="nutrition-loading-title"
+    >
+      <div class="nutrition-loading__spinner-wrap">
+        <div class="nutrition-loading__spinner" aria-hidden="true"></div>
+        <div class="nutrition-loading__logo">
+          <span class="material-symbols-outlined" aria-hidden="true">nutrition</span>
+        </div>
+      </div>
+      <h4 class="nutrition-loading__title" id="nutrition-loading-title">AI Sedang Menganalisis</h4>
+      <p class="nutrition-loading__subtitle" id="scan-loading-status">
+        Mengidentifikasi jenis makanan dan kandungan nutrisi...
+      </p>
+    </div>
+
     <main>
       <section class="scan-hero" aria-labelledby="scan-hero-title">
         <div class="scan-hero__layout">
@@ -590,6 +612,7 @@
                 id="btn-analyze-now"
                 disabled
               >
+                <span class="scan-btn-primary__spinner" id="btn-analyze-spinner" aria-hidden="true" hidden></span>
                 <span class="scan-btn-primary__label scan-btn-primary__label--current scan-btn-primary__text">Analisis Sekarang</span>
                 <span
                   class="scan-btn-primary__label scan-btn-primary__label--replacement"
@@ -706,20 +729,6 @@
                 </dl>
               </div>
 
-              <!-- Loading State with Center NutLens Logo & Spinner -->
-              <div class="nutrition-loading" id="nutrition-loading" hidden>
-                <div class="nutrition-loading__spinner-wrap">
-                  <div class="nutrition-loading__spinner" aria-hidden="true"></div>
-                  <div class="nutrition-loading__logo">
-                    <span class="material-symbols-outlined" aria-hidden="true">nutrition</span>
-                  </div>
-                </div>
-                <h4 class="nutrition-loading__title">AI Sedang Menganalisis</h4>
-                <p class="nutrition-loading__subtitle" id="nutrition-loading-status">
-                  Mengidentifikasi jenis makanan dan kandungan nutrisi...
-                </p>
-              </div>
-
               <!-- Result State: Shows populated values with animated colored bars -->
               <div class="nutrition-result" id="nutrition-result" hidden>
                 <dl class="nutrition-metrics">
@@ -803,6 +812,97 @@
                 </dl>
               </div>
             </aside>
+
+            <!-- Bottom Left Card: Pilihan Lebih Sehat -->
+            <section
+              class="scan-panel scan-panel--suggestions"
+              id="scan-panel-suggestions"
+              aria-labelledby="suggestions-panel-title"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
+              hidden
+            >
+              <header class="scan-panel__header">
+                <h3 id="suggestions-panel-title" class="scan-panel__title">Pilihan Lebih Sehat</h3>
+              </header>
+
+              <ul class="health-suggestions-list" id="health-suggestions-list" role="list">
+                <li class="health-suggestion-card">
+                  <p class="health-suggestion-card__text">
+                    <strong>Kurangi Porsi:</strong> Makanan ini tinggi kalori dan lemak, konsumsi dalam porsi kecil.
+                  </p>
+                </li>
+                <li class="health-suggestion-card">
+                  <p class="health-suggestion-card__text">
+                    <strong>Batasi Makanan Berlemak:</strong> Batasi konsumsi kulit babi dan serundeng yang tinggi lemak.
+                  </p>
+                </li>
+                <li class="health-suggestion-card">
+                  <p class="health-suggestion-card__text">
+                    <strong>Minum Air Putih:</strong> Minum air putih yang cukup untuk membantu pencernaan dan metabolisme.
+                  </p>
+                </li>
+              </ul>
+            </section>
+
+            <!-- Bottom Right Card: Riwayat Analisis Makanan -->
+            <section
+              class="scan-panel scan-panel--history"
+              id="scan-panel-history"
+              aria-labelledby="history-panel-title"
+              data-reveal="fade-up"
+              data-reveal-delay="350"
+              hidden
+            >
+              <header class="scan-panel__header">
+                <h3 id="history-panel-title" class="scan-panel__title">Riwayat Analisis Makanan</h3>
+              </header>
+
+              <ul class="food-history-list" id="food-history-list" role="list">
+                <li class="food-history-card">
+                  <img
+                    class="food-history-card__thumb"
+                    src="../images/recipes/nasi-ayam-hainan.jpg"
+                    alt="Nasi Padang"
+                    width="60"
+                    height="60"
+                    loading="lazy"
+                  />
+                  <div class="food-history-card__content">
+                    <h4 class="food-history-card__name">Nasi Padang</h4>
+                    <p class="food-history-card__meta">Tadi pagi • 620 kkal</p>
+                  </div>
+                </li>
+                <li class="food-history-card">
+                  <img
+                    class="food-history-card__thumb"
+                    src="../images/recipes/pepes-ayam.jpg"
+                    alt="Sate Ayam"
+                    width="60"
+                    height="60"
+                    loading="lazy"
+                  />
+                  <div class="food-history-card__content">
+                    <h4 class="food-history-card__name">Sate Ayam</h4>
+                    <p class="food-history-card__meta">Kemarin • 320 kkal</p>
+                  </div>
+                </li>
+                <li class="food-history-card">
+                  <img
+                    class="food-history-card__thumb"
+                    src="../images/recipes/pecel-sayur.jpg"
+                    alt="Lalapan Ayam"
+                    width="60"
+                    height="60"
+                    loading="lazy"
+                  />
+                  <div class="food-history-card__content">
+                    <h4 class="food-history-card__name">Lalapan Ayam</h4>
+                    <p class="food-history-card__meta">2 hari yang lalu • 230 kkal</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
 
           </div>
         </div>
