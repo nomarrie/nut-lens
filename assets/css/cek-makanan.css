@@ -497,20 +497,28 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: clamp(1.75rem, 3.5vw, 2.75rem);
-  padding-top: 32px;
+  padding: clamp(1.75rem, 3.5vw, 2rem);
+  padding-top: 24px;
   background-color: var(--color-surface-container-lowest);
-  /* border: 1px solid color-mix(in srgb, var(--color-outline-variant) 45%, transparent); */
-  border-radius: var(--radius-3xl);
-  /* box-shadow: 0 10px 30px rgba(31, 33, 24, 0.04); */
+  border-radius: var(--radius-2xl);
 }
 
-/* .scan-panel--upload {
-  border-right: 1px solid color-mix(in srgb, var(--color-outline-variant) 45%, transparent);
-} */
+.scan-panel--upload {
+  grid-column: 1;
+}
 
 .scan-panel--nutrition {
+  grid-column: 2;
   background-color: var(--color-surface-container-lowest);
+  scroll-margin-top: calc(var(--navbar-height, 80px) + var(--space-6, 1.5rem));
+}
+
+.scan-panel--suggestions {
+  grid-column: 1;
+}
+
+.scan-panel--history {
+  grid-column: 2;
 }
 
 .scan-panel__header {
@@ -788,7 +796,10 @@
 .nutrition-loading[hidden],
 .nutrition-result[hidden],
 .scan-status-ticker[hidden],
-.scan-upload__error[hidden] {
+.scan-upload__error[hidden],
+.scan-panel[hidden],
+.scan-panel--suggestions[hidden],
+.scan-panel--history[hidden] {
   display: none !important;
 }
 
@@ -823,10 +834,38 @@
   outline-offset: 3px;
 }
 
-.scan-btn-primary:disabled {
+.scan-btn-primary:disabled:not(.is-loading) {
   color: var(--color-gray-500);
   background-color: var(--color-gray-200);
   cursor: not-allowed;
+}
+
+.scan-btn-primary.is-loading {
+  color: #ffffff !important;
+  background-color: #1D260B !important;
+  cursor: wait !important;
+  opacity: 0.92;
+}
+
+.scan-btn-primary__spinner {
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: var(--radius-full);
+  animation: scan-spin 0.75s linear infinite;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.scan-btn-primary__spinner[hidden] {
+  display: none !important;
+}
+
+.scan-btn-primary.is-loading .scan-btn-primary__label--replacement {
+  display: none !important;
 }
 
 .scan-btn-primary__label {
@@ -1038,24 +1077,134 @@
   transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ===== Loading State (Full Screen Overlay) ===== */
+/* ==========================================================================
+   Health Suggestions & Food History Panels (Exact Reference Design)
+   ========================================================================== */
+
+.scan-panel--suggestions,
+.scan-panel--history {
+  background-color: var(--color-surface-container-lowest);
+}
+
+.health-suggestions-list,
+.food-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --- Health Suggestions Card --- */
+
+.health-suggestion-card {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--space-4);
+  background-color: var(--color-surface-container-high);
+  border-radius: var(--radius-2xl);
+  transition:
+    transform var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.health-suggestion-card__text {
+  margin: 0;
+  color: #3f4236;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.health-suggestion-card__text strong {
+  color: #1a240e;
+  font-weight: 700;
+}
+
+/* --- Food History Card --- */
+
+.food-history-card {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  padding: var(--space-3);
+  background-color: var(--color-surface-container-high);
+  border-radius: var(--radius-2xl);
+  transition:
+    transform var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.food-history-list > li:nth-child(n+4),
+.food-history-list > .food-history-card:nth-child(n+4) {
+  display: none !important;
+}
+
+.food-history-card__thumb {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.food-history-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.food-history-card__name {
+  margin: 0;
+  color: #1a240e;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.food-history-card__meta {
+  margin: 0;
+  color: var(--color-gray-500);
+  font-size: 0.85rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   Fullscreen AI Analyzing Loading Overlay
+   ========================================================================== */
 
 .nutrition-loading {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 999999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   padding: 2rem 1.5rem;
   background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   text-align: center;
+  box-sizing: border-box;
   animation: nutlens-fade-in 250ms ease-out;
+}
+
+.nutrition-loading[hidden] {
+  display: none !important;
 }
 
 .nutrition-loading__spinner-wrap {
@@ -1513,6 +1662,13 @@
     color: var(--color-on-error-container);
     background-color: var(--color-error-container);
   }
+
+  .health-suggestion-card:hover,
+  .food-history-card:hover {
+    transform: translateY(-2px);
+    background-color: #dce7cb;
+    box-shadow: 0 4px 16px rgba(95, 127, 60, 0.12);
+  }
 }
 
 /* ==========================================================================
@@ -1566,8 +1722,11 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .scan-panel--upload {
-    border-right: 1px solid color-mix(in srgb, var(--color-outline-variant) 45%, transparent);
+  .scan-panel--upload,
+  .scan-panel--nutrition,
+  .scan-panel--suggestions,
+  .scan-panel--history {
+    grid-column: auto;
   }
 }
 
@@ -1688,6 +1847,23 @@
   .scan-dropzone__actions,
   .scan-btn-pill {
     width: 100%;
+  }
+
+  .health-suggestion-card {
+    padding: 1rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .food-history-card {
+    padding: 0.65rem 0.95rem;
+    gap: var(--space-3);
+    border-radius: 18px;
+  }
+
+  .food-history-card__thumb {
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: var(--radius-lg);
   }
 }
 
