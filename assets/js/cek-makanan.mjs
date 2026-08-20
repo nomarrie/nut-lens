@@ -102,6 +102,154 @@ const FOOD_SUGGESTIONS = {
   ],
 };
 
+const SMART_RECIPE_RECOMMENDATIONS = {
+  salad: [
+    {
+      id: 'salad-mediterania',
+      title: 'Salad Mediterania',
+      desc: 'Salad segar dengan minyak zaitun, tomat ceri, dan keju feta kaya antioksidan alami.',
+      image: '../images/recipes/mediterranean-salad.jpg',
+      calories: '185kkal',
+      time: '15 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'pecel-sayur',
+      title: 'Pecel Sayur',
+      desc: 'Kombinasi sayuran rebus dengan saus kacang gurih kaya serat dan protein nabati.',
+      image: '../images/recipes/pecel-sayur.jpg',
+      calories: '210kkal',
+      time: '20 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'smoothie-bowl-green',
+      title: 'Smoothie Bowl Hijau',
+      desc: 'Kombinasi bayam, pisang, dan chia seeds untuk sarapan kaya energi & serat.',
+      image: '../images/recipes/smoothie-bowl-green.jpg',
+      calories: '190kkal',
+      time: '10 Menit',
+      portion: '1 Porsi',
+    },
+  ],
+  salmon: [
+    {
+      id: 'salmon-quinoa',
+      title: 'Salmon Quinoa',
+      desc: 'Salmon panggang lezat kaya omega-3 dipadu dengan quinoa sumber karbohidrat kompleks.',
+      image: '../images/recipes/salmon-quinoa.jpg',
+      calories: '380kkal',
+      time: '25 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'sup-ikan',
+      title: 'Sup Ikan',
+      desc: 'Sup ikan kaya protein, vitamin, dan mineral, serta mengandung omega 3.',
+      image: '../images/recipes/sup-ikan.jpg',
+      calories: '150kkal',
+      time: '25 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'ikan-kuah-kuning',
+      title: 'Ikan Kuah Kuning',
+      desc: 'Ikan segar kuah kuning rempah kunyit dan serai tanpa santan yang sangat menyehatkan.',
+      image: '../images/recipes/ikan-kuah-kuning.jpg',
+      calories: '220kkal',
+      time: '30 Menit',
+      portion: '1 Porsi',
+    },
+  ],
+  toast: [
+    {
+      id: 'avocado-toast',
+      title: 'Avocado Toast',
+      desc: 'Roti gandum utuh dengan alpukat lembut dan poached egg kaya lemak sehat & protein.',
+      image: '../images/recipes/avocado-toast.jpg',
+      calories: '290kkal',
+      time: '15 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'wrap-tuna',
+      title: 'Wrap Tuna',
+      desc: 'Tortilla gandum isi tuna dan selada segar untuk makan siang praktis bernutrisi.',
+      image: '../images/recipes/wrap-tuna.jpg',
+      calories: '270kkal',
+      time: '15 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'berry-smoothie',
+      title: 'Berry Smoothie',
+      desc: 'Minuman smoothie berry segar kaya vitamin C dan antioksidan untuk vitalitas harian.',
+      image: '../images/recipes/berry-smoothie.jpg',
+      calories: '160kkal',
+      time: '10 Menit',
+      portion: '1 Porsi',
+    },
+  ],
+  soup: [
+    {
+      id: 'rawon-sapi',
+      title: 'Rawon Sapi',
+      desc: 'Rawon sapi sehat karena kaya protein, zat besi, dan vitamin yang baik untuk tubuh.',
+      image: '../images/recipes/rawon-sapi.jpg',
+      calories: '119kkal',
+      time: '60 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'sup-ayam',
+      title: 'Sup Ayam',
+      desc: 'Sup ayam kaya protein, vitamin, dan mineral, serta mengandung kuah yang menjaga hidrasi tubuh.',
+      image: '../images/recipes/sup-ayam.jpg',
+      calories: '120kkal',
+      time: '20 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'sup-ikan',
+      title: 'Sup Ikan',
+      desc: 'Sup ikan kaya protein, vitamin, dan mineral, serta mengandung omega 3.',
+      image: '../images/recipes/sup-ikan.jpg',
+      calories: '150kkal',
+      time: '25 Menit',
+      portion: '1 Porsi',
+    },
+  ],
+  default: [
+    {
+      id: 'rawon-sapi',
+      title: 'Rawon Sapi',
+      desc: 'Rawon sapi sehat karena kaya protein, zat besi, dan vitamin yang baik untuk tubuh.',
+      image: '../images/recipes/rawon-sapi.jpg',
+      calories: '119kkal',
+      time: '60 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'sup-ayam',
+      title: 'Sup Ayam',
+      desc: 'Sup ayam kaya protein, vitamin, dan mineral, serta mengandung kuah yang menjaga hidrasi tubuh.',
+      image: '../images/recipes/sup-ayam.jpg',
+      calories: '120kkal',
+      time: '20 Menit',
+      portion: '1 Porsi',
+    },
+    {
+      id: 'sup-ikan',
+      title: 'Sup Ikan',
+      desc: 'Sup ikan kaya protein, vitamin, dan mineral, serta mengandung omega 3.',
+      image: '../images/recipes/sup-ikan.jpg',
+      calories: '150kkal',
+      time: '25 Menit',
+      portion: '1 Porsi',
+    },
+  ],
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.getElementById('food-file-input');
   const dropzone = document.getElementById('scan-dropzone');
@@ -122,7 +270,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusText = document.getElementById('scan-status-text');
   const suggestionsPanel = document.getElementById('scan-panel-suggestions');
   const historyPanel = document.getElementById('scan-panel-history');
-  const loadingOverlay = document.getElementById('scan-loading-overlay');
+  const smartRecSection = document.getElementById('smart-recommendations');
+  const loadingOverlay = document.getElementById('nutrition-loading') || document.getElementById('scan-loading-overlay');
   const loadingStatusText = document.getElementById('scan-loading-status');
   const loadingProgressBar = document.getElementById('scan-loading-bar');
 
@@ -158,6 +307,14 @@ document.addEventListener('DOMContentLoaded', () => {
       historyPanel.hidden = state !== 'result';
       if (state === 'result') {
         historyPanel.classList.add('is-revealed');
+      }
+    }
+    if (smartRecSection) {
+      smartRecSection.hidden = state !== 'result';
+      if (state === 'result') {
+        smartRecSection.classList.add('is-revealed');
+      } else {
+        smartRecSection.classList.remove('is-revealed');
       }
     }
     nutritionPanel.setAttribute('aria-busy', String(state === 'loading'));
@@ -400,6 +557,83 @@ document.addEventListener('DOMContentLoaded', () => {
     if (fillSugar) fillSugar.style.width = `${data.fillSugar}%`;
   };
 
+  const populateSmartRecommendations = (key) => {
+    const grid = document.getElementById('smart-recommendations-grid');
+    const recs = SMART_RECIPE_RECOMMENDATIONS[key] || SMART_RECIPE_RECOMMENDATIONS.default;
+    if (!grid || !recs) return;
+
+    grid.innerHTML = recs
+      .map(
+        (item) => `
+        <article class="smart-rec-card" data-recipe-id="${item.id}">
+          <img
+            class="smart-rec-card__image"
+            src="${item.image}"
+            alt="${item.title}"
+            width="400"
+            height="500"
+            loading="lazy"
+          />
+          <div class="smart-rec-card__overlay" aria-hidden="true"></div>
+
+          <div class="smart-rec-card__top">
+            <button
+              type="button"
+              class="smart-rec-card__bookmark"
+              aria-label="Simpan resep ${item.title}"
+              aria-pressed="false"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true">bookmark</span>
+            </button>
+          </div>
+
+          <div class="smart-rec-card__body">
+            <h3 class="smart-rec-card__title">${item.title}</h3>
+            <p class="smart-rec-card__desc">${item.desc}</p>
+
+            <div class="smart-rec-card__badges">
+              <span class="smart-rec-badge">
+                <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                <span>${item.calories}</span>
+              </span>
+              <span class="smart-rec-badge">
+                <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                <span>${item.time}</span>
+              </span>
+              <span class="smart-rec-badge">
+                <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                <span>${item.portion}</span>
+              </span>
+            </div>
+
+            <a
+              href="resep-galeri.html"
+              class="smart-rec-card__btn smart-rec-card__btn--light"
+            >
+              Lihat Selengkapnya
+            </a>
+          </div>
+        </article>
+      `
+      )
+      .join('');
+
+    bindBookmarkButtons();
+  };
+
+  const bindBookmarkButtons = () => {
+    const bookmarkButtons = document.querySelectorAll('.smart-rec-card__bookmark');
+    bookmarkButtons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isPressed = btn.getAttribute('aria-pressed') === 'true';
+        btn.setAttribute('aria-pressed', String(!isPressed));
+      });
+    });
+  };
+
+  bindBookmarkButtons();
+
   analyzeButton.addEventListener('click', () => {
     if (!currentFile || analysisTimer) return;
 
@@ -469,6 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const activeData = getActiveNutritionData();
       populateNutritionResult(activeData);
       populateSuggestions(foodKey);
+      populateSmartRecommendations(foodKey);
       addHistoryItem(activeData);
       setNutritionState('result');
 

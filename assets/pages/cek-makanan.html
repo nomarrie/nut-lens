@@ -390,7 +390,7 @@
     <!-- Fullscreen AI Analyzing Loading Overlay -->
     <div
       class="nutrition-loading"
-      id="scan-loading-overlay"
+      id="nutrition-loading"
       hidden
       aria-live="assertive"
       role="dialog"
@@ -904,6 +904,184 @@
               </ul>
             </section>
 
+          </div>
+        </div>
+      </section>
+
+      <!-- Smart Recommendations Section (Rekomendasi Cerdas) -->
+      <section
+        class="smart-recommendations"
+        id="smart-recommendations"
+        aria-labelledby="smart-recommendations-title"
+        data-reveal="fade-up"
+        hidden
+      >
+        <div class="smart-recommendations__container">
+          <header class="smart-recommendations__header">
+            <h2 id="smart-recommendations-title" class="smart-recommendations__title">
+              Rekomendasi <span class="smart-recommendations__title-highlight">Cerdas</span>
+            </h2>
+          </header>
+
+          <div class="smart-recommendations__grid" id="smart-recommendations-grid">
+            <!-- Card 1: Rawon Sapi -->
+            <article class="smart-rec-card" data-recipe-id="rawon-sapi">
+              <img
+                class="smart-rec-card__image"
+                src="../images/recipes/rawon-sapi.jpg"
+                alt="Rawon Sapi"
+                width="400"
+                height="500"
+                loading="lazy"
+              />
+              <div class="smart-rec-card__overlay" aria-hidden="true"></div>
+
+              <div class="smart-rec-card__top">
+                <button
+                  type="button"
+                  class="smart-rec-card__bookmark"
+                  aria-label="Simpan resep Rawon Sapi"
+                  aria-pressed="false"
+                >
+                  <span class="material-symbols-outlined" aria-hidden="true">bookmark</span>
+                </button>
+              </div>
+
+              <div class="smart-rec-card__body">
+                <h3 class="smart-rec-card__title">Rawon Sapi</h3>
+                <p class="smart-rec-card__desc">
+                  Rawon sapi sehat karena kaya protein, zat besi, dan vitamin yang baik untuk tubuh.
+                </p>
+
+                <div class="smart-rec-card__badges">
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>119kkal</span>
+                  </span>
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                    <span>60 Menit</span>
+                  </span>
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <a
+                  href="resep-galeri.html"
+                  class="smart-rec-card__btn smart-rec-card__btn--light"
+                >
+                  Lihat Selengkapnya
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 2: Sup Ayam -->
+            <article class="smart-rec-card" data-recipe-id="sup-ayam">
+              <img
+                class="smart-rec-card__image"
+                src="../images/recipes/sup-ayam.jpg"
+                alt="Sup Ayam"
+                width="400"
+                height="500"
+                loading="lazy"
+              />
+              <div class="smart-rec-card__overlay" aria-hidden="true"></div>
+
+              <div class="smart-rec-card__top">
+                <button
+                  type="button"
+                  class="smart-rec-card__bookmark"
+                  aria-label="Simpan resep Sup Ayam"
+                  aria-pressed="false"
+                >
+                  <span class="material-symbols-outlined" aria-hidden="true">bookmark</span>
+                </button>
+              </div>
+
+              <div class="smart-rec-card__body">
+                <h3 class="smart-rec-card__title">Sup Ayam</h3>
+                <p class="smart-rec-card__desc">
+                  Sup ayam kaya protein, vitamin, dan mineral, serta mengandung kuah yang menjaga hidrasi tubuh.
+                </p>
+
+                <div class="smart-rec-card__badges">
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>120kkal</span>
+                  </span>
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                    <span>20 Menit</span>
+                  </span>
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <a
+                  href="resep-galeri.html"
+                  class="smart-rec-card__btn smart-rec-card__btn--light"
+                >
+                  Lihat Selengkapnya
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 3: Sup Ikan -->
+            <article class="smart-rec-card" data-recipe-id="sup-ikan">
+              <img
+                class="smart-rec-card__image"
+                src="../images/recipes/sup-ikan.jpg"
+                alt="Sup Ikan"
+                width="400"
+                height="500"
+                loading="lazy"
+              />
+              <div class="smart-rec-card__overlay" aria-hidden="true"></div>
+
+              <div class="smart-rec-card__top">
+                <button
+                  type="button"
+                  class="smart-rec-card__bookmark"
+                  aria-label="Simpan resep Sup Ikan"
+                  aria-pressed="false"
+                >
+                  <span class="material-symbols-outlined" aria-hidden="true">bookmark</span>
+                </button>
+              </div>
+
+              <div class="smart-rec-card__body">
+                <h3 class="smart-rec-card__title">Sup Ikan</h3>
+                <p class="smart-rec-card__desc">
+                  Sup ikan kaya protein, vitamin, dan mineral, serta mengandung omega 3.
+                </p>
+
+                <div class="smart-rec-card__badges">
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span>150kkal</span>
+                  </span>
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                    <span>25 Menit</span>
+                  </span>
+                  <span class="smart-rec-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                    <span>1 Porsi</span>
+                  </span>
+                </div>
+
+                <a
+                  href="resep-galeri.html"
+                  class="smart-rec-card__btn smart-rec-card__btn--light"
+                >
+                  Lihat Selengkapnya
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
