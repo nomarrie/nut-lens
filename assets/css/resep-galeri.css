@@ -725,9 +725,9 @@
   gap: clamp(var(--space-4), 1.6vw, var(--space-6));
 }
 
-.recipe-grid-spacer {
+/* .recipe-grid-spacer {
   display: block;
-}
+} */
 
 /* --- Promo Banner Card --- */
 
@@ -735,7 +735,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   border-radius: 28px;
   overflow: hidden;
   isolation: isolate;
@@ -745,7 +746,9 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   padding: clamp(var(--space-5), 2.2vw, var(--space-6));
-  aspect-ratio: 1 / 1.06;
+  grid-row: span 2;
+  aspect-ratio: auto;
+  height: 100%;
 }
 
 .recipe-promo-card__bg {
@@ -1114,9 +1117,9 @@
     gap: var(--space-5);
   }
 
-  .recipe-grid-spacer {
+  /* .recipe-grid-spacer {
     display: none;
-  }
+  } */
 
   /* Disable transform scale on all images on mobile / tablet */
   .recipe-spotlight__image,
