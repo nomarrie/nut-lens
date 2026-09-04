@@ -980,6 +980,7 @@
   margin-top: var(--space-1);
   background-color: var(--color-white);
   color: #181c12;
+  text-decoration: none;
   transition:
     transform var(--transition-base);
 }
