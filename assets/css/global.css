@@ -353,12 +353,14 @@ a {
   font-weight: inherit;
   text-align: left;
   cursor: pointer;
+  transition: color var(--transition-base);
 }
 
 .navbar__services-toggle .material-symbols-outlined {
   color: currentColor;
   font-size: var(--font-size-lg);
   transform: translateX(-4px) translateY(2px);
+  transition: transform var(--transition-base);
 }
 
 .navbar__services-toggle[aria-expanded="true"] .material-symbols-outlined {
@@ -366,6 +368,7 @@ a {
 }
 
 .navbar__submenu {
+  --services-dropdown-duration: 200ms;
   position: absolute;
   z-index: var(--z-index-dropdown);
   top: 100%;
@@ -381,6 +384,22 @@ a {
   background-color: var(--color-surface-container-lowest);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(calc(var(--space-2) * -1));
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--services-dropdown-duration) ease,
+    transform var(--services-dropdown-duration) cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear var(--services-dropdown-duration);
+}
+
+.navbar__submenu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
 .navbar__submenu[hidden] {
@@ -397,14 +416,19 @@ a {
   padding: var(--space-3);
   border-radius: var(--radius-xl);
   text-decoration: none;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .navbar__submenu a::after {
   display: none;
 }
 
-.navbar__submenu a:hover {
+.navbar__submenu a:is(:hover, :focus-visible) {
   background-color: var(--color-gray-100);
+  transform: translateY(-1px);
 }
 
 .navbar__submenu-icon {
@@ -908,6 +932,10 @@ body.is-mobile-nav-open {
 
 @media (prefers-reduced-motion: reduce) {
 
+  .navbar__services-toggle,
+  .navbar__services-toggle .material-symbols-outlined,
+  .navbar__submenu,
+  .navbar__submenu a,
   .navbar__profile-panel,
   .navbar__profile-chevron,
   .navbar__profile-action,
