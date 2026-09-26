@@ -1241,6 +1241,11 @@
 .solution__panel {
   grid-area: 1 / 1;
   min-width: 0;
+  padding: var(--space-2);
+  overflow: hidden;
+  background-color: var(--color-surface-container-lowest);
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-md);
   opacity: 0;
   visibility: hidden;
   transform: translateY(var(--space-2));
@@ -1258,11 +1263,11 @@
 
 .solution__media {
   width: 100%;
-  max-width: 33rem;
+  max-width: none;
   margin: 0;
   overflow: hidden;
   aspect-ratio: 528 / 328;
-  border-radius: var(--radius-3xl);
+  border-radius: calc(var(--radius-3xl) - var(--space-2));
 }
 
 .solution__image {
@@ -1274,7 +1279,7 @@
 }
 
 .solution__panel-title {
-  margin: var(--space-6) 0 0;
+  margin: var(--space-8) var(--space-4) 0;
   color: var(--color-black);
   font-size: var(--font-size-xl);
   font-weight: 500;
@@ -1283,7 +1288,7 @@
 
 .solution__description {
   max-width: 54ch;
-  margin: var(--space-1) 0 0;
+  margin: var(--space-1) var(--space-4) var(--space-4);
   color: var(--color-on-surface-variant);
   font-size: var(--font-size-body-md);
   line-height: var(--line-height-body-md);
