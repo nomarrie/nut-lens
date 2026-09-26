@@ -301,9 +301,10 @@ a {
   text-decoration: none;
 }
 
-.navbar__menu a {
+.navbar__menu>li>a {
   position: relative;
   color: var(--color-gray-700);
+  transition: color var(--transition-base);
 }
 
 .navbar__menu a,
@@ -315,19 +316,20 @@ a {
   line-height: var(--line-height-label);
 }
 
-.navbar__menu a:hover,
-.navbar__services-toggle:hover,
+.navbar__menu>li>a:is(:hover, :focus-visible),
+.navbar__services-toggle:is(:hover, :focus-visible),
 .back-link:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-primary);
 }
 
-.navbar__menu a.is-active,
-.navbar__services-toggle.is-active {
+.navbar__menu>li>a.is-active,
+.navbar__services-toggle.is-active,
+.navbar__services-toggle[aria-expanded="true"] {
   position: relative;
-  color: var(--color-black);
+  color: var(--color-primary);
 }
 
-.navbar__menu a.is-active::after {
+.navbar__menu>li>a::after {
   position: absolute;
   right: 0;
   bottom: var(--space-1);
@@ -336,6 +338,12 @@ a {
   border-radius: var(--radius-sm);
   background-color: var(--color-primary);
   content: '';
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path var(--transition-base);
+}
+
+.navbar__menu>li>a:is(:hover, :focus-visible, .is-active)::after {
+  clip-path: inset(0 0 0 0);
 }
 
 .navbar__services {
@@ -933,6 +941,7 @@ body.is-mobile-nav-open {
 @media (prefers-reduced-motion: reduce) {
 
   .navbar__services-toggle,
+  .navbar__menu>li>a::after,
   .navbar__services-toggle .material-symbols-outlined,
   .navbar__submenu,
   .navbar__submenu a,
