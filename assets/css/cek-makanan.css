@@ -138,6 +138,7 @@
   background-color: var(--color-surface-container-high);
   border-radius: var(--radius-full);
   font-size: var(--font-size-sm);
+  font-weight: 500;
   line-height: var(--line-height-label);
 }
 
@@ -581,7 +582,6 @@
   color: var(--color-primary);
   background-color: #ffffff;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(31, 33, 24, 0.06);
   transition: transform var(--transition-base);
 }
 

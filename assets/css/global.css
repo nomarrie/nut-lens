@@ -273,7 +273,7 @@ a {
   margin: 0 auto;
   padding: 0 var(--space-8);
   background-color: var(--color-surface-container-lowest);
-  background-color: color-mix(in srgb, var(--color-white) 48%, transparent);
+  background-color: color-mix(in srgb, var(--color-white) 80%, transparent);
   border-radius: var(--radius-full);
   -webkit-backdrop-filter: blur(var(--navbar-backdrop-blur));
   backdrop-filter: blur(var(--navbar-backdrop-blur));
@@ -292,7 +292,7 @@ a {
   justify-self: start;
   gap: var(--space-6);
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .navbar__menu a,
