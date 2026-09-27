@@ -3,16 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Pantau progres kebiasaan sehat, koleksi pencapaian, dan ikuti tantangan baru bersama NutLens." />
     <title>Challenge Sehat | NutLens</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;family=Outfit:wght@100..900&amp;display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="../css/global.css?v=2" />
+    <link rel="stylesheet" href="../css/chat-widget.css" />
+    <link rel="stylesheet" href="../css/feature-pages.css" />
+    <link rel="stylesheet" href="../css/challenge-sehat.css" />
     <script type="module" src="../js/navbar.mjs?v=2"></script>
     <script type="module" src="../js/profile-dropdown.mjs"></script>
     <script type="module" src="../js/mobile-navigation.mjs"></script>
+    <script type="module" src="../js/chat-widget.mjs?v=6"></script>
+    <script type="module" src="../js/challenge-sehat.mjs"></script>
   </head>
-  <body>
+  <body class="feature-page">
     <a class="visually-hidden" href="#main-content">Lewati ke konten utama</a>
 
     <nav class="nutlens-navbar" aria-label="Navigasi utama" data-mobile-navigation>
@@ -92,10 +99,82 @@
       </div>
     </nav>
 
-    <main id="main-content" class="page-shell placeholder-page">
-      <a class="back-link" href="../../index.html">Kembali ke beranda</a>
-      <h1>Challenge Sehat</h1>
-      <p>Program tantangan kebiasaan sehat sedang disiapkan.</p>
+    <main id="main-content" class="feature-main">
+      <section class="challenge-hero" aria-labelledby="challenge-hero-title">
+        <img class="challenge-hero__image" src="../images/challenge/hero.webp" alt="Dua orang berjalan pagi di taman hijau" width="1920" height="596" fetchpriority="high" />
+        <div class="challenge-hero__content">
+          <span class="challenge-hero__badge"><span class="material-symbols-outlined" aria-hidden="true">trophy</span>Tantangan Mingguan</span>
+          <h1 id="challenge-hero-title" class="challenge-hero__title">Mulai Tantangan Sehat</h1>
+          <p class="challenge-hero__copy">Ubah rutinitas harian menjadi kebiasaan positif. Pilih tantangan sesuai tujuan kesehatanmu dan mulai hari ini.</p>
+        </div>
+      </section>
+
+      <section class="challenge-dashboard" aria-label="Ringkasan tantangan sehat">
+        <div class="challenge-dashboard__column">
+          <article class="challenge-panel">
+            <div class="challenge-panel__heading"><h2>Koleksi Pencapaian</h2><span class="challenge-panel__count">2/6 Terbuka</span></div>
+            <div class="achievement-list">
+              <div class="achievement"><span class="achievement__icon"><span class="material-symbols-outlined">social_leaderboard</span></span><strong>Memulai Hidup Sehat</strong></div>
+              <div class="achievement"><span class="achievement__icon"><span class="material-symbols-outlined">local_fire_department</span></span><strong>Pejuang Runtunan</strong></div>
+              <div class="achievement achievement--locked"><span class="achievement__icon"><span class="material-symbols-outlined">water_drop</span></span><span>Pengendali Air</span></div>
+              <div class="achievement achievement--locked"><span class="achievement__icon"><span class="material-symbols-outlined">cookie</span></span><span>Pahlawan Tanpa Gula</span></div>
+              <div class="achievement achievement--locked"><span class="achievement__icon"><span class="material-symbols-outlined">self_improvement</span></span><span>Pengendali Pikiran</span></div>
+              <div class="achievement achievement--locked"><span class="achievement__icon"><span class="material-symbols-outlined">exercise</span></span><span>Hidup Olahraga</span></div>
+            </div>
+          </article>
+
+          <article class="challenge-panel">
+            <div class="challenge-panel__heading"><h2>Tantangan Aktif</h2><span class="challenge-panel__count" data-active-count>3 Berlangsung</span></div>
+            <div class="active-challenges" data-active-challenges>
+              <div class="active-challenge" data-active-challenge>
+                <span class="active-challenge__progress-ring" style="--progress:60%" data-progress="60%"></span>
+                <div class="active-challenge__content"><h3>7 Hari Tanpa Makanan Manis</h3><p>Target: 7/7 Hari &nbsp; • &nbsp; Sekarang: 4 Hari</p></div>
+                <div class="active-challenge__actions"><span class="challenge-streak">Runtunan 4 Hari</span><button class="challenge-complete" type="button" data-complete-challenge>Selesaikan Hari Ini</button></div>
+              </div>
+              <div class="active-challenge" data-active-challenge>
+                <span class="active-challenge__icon"><span class="material-symbols-outlined">water_full</span></span>
+                <div class="active-challenge__content"><h3>Minum Air 2 Liter</h3><p>Status: 1.2L / 2.0L Hari Ini</p><div class="challenge-progress" style="--progress:60%"><span></span></div></div>
+                <div class="active-challenge__actions"><span class="challenge-panel__count">60% Selesai</span></div>
+              </div>
+              <div class="active-challenge" data-active-challenge>
+                <span class="active-challenge__icon"><span class="material-symbols-outlined">steps</span></span>
+                <div class="active-challenge__content"><h3>9000 Langkah</h3><p>Langkah Hari Ini: 7.932 / 9.000</p><div class="challenge-progress" style="--progress:80%"><span></span></div></div>
+                <div class="active-challenge__actions"><span class="challenge-streak">Runtunan 9 Hari</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="challenge-dashboard__column">
+          <article class="challenge-panel">
+            <div class="challenge-panel__heading"><h2>Ringkasan Mingguan</h2></div>
+            <div class="weekly-bars" aria-label="Aktivitas mingguan"><span class="weekly-bar" style="--bar-height:52%;--bar-color:#5f7f3c">Sen</span><span class="weekly-bar" style="--bar-height:43%;--bar-color:#5f7f3c">Sel</span><span class="weekly-bar" style="--bar-height:62%;--bar-color:#5f7f3c">Rab</span><span class="weekly-bar" style="--bar-height:82%;--bar-color:#5f7f3c">Kam</span><span class="weekly-bar" style="--bar-height:58%;--bar-color:#ddeb9d">Jum</span><span class="weekly-bar" style="--bar-height:55%;--bar-color:#ddeb9d">Sab</span><span class="weekly-bar" style="--bar-height:72%;--bar-color:#ddeb9d">Min</span></div>
+            <div class="weekly-score"><strong>Skor Minggu Ini</strong><span>Menakjubkan! Kamu sangat aktif dibandingkan 80% pengguna lain minggu ini.</span></div>
+          </article>
+          <article class="challenge-panel">
+            <div class="challenge-panel__heading"><h2>Papan Peringkat</h2></div>
+            <ol class="leaderboard">
+              <li class="leaderboard__item"><strong>1</strong><img src="../images/challenge/leader-1.webp" alt="" width="128" height="128" /><div><strong>Denny Pramana</strong><span>1.750 XP</span></div></li>
+              <li class="leaderboard__item"><strong>2</strong><img src="../images/challenge/leader-2.webp" alt="" width="128" height="128" /><div><strong>Kenzo Wirawan</strong><span>1.400 XP</span></div></li>
+              <li class="leaderboard__item"><strong>3</strong><img src="../images/challenge/leader-3.webp" alt="" width="128" height="128" /><div><strong>Abel Carolina</strong><span>1.150 XP</span></div></li>
+              <li class="leaderboard__item"><strong>4</strong><img src="../images/challenge/leader-4.webp" alt="" width="128" height="128" /><div><strong>Ricky Pradika</strong><span>900 XP</span></div></li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="challenge-catalog" aria-labelledby="challenge-catalog-title">
+        <h2 id="challenge-catalog-title" class="feature-section-title">Katalog Tantangan Baru</h2><p class="feature-section-copy">Pilih tantangan baru untuk membuat hidup sehatmu menjadi lebih seru.</p>
+        <div class="challenge-catalog__grid">
+          <article class="catalog-card"><div class="catalog-card__media"><img src="../images/challenge/fruit.webp" alt="Aneka buah segar" width="600" height="448" loading="lazy" /><span class="catalog-card__category">Nutrisi</span></div><div class="catalog-card__content"><h3>Makan Buah 2 Porsi</h3><p>Tambahkan setidaknya 2 porsi buah-buahan ke dalam makanan harianmu.</p><div class="catalog-card__footer"><span class="catalog-card__xp">+150 XP</span><button class="catalog-card__join" type="button" aria-pressed="false">Ikuti</button></div></div></article>
+          <article class="catalog-card"><div class="catalog-card__media"><img src="../images/challenge/basketball.webp" alt="Berolahraga di lapangan" width="600" height="448" loading="lazy" /><span class="catalog-card__category">Gaya Hidup</span></div><div class="catalog-card__content"><h3>Olahraga 15 Menit</h3><p>Luangkan waktu sejenak untuk berolahraga agar tetap sehat dan bugar.</p><div class="catalog-card__footer"><span class="catalog-card__xp">+200 XP</span><button class="catalog-card__join" type="button" aria-pressed="false">Ikuti</button></div></div></article>
+          <article class="catalog-card"><div class="catalog-card__media"><img src="../images/challenge/sleep.webp" alt="Kamar tidur yang tenang" width="600" height="448" loading="lazy" /><span class="catalog-card__category">Gaya Hidup</span></div><div class="catalog-card__content"><h3>Tidur Cukup 8 Jam</h3><p>Dapatkan istirahat yang berkualitas setidaknya 8 jam setiap malam.</p><div class="catalog-card__footer"><span class="catalog-card__xp">+250 XP</span><button class="catalog-card__join" type="button" aria-pressed="false">Ikuti</button></div></div></article>
+          <article class="catalog-card"><div class="catalog-card__media"><img src="../images/challenge/salad.webp" alt="Salad sehat" width="600" height="448" loading="lazy" /><span class="catalog-card__category">Nutrisi</span></div><div class="catalog-card__content"><h3>Makan Salad 3× Seminggu</h3><p>Makan salad 3 kali seminggu selama 4 minggu untuk menjaga kesehatan tubuh.</p><div class="catalog-card__footer"><span class="catalog-card__xp">+150 XP</span><button class="catalog-card__join" type="button" aria-pressed="false">Ikuti</button></div></div></article>
+          <article class="catalog-card"><div class="catalog-card__media"><img src="../images/challenge/meditation.webp" alt="Meditasi di taman" width="600" height="448" loading="lazy" /><span class="catalog-card__category">Mental</span></div><div class="catalog-card__content"><h3>Meditasi 10 Menit</h3><p>Luangkan waktu sejenak untuk menenangkan pikiran dan fokus.</p><div class="catalog-card__footer"><span class="catalog-card__xp">+100 XP</span><button class="catalog-card__join" type="button" aria-pressed="false">Ikuti</button></div></div></article>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer"><div class="site-footer__container"><div class="site-footer__main"><div><a class="site-footer__brand-link" href="../../index.html"><span class="material-symbols-outlined" aria-hidden="true">nutrition</span><span>NutLens</span></a><p class="site-footer__description">Membantu kamu memahami kandungan makanan dan membuat pilihan yang lebih sehat dengan cara yang sederhana.</p><div class="site-footer__socials" aria-label="Media sosial NutLens"><a class="site-footer__social-link" aria-label="Facebook" aria-disabled="true"><i class="bi bi-facebook" aria-hidden="true"></i></a><a class="site-footer__social-link" aria-label="Twitter" aria-disabled="true"><i class="bi bi-twitter-x" aria-hidden="true"></i></a><a class="site-footer__social-link" aria-label="YouTube" aria-disabled="true"><i class="bi bi-youtube" aria-hidden="true"></i></a><a class="site-footer__social-link" aria-label="Instagram" aria-disabled="true"><i class="bi bi-instagram" aria-hidden="true"></i></a></div></div><div class="site-footer__navigation"><section><h2 class="site-footer__nav-title">Navigasi</h2><ul class="site-footer__nav-list"><li><a class="site-footer__link" href="../../index.html">Beranda</a></li><li><a class="site-footer__link" href="cek-makanan.html">Cek Makanan</a></li><li><a class="site-footer__link" href="buat-resep.html">Kecocokan Makanan</a></li><li><a class="site-footer__link" href="resep-galeri.html">Galeri Resep</a></li><li><a class="site-footer__link" href="challenge-sehat.html" aria-current="page">Tips Kesehatan</a></li></ul></section><section><h2 class="site-footer__nav-title">Dukungan</h2><ul class="site-footer__nav-list"><li><a class="site-footer__link" href="../../index.html#about-title">Tentang Kami</a></li><li><a class="site-footer__link" href="../../index.html#faq-title">FAQ</a></li><li><span class="site-footer__link" aria-disabled="true">Hubungi Kami</span></li><li><span class="site-footer__link" aria-disabled="true">Kebijakan Privasi</span></li><li><span class="site-footer__link" aria-disabled="true">Syarat &amp; Ketentuan</span></li></ul></section><section><h2 class="site-footer__nav-title">Sumber Informasi</h2><ul class="site-footer__nav-list"><li><a class="site-footer__link" href="artikel.html">Panduan Nutrisi</a></li><li><a class="site-footer__link" href="artikel.html">Artikel Kesehatan</a></li><li><a class="site-footer__link" href="resep-galeri.html">Tips Memasak</a></li><li><a class="site-footer__link" href="challenge-sehat.html">Tips Gaya Hidup</a></li></ul></section></div></div><div class="site-footer__divider"></div><div class="site-footer__bottom"><p>© 2026 NutLens. Semua hak dilindungi.</p><p>Desain oleh Programmer Penipu</p></div></div></footer>
   </body>
 </html>
