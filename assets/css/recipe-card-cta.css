@@ -1,0 +1,48 @@
+.recipe-overlay-card__btn,
+.ingredient-recipe-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.35rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: var(--space-1);
+  background-color: var(--color-white);
+  color: #181c12;
+  text-decoration: none;
+  transition: transform var(--transition-base);
+}
+
+.recipe-overlay-card__btn:hover,
+.ingredient-recipe-card__link:hover {
+  transform: translateY(-2px);
+}
+
+.recipe-overlay-card__btn:focus-visible,
+.ingredient-recipe-card__link:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 40rem) {
+  .recipe-overlay-card__btn,
+  .ingredient-recipe-card__link {
+    min-height: 2.65rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recipe-overlay-card__btn,
+  .ingredient-recipe-card__link {
+    transition: none !important;
+    transform: none !important;
+  }
+}

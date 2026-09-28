@@ -55,9 +55,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="assets/css/global.css" />
-    <link rel="stylesheet" href="assets/css/landing-page.css" />
-    <script type="module" src="assets/js/navbar.mjs"></script>
+    <link rel="stylesheet" href="assets/css/global.css?v=2" />
+    <link rel="stylesheet" href="assets/css/landing-page.css?v=5" />
+    <link rel="stylesheet" href="assets/css/chat-widget.css" />
+    <script type="module" src="assets/js/navbar.mjs?v=2"></script>
     <script type="module" src="assets/js/profile-dropdown.mjs"></script>
     <script type="module" src="assets/js/mobile-navigation.mjs"></script>
     <script type="module" src="assets/js/hero-intro.mjs"></script>
@@ -66,6 +67,7 @@
     <script type="module" src="assets/js/how-it-works.mjs"></script>
     <script type="module" src="assets/js/testimonial.mjs"></script>
     <script type="module" src="assets/js/faq.mjs"></script>
+    <script type="module" src="assets/js/chat-widget.mjs?v=6"></script>
   </head>
   <body>
     <nav
@@ -507,16 +509,17 @@
             <div class="hero__image-motion">
               <img
                 class="hero__image"
-                src="assets/images/hero/kiri luar.webp"
+                src="assets/images/hero/optimized/kiri-luar-336.webp"
                 srcset="
-                  assets/images/hero/kiri luar.webp 168w,
-                  assets/images/hero/kiri luar.webp 336w
+                  assets/images/hero/optimized/kiri-luar-168.webp 168w,
+                  assets/images/hero/optimized/kiri-luar-336.webp 336w
                 "
                 sizes="(max-width: 46rem) 18vw, 10.5rem"
                 alt=""
                 width="168"
                 height="272"
                 fetchpriority="low"
+                decoding="async"
               />
             </div>
           </div>
@@ -526,16 +529,17 @@
             <div class="hero__image-motion">
               <img
                 class="hero__image"
-                src="assets/images/hero/kiri.webp"
+                src="assets/images/hero/optimized/kiri-336.webp"
                 srcset="
-                  assets/images/hero/kiri.webp 168w,
-                  assets/images/hero/kiri.webp 336w
+                  assets/images/hero/optimized/kiri-168.webp 168w,
+                  assets/images/hero/optimized/kiri-336.webp 336w
                 "
                 sizes="(max-width: 46rem) 18vw, 10.5rem"
                 alt=""
                 width="168"
                 height="272"
                 fetchpriority="low"
+                decoding="async"
               />
             </div>
           </div>
@@ -543,16 +547,17 @@
             <div class="hero__image-motion">
               <img
                 class="hero__image"
-                src="assets/images/hero/tengah.webp"
+                src="assets/images/hero/optimized/tengah-1088.webp"
                 srcset="
-                  assets/images/hero/tengah.webp 544w,
-                  assets/images/hero/tengah.webp 1088w
+                  assets/images/hero/optimized/tengah-544.webp 544w,
+                  assets/images/hero/optimized/tengah-1088.webp 1088w
                 "
                 sizes="(max-width: 46rem) 24vw, min(37.778vw, 34rem)"
                 alt="Sekelompok orang menikmati makanan sehat bersama di meja makan"
                 width="544"
                 height="240"
                 fetchpriority="high"
+                decoding="async"
               />
             </div>
           </div>
@@ -562,16 +567,17 @@
             <div class="hero__image-motion">
               <img
                 class="hero__image"
-                src="assets/images/hero/kanan.webp"
+                src="assets/images/hero/optimized/kanan-336.webp"
                 srcset="
-                  assets/images/hero/kanan.webp 168w,
-                  assets/images/hero/kanan.webp 336w
+                  assets/images/hero/optimized/kanan-168.webp 168w,
+                  assets/images/hero/optimized/kanan-336.webp 336w
                 "
                 sizes="(max-width: 46rem) 18vw, 10.5rem"
                 alt=""
                 width="168"
                 height="272"
                 fetchpriority="low"
+                decoding="async"
               />
             </div>
           </div>
@@ -579,16 +585,17 @@
             <div class="hero__image-motion">
               <img
                 class="hero__image"
-                src="assets/images/hero/kanan luar.webp"
+                src="assets/images/hero/optimized/kanan-luar-336.webp"
                 srcset="
-                  assets/images/hero/kanan luar.webp 168w,
-                  assets/images/hero/kanan luar.webp 336w
+                  assets/images/hero/optimized/kanan-luar-168.webp 168w,
+                  assets/images/hero/optimized/kanan-luar-336.webp 336w
                 "
                 sizes="(max-width: 46rem) 18vw, 10.5rem"
                 alt=""
                 width="168"
                 height="272"
                 fetchpriority="low"
+                decoding="async"
               />
             </div>
           </div>
@@ -622,7 +629,7 @@
             >
               <img
                 class="problems__image"
-                src="assets/images/problem/Foto junk food.webp"
+                src="assets/images/problem/permasalahan.webp"
                 alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                 width="608"
                 height="432"
@@ -810,12 +817,10 @@
               aria-labelledby="solution-tab-kenali"
               aria-hidden="false"
               data-solution-panel="kenali"
+              data-reveal="slide-left"
+              data-reveal-delay="100"
             >
-              <figure
-                class="solution__media"
-                data-reveal="slide-left"
-                data-reveal-delay="100"
-              >
+              <figure class="solution__media">
                 <img
                   class="solution__image"
                   src="assets/images/solution/kenali.webp"
@@ -840,15 +845,13 @@
               aria-labelledby="solution-tab-analisis"
               aria-hidden="true"
               data-solution-panel="analisis"
+              data-reveal="slide-left"
+              data-reveal-delay="100"
             >
-              <figure
-                class="solution__media"
-                data-reveal="slide-left"
-                data-reveal-delay="100"
-              >
+              <figure class="solution__media">
                 <img
                   class="solution__image"
-                  src="assets/images/solution/analisis 2.webp"
+                  src="assets/images/solution/analisis.webp"
                   alt="Aneka makanan bergizi di meja dengan pemandangan perbukitan hijau"
                   width="528"
                   height="328"
@@ -870,12 +873,10 @@
               aria-labelledby="solution-tab-pilih"
               aria-hidden="true"
               data-solution-panel="pilih"
+              data-reveal="slide-left"
+              data-reveal-delay="100"
             >
-              <figure
-                class="solution__media"
-                data-reveal="slide-left"
-                data-reveal-delay="100"
-              >
+              <figure class="solution__media">
                 <img
                   class="solution__image"
                   src="assets/images/solution/pilih.webp"
@@ -900,12 +901,10 @@
               aria-labelledby="solution-tab-biasakan"
               aria-hidden="true"
               data-solution-panel="biasakan"
+              data-reveal="slide-left"
+              data-reveal-delay="100"
             >
-              <figure
-                class="solution__media"
-                data-reveal="slide-left"
-                data-reveal-delay="100"
-              >
+              <figure class="solution__media">
                 <img
                   class="solution__image"
                   src="assets/images/solution/biasakan.webp"
@@ -1163,7 +1162,7 @@
               data-testimonial-slot="active"
             >
               <img
-                src="assets/images/testimonial/Kakak Putri.webp"
+                src="assets/images/testimonial/putri.webp"
                 alt="Alya menikmati makanan sehat di meja makan"
                 width="1632"
                 height="2624"
@@ -1183,7 +1182,7 @@
               data-testimonial-slot="next"
             >
               <img
-                src="assets/images/testimonial/Mas Bima (1).webp"
+                src="assets/images/testimonial/mahasiswa.webp"
                 alt="Bima menyiapkan makanan panggang di halaman rumah"
                 width="1632"
                 height="2624"
@@ -1205,7 +1204,7 @@
               data-testimonial-slot="hidden-before"
             >
               <img
-                src="assets/images/testimonial/Bu Maya.webp"
+                src="assets/images/testimonial/bu maya.webp"
                 alt="Maya membawa hasil panen sayuran segar dari kebun"
                 width="336"
                 height="544"
@@ -1225,7 +1224,7 @@
               data-testimonial-slot="previous"
             >
               <img
-                src="assets/images/testimonial/Bang Raka.webp"
+                src="assets/images/testimonial/ceo.webp"
                 alt="Raka menikmati salad saat beristirahat di pegunungan"
                 width="336"
                 height="544"
@@ -1298,7 +1297,7 @@
             <figure class="about__figure about__figure--top">
               <img
                 class="about__image"
-                src="assets/images/about-us/atas about us.webp"
+                src="assets/images/about-us/tentang kami 1.webp"
                 alt=""
                 width="352"
                 height="216"
@@ -1310,7 +1309,7 @@
             <figure class="about__figure about__figure--main">
               <img
                 class="about__image"
-                src="assets/images/about-us/Tengah about us.webp"
+                src="assets/images/about-us/tentang kami 2.webp"
                 alt="Pemandangan perbukitan hijau dengan aneka makanan bergizi di atas meja"
                 width="472"
                 height="456"
@@ -1322,7 +1321,7 @@
             <figure class="about__figure about__figure--bottom">
               <img
                 class="about__image"
-                src="assets/images/about-us/bawah about us.webp"
+                src="assets/images/about-us/tentang kami 3.webp"
                 alt=""
                 width="276"
                 height="228"
@@ -1419,10 +1418,91 @@
         </div>
       </section>
 
+      <section class="partners" aria-labelledby="partners-title">
+        <div class="partners__header">
+          <div class="partners__summary" data-reveal="fade-up">
+            <h2 id="partners-title" class="partners__title">
+              100+ Mitra Telah Memilih Kami.
+            </h2>
+
+            <div class="partners__trust" aria-label="Rating mitra 4,9 dari 10 ribu penilaian">
+              <div class="partners__avatars" aria-hidden="true">
+                <img src="assets/images/testimonial/ceo.webp" alt="" width="52" height="52" loading="lazy" decoding="async" />
+                <img src="assets/images/testimonial/putri.webp" alt="" width="52" height="52" loading="lazy" decoding="async" />
+                <img src="assets/images/testimonial/mahasiswa.webp" alt="" width="52" height="52" loading="lazy" decoding="async" />
+                <span class="partners__avatar-more"></span>
+              </div>
+              <div class="partners__rating">
+                <strong>10k rating</strong>
+                <span>(4.9)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="partners__brandmark" aria-hidden="true" data-reveal="fade-up" data-reveal-delay="100">
+            <span class="material-symbols-outlined">nutrition</span>
+          </div>
+
+          <div class="partners__invitation" data-reveal="fade-up" data-reveal-delay="200">
+            <p>
+              NutLens adalah partner kesehatan terpercaya yang menghadirkan
+              informasi nutrisi dan kesehatan yang akurat, mudah dipahami, dan
+              relevan untuk mendukung gaya hidup sehat masyarakat Indonesia.
+            </p>
+            <button
+              class="hero__cta hero__cta--primary hero__cta--text-swap partners__cta"
+              type="button"
+            >
+              <span class="hero__cta-label hero__cta-label--current">Gabung Sebagai Mitra</span>
+              <span
+                class="hero__cta-label hero__cta-label--replacement"
+                aria-hidden="true"
+              >Gabung Sebagai Mitra</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="partners__marquee" aria-label="Mitra kesehatan NutLens" data-reveal="fade-up" data-reveal-delay="300">
+          <div class="partners__track">
+            <div class="partners__logo-set">
+              <div class="partners__logo">
+                <img src="assets/images/partners/bgn.png" alt="Badan Gizi Nasional" width="1762" height="742" loading="lazy" decoding="async" />
+              </div>
+              <div class="partners__logo">
+                <img src="assets/images/partners/kemenkes.png" alt="Kementerian Kesehatan Republik Indonesia" width="3508" height="2481" loading="lazy" decoding="async" />
+              </div>
+              <div class="partners__logo">
+                <img src="assets/images/partners/bpom.png" alt="Badan Pengawas Obat dan Makanan" width="2000" height="1738" loading="lazy" decoding="async" />
+              </div>
+              <div class="partners__logo">
+                <img src="assets/images/partners/persagi.png" alt="Persatuan Ahli Gizi Indonesia" width="500" height="500" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="partners__logo-set" aria-hidden="true">
+              <div class="partners__logo"><img src="assets/images/partners/bgn.png" alt="" width="1762" height="742" loading="lazy" decoding="async" /></div>
+              <div class="partners__logo"><img src="assets/images/partners/kemenkes.png" alt="" width="3508" height="2481" loading="lazy" decoding="async" /></div>
+              <div class="partners__logo"><img src="assets/images/partners/bpom.png" alt="" width="2000" height="1738" loading="lazy" decoding="async" /></div>
+              <div class="partners__logo"><img src="assets/images/partners/persagi.png" alt="" width="500" height="500" loading="lazy" decoding="async" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="faq-cta" aria-label="Informasi dan pertanyaan NutLens">
         <div class="faq-cta__container">
           <div class="faq-cta__layout">
             <article class="final-cta" aria-labelledby="final-cta-title">
+              <img
+                class="final-cta__background"
+                src="assets/images/cta/cta.webp"
+                alt=""
+                width="1600"
+                height="893"
+                loading="lazy"
+                decoding="async"
+                aria-hidden="true"
+              />
               <div class="final-cta__content" data-reveal="fade-up">
                 <h2 id="final-cta-title" class="final-cta__title">
                   <span class="final-cta__title-line">
@@ -1903,5 +1983,140 @@
         </div>
       </div>
     </footer>
+
+    <div class="chat-widget" data-chat-widget>
+      <section
+        class="chat-widget__panel"
+        id="nutlens-chat-panel"
+        role="dialog"
+        aria-modal="false"
+        aria-hidden="true"
+        aria-labelledby="nutlens-chat-title"
+        inert
+        data-chat-panel
+      >
+        <header class="chat-widget__header">
+          <div class="chat-widget__avatar" aria-hidden="true">
+            <span class="material-symbols-outlined">offline_bolt</span>
+          </div>
+
+          <div class="chat-widget__header-copy">
+            <h2 class="chat-widget__title" id="nutlens-chat-title">
+              Teman NutLens
+            </h2>
+            <p class="chat-widget__status">Respons lokal tanpa AI</p>
+          </div>
+
+          <button
+            class="chat-widget__close"
+            type="button"
+            aria-label="Tutup Teman NutLens"
+            data-chat-close
+          >
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >close</span
+            >
+          </button>
+        </header>
+
+        <div
+          class="chat-widget__messages"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          tabindex="0"
+          data-chat-messages
+        >
+          <article class="chat-widget__message chat-widget__message--bot">
+            <span class="chat-widget__message-avatar" aria-hidden="true">
+              <span class="material-symbols-outlined">offline_bolt</span>
+            </span>
+            <div class="chat-widget__bubble">
+              <p>
+                Halo, aku bisa membantu menjelaskan fitur NutLens dan informasi
+                nutrisi umum yang sudah disiapkan.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <footer class="chat-widget__footer">
+          <p class="chat-widget__safety">
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >verified_user</span
+            >
+            Informasi umum, bukan diagnosis medis.
+          </p>
+
+          <div
+            class="chat-widget__suggestions"
+            aria-label="Saran pertanyaan"
+            data-chat-suggestions
+          ></div>
+
+          <p class="chat-widget__allowance">Jawaban lokal berbasis kata kunci</p>
+
+          <form class="chat-widget__form" data-chat-form>
+            <label class="visually-hidden" for="nutlens-chat-input">
+              Tulis pertanyaan untuk Teman NutLens
+            </label>
+            <input
+              class="chat-widget__input"
+              id="nutlens-chat-input"
+              type="text"
+              name="message"
+              maxlength="180"
+              autocomplete="off"
+              placeholder="Tulis pertanyaanmu"
+              aria-describedby="nutlens-chat-note"
+              required
+              data-chat-input
+            />
+            <button
+              class="chat-widget__submit"
+              type="submit"
+              aria-label="Kirim pesan"
+              disabled
+              data-chat-submit
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >send</span
+              >
+            </button>
+          </form>
+          <p class="visually-hidden" id="nutlens-chat-note">
+            Jawaban dipilih dari topik yang telah disiapkan dan tidak dikirim
+            ke layanan AI.
+          </p>
+        </footer>
+      </section>
+
+      <button
+        class="chat-widget__launcher"
+        type="button"
+        aria-label="Buka Teman NutLens"
+        aria-expanded="false"
+        aria-controls="nutlens-chat-panel"
+        data-chat-launcher
+      >
+        <span class="chat-widget__launcher-label">
+          Ada yang bisa dibantu? <span aria-hidden="true">👋</span>
+        </span>
+        <span class="chat-widget__robot-stage" data-chat-robot-stage>
+          <img
+            class="chat-widget__launcher-image"
+            src="assets/images/chat/robot-fallback.png?v=2"
+            alt=""
+            width="512"
+            height="512"
+          />
+          <canvas
+            class="chat-widget__robot-canvas"
+            aria-hidden="true"
+            data-chat-robot-canvas
+          ></canvas>
+        </span>
+      </button>
+    </div>
   </body>
 </html>

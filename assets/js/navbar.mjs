@@ -4,6 +4,8 @@ export function setDropdownState(button, menu, isOpen) {
   menu.hidden = !expanded;
 }
 
+export const SERVICES_DROPDOWN_CLOSE_DELAY = 200;
+
 export function initServicesDropdown(root, environment = globalThis) {
   const button = root.querySelector('.navbar__services-toggle');
   const menu = root.querySelector('.navbar__submenu');
@@ -12,12 +14,69 @@ export function initServicesDropdown(root, environment = globalThis) {
 
   if (!button || !menu || !documentRef) return () => {};
 
+  const reducedMotion = environment
+    .matchMedia?.('(prefers-reduced-motion: reduce)')
+    ?.matches;
+  const closeDelay = reducedMotion ? 0 : SERVICES_DROPDOWN_CLOSE_DELAY;
+  const requestFrame = environment.requestAnimationFrame?.bind(environment)
+    ?? ((callback) => {
+      callback();
+      return null;
+    });
+  const cancelFrame = environment.cancelAnimationFrame?.bind(environment)
+    ?? (() => {});
+  const schedule = environment.setTimeout?.bind(environment)
+    ?? globalThis.setTimeout.bind(globalThis);
+  const cancelSchedule = environment.clearTimeout?.bind(environment)
+    ?? globalThis.clearTimeout.bind(globalThis);
   let pointerIsActivatingButton = false;
+  let closeTimer = null;
+  let openFrame = null;
+
+  const clearPendingWork = () => {
+    if (closeTimer !== null) {
+      cancelSchedule(closeTimer);
+      closeTimer = null;
+    }
+
+    if (openFrame !== null) {
+      cancelFrame(openFrame);
+      openFrame = null;
+    }
+  };
 
   const isOpen = () => button.getAttribute('aria-expanded') === 'true';
-  const open = () => setDropdownState(button, menu, true);
-  const close = () => setDropdownState(button, menu, false);
-  const toggle = () => setDropdownState(button, menu, !isOpen());
+  const open = () => {
+    clearPendingWork();
+    button.setAttribute('aria-expanded', 'true');
+    menu.hidden = false;
+    menu.inert = false;
+    openFrame = requestFrame(() => {
+      menu.classList?.add('is-open');
+      openFrame = null;
+    });
+  };
+  const close = ({ restoreFocus = false, immediate = false } = {}) => {
+    clearPendingWork();
+    if (restoreFocus) button.focus();
+    button.setAttribute('aria-expanded', 'false');
+    menu.classList?.remove('is-open');
+    menu.inert = true;
+
+    if (immediate || closeDelay === 0) {
+      menu.hidden = true;
+    } else {
+      closeTimer = schedule(() => {
+        menu.hidden = true;
+        closeTimer = null;
+      }, closeDelay);
+    }
+
+  };
+  const toggle = () => {
+    if (isOpen()) close();
+    else open();
+  };
 
   const handlePointerEnter = () => {
     if (supportsHover?.matches) open();
@@ -52,8 +111,7 @@ export function initServicesDropdown(root, environment = globalThis) {
   const handleKeyDown = (event) => {
     if (event.key !== 'Escape' || !isOpen()) return;
     event.preventDefault();
-    button.focus();
-    close();
+    close({ restoreFocus: true, immediate: true });
   };
 
   const handleOutsidePointerDown = (event) => {
@@ -70,9 +128,17 @@ export function initServicesDropdown(root, environment = globalThis) {
   button.addEventListener('click', handleButtonClick);
   documentRef.addEventListener('pointerdown', handleOutsidePointerDown);
 
-  setDropdownState(button, menu, false);
+  button.setAttribute('aria-expanded', 'false');
+  menu.classList?.remove('is-open');
+  menu.hidden = true;
+  menu.inert = true;
 
   return () => {
+    clearPendingWork();
+    button.setAttribute('aria-expanded', 'false');
+    menu.classList?.remove('is-open');
+    menu.hidden = true;
+    menu.inert = true;
     root.removeEventListener('pointerenter', handlePointerEnter);
     root.removeEventListener('pointerleave', handlePointerLeave);
     root.removeEventListener('focusin', handleFocusIn);
