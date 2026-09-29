@@ -9,6 +9,7 @@
   width: min(24.5rem, calc(100vw - 2rem));
   font-family: var(--font-family);
   pointer-events: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .chat-widget > * {

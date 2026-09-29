@@ -806,10 +806,7 @@ body.is-mobile-nav-open {
   background: var(--color-surface-container-high);
   border-radius: var(--radius-xl);
   text-decoration: none;
-}
-
-.mobile-nav__account:is(:hover, :focus-visible, :active) {
-  background: var(--color-primary-fixed);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav__avatar {
