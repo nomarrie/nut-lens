@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NutLens | Teman Nutrisimu</title>
+    <script src="assets/js/reveal-bootstrap.js"></script>
     <script>
       (() => {
         const root = document.documentElement;
@@ -12,21 +13,6 @@
           "(prefers-reduced-motion: reduce)",
         ).matches;
 
-        if (!reducedMotion && "IntersectionObserver" in window) {
-          root.classList.add("reveal-ready");
-          document.addEventListener(
-            "DOMContentLoaded",
-            () => {
-              window.setTimeout(() => {
-                if (!root.classList.contains("reveal-runtime-ready")) {
-                  root.classList.remove("reveal-ready");
-                }
-              }, 1600);
-            },
-            { once: true },
-          );
-        }
-
         if (mobile || reducedMotion) return;
 
         root.classList.add("hero-intro-pending");
@@ -34,10 +20,7 @@
           "DOMContentLoaded",
           () => {
             window.setTimeout(() => {
-              root.classList.remove(
-                "hero-intro-pending",
-                "hero-intro-playing",
-              );
+              root.classList.remove("hero-intro-pending", "hero-intro-playing");
               root.classList.add("hero-intro-complete");
             }, 1600);
           },
@@ -142,7 +125,9 @@
                     </span>
 
                     <span class="navbar-submenu-copy">
-                      <span class="navbar-submenu-title">Perencanaan Nutrisi</span>
+                      <span class="navbar-submenu-title"
+                        >Perencanaan Nutrisi</span
+                      >
                       <span class="navbar-submenu-description">
                         Buat resep dari bahan yang tersedia
                       </span>
@@ -204,12 +189,7 @@
             >
           </button>
 
-          <div
-            id="profile-menu"
-            class="navbar-profile-panel"
-            hidden
-            inert
-          >
+          <div id="profile-menu" class="navbar-profile-panel" hidden inert>
             <div class="navbar-profile-identity">
               <img
                 class="navbar-profile-avatar navbar-profile-avatar-panel"
@@ -260,11 +240,7 @@
         </button>
       </div>
 
-      <div
-        class="mobile-nav"
-        id="mobile-navigation"
-        aria-hidden="true"
-      >
+      <div class="mobile-nav" id="mobile-navigation" aria-hidden="true">
         <button
           class="mobile-nav-overlay"
           type="button"
@@ -284,9 +260,7 @@
               <span class="material-symbols-outlined">nutrition</span>
               <span>NutLens</span>
             </span>
-            <h2 id="mobile-nav-title" class="visually-hidden">
-              Menu NutLens
-            </h2>
+            <h2 id="mobile-nav-title" class="visually-hidden">Menu NutLens</h2>
             <button
               class="mobile-nav-close"
               type="button"
@@ -303,15 +277,10 @@
               class="mobile-nav-section"
               aria-labelledby="mobile-account-title"
             >
-              <h3
-                id="mobile-account-title"
-                class="mobile-nav-section-title"
-              >
+              <h3 id="mobile-account-title" class="mobile-nav-section-title">
                 Akun
               </h3>
-              <a
-                class="mobile-nav-account"
-              >
+              <a class="mobile-nav-account">
                 <img
                   class="mobile-nav-avatar"
                   src="assets/images/testimonial/Bang Raka.webp"
@@ -333,10 +302,7 @@
               class="mobile-nav-section"
               aria-labelledby="mobile-navigation-title"
             >
-              <h3
-                id="mobile-navigation-title"
-                class="mobile-nav-section-title"
-              >
+              <h3 id="mobile-navigation-title" class="mobile-nav-section-title">
                 Navigasi
               </h3>
               <nav aria-label="Navigasi mobile">
@@ -347,9 +313,7 @@
                       href="index.html"
                       aria-current="page"
                     >
-                      <span
-                        class="material-symbols-outlined"
-                        aria-hidden="true"
+                      <span class="material-symbols-outlined" aria-hidden="true"
                         >home</span
                       >
                       <span>Beranda</span>
@@ -407,13 +371,8 @@
                     </div>
                   </li>
                   <li>
-                    <a
-                      class="mobile-nav-item"
-                      href="assets/pages/artikel.html"
-                    >
-                      <span
-                        class="material-symbols-outlined"
-                        aria-hidden="true"
+                    <a class="mobile-nav-item" href="assets/pages/artikel.html">
+                      <span class="material-symbols-outlined" aria-hidden="true"
                         >article</span
                       >
                       <span>Artikel</span>
@@ -480,11 +439,14 @@
               href="assets/pages/cek-makanan.html"
               class="hero-cta hero-cta-primary hero-cta-text-swap"
             >
-              <span class="hero-cta-label hero-cta-label-current">Cek Makananmu</span>
+              <span class="hero-cta-label hero-cta-label-current"
+                >Cek Makananmu</span
+              >
               <span
                 class="hero-cta-label hero-cta-label-replacement"
                 aria-hidden="true"
-              >Cek Makananmu</span>
+                >Cek Makananmu</span
+              >
             </a>
             <a
               href="assets/pages/resep-galeri.html"
@@ -494,11 +456,13 @@
               <span
                 class="hero-cta-icon hero-cta-icon-end material-symbols-outlined"
                 aria-hidden="true"
-              >menu_book</span>
+                >menu_book</span
+              >
               <span
                 class="hero-cta-icon hero-cta-icon-center material-symbols-outlined"
                 aria-hidden="true"
-              >menu_book</span>
+                >menu_book</span
+              >
             </a>
           </div>
         </div>
@@ -522,9 +486,7 @@
               />
             </div>
           </div>
-          <div
-            class="hero-image-frame hero-image-side hero-image-frame-left"
-          >
+          <div class="hero-image-frame hero-image-side hero-image-frame-left">
             <div class="hero-image-motion">
               <img
                 class="hero-image"
@@ -548,7 +510,7 @@
                 class="hero-image"
                 src="assets/images/hero/optimized/tengah-1088.webp"
                 srcset="
-                  assets/images/hero/optimized/tengah-544.webp 544w,
+                  assets/images/hero/optimized/tengah-544.webp   544w,
                   assets/images/hero/optimized/tengah-1088.webp 1088w
                 "
                 sizes="(max-width: 46rem) 24vw, min(37.778vw, 34rem)"
@@ -560,9 +522,7 @@
               />
             </div>
           </div>
-          <div
-            class="hero-image-frame hero-image-side hero-image-frame-right"
-          >
+          <div class="hero-image-frame hero-image-side hero-image-frame-right">
             <div class="hero-image-motion">
               <img
                 class="hero-image"
@@ -605,10 +565,7 @@
         <div class="problems-layout">
           <div class="problems-intro">
             <p class="problems-eyebrow" data-reveal="fade-up">
-              <span
-                class="problems-eyebrow-mark"
-                aria-hidden="true"
-              ></span>
+              <span class="problems-eyebrow-mark" aria-hidden="true"></span>
               <span class="problems-eyebrow-title">PERMASALAHAN</span>
             </p>
 
@@ -618,7 +575,8 @@
               data-reveal="fade-up"
               data-reveal-delay="100"
             >
-              Masalah <span class="problems-accent">Gizi</span> Yang Sering Diabaikan
+              Masalah <span class="problems-accent">Gizi</span> Yang Sering
+              Diabaikan
             </h2>
 
             <figure
@@ -645,9 +603,7 @@
               data-reveal-delay="100"
             >
               <span class="problem-card-icon">
-                <span
-                  class="material-symbols-outlined"
-                  aria-hidden="true"
+                <span class="material-symbols-outlined" aria-hidden="true"
                   >bar_chart</span
                 >
               </span>
@@ -668,9 +624,7 @@
               data-reveal-delay="200"
             >
               <span class="problem-card-icon">
-                <span
-                  class="material-symbols-outlined"
-                  aria-hidden="true"
+                <span class="material-symbols-outlined" aria-hidden="true"
                   >cookie</span
                 >
               </span>
@@ -691,9 +645,7 @@
               data-reveal-delay="300"
             >
               <span class="problem-card-icon">
-                <span
-                  class="material-symbols-outlined"
-                  aria-hidden="true"
+                <span class="material-symbols-outlined" aria-hidden="true"
                   >spa</span
                 >
               </span>
@@ -712,11 +664,7 @@
         </div>
       </section>
 
-      <section
-        class="solution"
-        aria-labelledby="solution-title"
-        data-solution
-      >
+      <section class="solution" aria-labelledby="solution-title" data-solution>
         <header class="solution-header" data-reveal="fade-up">
           <p class="solution-eyebrow">
             <span class="solution-eyebrow-mark" aria-hidden="true"></span>
@@ -832,8 +780,8 @@
               </figure>
               <h3 class="solution-panel-title">Kenali</h3>
               <p class="solution-description">
-                Pengguna mulai dengan mengecek makanan melalui foto atau
-                pilihan makanan.
+                Pengguna mulai dengan mengecek makanan melalui foto atau pilihan
+                makanan.
               </p>
             </article>
 
@@ -916,8 +864,8 @@
               </figure>
               <h3 class="solution-panel-title">Biasakan</h3>
               <p class="solution-description">
-                Pilihan sehat yang dilakukan secara konsisten membantu
-                membangun kebiasaan makan yang lebih baik setiap hari.
+                Pilihan sehat yang dilakukan secara konsisten membantu membangun
+                kebiasaan makan yang lebih baik setiap hari.
               </p>
             </article>
           </div>
@@ -932,10 +880,7 @@
         <div class="how-it-works-content">
           <header class="how-it-works-intro">
             <p class="how-it-works-eyebrow" data-reveal="fade-up">
-              <span
-                class="how-it-works-eyebrow-mark"
-                aria-hidden="true"
-              ></span>
+              <span class="how-it-works-eyebrow-mark" aria-hidden="true"></span>
               <span>CARA KERJA NUTRILENS</span>
             </p>
 
@@ -971,11 +916,14 @@
                 href="assets/pages/cek-makanan.html"
                 class="hero-cta hero-cta-primary hero-cta-text-swap"
               >
-                <span class="hero-cta-label hero-cta-label-current">Cek Makananmu</span>
+                <span class="hero-cta-label hero-cta-label-current"
+                  >Cek Makananmu</span
+                >
                 <span
                   class="hero-cta-label hero-cta-label-replacement"
                   aria-hidden="true"
-                >Cek Makananmu</span>
+                  >Cek Makananmu</span
+                >
               </a>
               <a
                 href="assets/pages/resep-galeri.html"
@@ -985,11 +933,13 @@
                 <span
                   class="hero-cta-icon hero-cta-icon-end material-symbols-outlined"
                   aria-hidden="true"
-                >menu_book</span>
+                  >menu_book</span
+                >
                 <span
                   class="hero-cta-icon hero-cta-icon-center material-symbols-outlined"
                   aria-hidden="true"
-                >menu_book</span>
+                  >menu_book</span
+                >
               </a>
             </div>
           </header>
@@ -1053,9 +1003,7 @@
               >
                 <span class="how-it-works-number" aria-hidden="true">03</span>
                 <div class="how-it-works-step-content">
-                  <h3 class="how-it-works-step-title">
-                    Dapatkan Rekomendasi
-                  </h3>
+                  <h3 class="how-it-works-step-title">Dapatkan Rekomendasi</h3>
                   <p class="how-it-works-step-description">
                     Pengguna menerima saran konsumsi yang mudah dipahami agar
                     bisa memilih makanan dengan lebih bijak.
@@ -1076,7 +1024,8 @@
               class="how-it-works-stat-value"
               data-count-target="1000"
               data-count-suffix="+"
-            >1.000+</strong>
+              >1.000+</strong
+            >
             <span class="how-it-works-stat-label">Resep Sehat</span>
           </li>
           <li
@@ -1088,7 +1037,8 @@
               class="how-it-works-stat-value"
               data-count-target="5"
               data-count-suffix="+"
-            >5+</strong>
+              >5+</strong
+            >
             <span class="how-it-works-stat-label">Indikator Gizi</span>
           </li>
           <li
@@ -1100,7 +1050,8 @@
               class="how-it-works-stat-value"
               data-count-target="24"
               data-count-suffix="/7"
-            >24/7</strong>
+              >24/7</strong
+            >
             <span class="how-it-works-stat-label">Akses Edukasi</span>
           </li>
           <li
@@ -1112,7 +1063,8 @@
               class="how-it-works-stat-value"
               data-count-target="3"
               data-count-suffix=""
-            >3</strong>
+              >3</strong
+            >
             <span class="how-it-works-stat-label">Langkah Mudah</span>
           </li>
         </ul>
@@ -1264,7 +1216,11 @@
               </button>
             </div>
 
-            <span class="testimonial-quote-mark material-symbols-outlined" aria-hidden="true">format_quote</span>
+            <span
+              class="testimonial-quote-mark material-symbols-outlined"
+              aria-hidden="true"
+              >format_quote</span
+            >
 
             <div
               class="testimonial-quote-content"
@@ -1365,9 +1321,14 @@
                 data-reveal-delay="100"
               >
                 <span class="about-check-icon" aria-hidden="true">
-                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                  <span class="material-symbols-outlined" aria-hidden="true"
+                    >check</span
+                  >
                 </span>
-                <span>Menyajikan skor kesehatan makanan agar pilihan lebih terarah.</span>
+                <span
+                  >Menyajikan skor kesehatan makanan agar pilihan lebih
+                  terarah.</span
+                >
               </li>
               <li
                 class="about-check-item"
@@ -1375,9 +1336,14 @@
                 data-reveal-delay="200"
               >
                 <span class="about-check-icon" aria-hidden="true">
-                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                  <span class="material-symbols-outlined" aria-hidden="true"
+                    >check</span
+                  >
                 </span>
-                <span>Menampilkan informasi gizi makanan yang ringkas dan mudah dipahami.</span>
+                <span
+                  >Menampilkan informasi gizi makanan yang ringkas dan mudah
+                  dipahami.</span
+                >
               </li>
               <li
                 class="about-check-item"
@@ -1385,9 +1351,14 @@
                 data-reveal-delay="300"
               >
                 <span class="about-check-icon" aria-hidden="true">
-                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                  <span class="material-symbols-outlined" aria-hidden="true"
+                    >check</span
+                  >
                 </span>
-                <span>Memberikan rekomendasi makanan yang akurat dan mudah dipahami.</span>
+                <span
+                  >Memberikan rekomendasi makanan yang akurat dan mudah
+                  dipahami.</span
+                >
               </li>
               <li
                 class="about-check-item"
@@ -1395,9 +1366,14 @@
                 data-reveal-delay="400"
               >
                 <span class="about-check-icon" aria-hidden="true">
-                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                  <span class="material-symbols-outlined" aria-hidden="true"
+                    >check</span
+                  >
                 </span>
-                <span>Membantu mengenali makanan dengan cara yang cepat dan sederhana.</span>
+                <span
+                  >Membantu mengenali makanan dengan cara yang cepat dan
+                  sederhana.</span
+                >
               </li>
             </ul>
 
@@ -1407,11 +1383,14 @@
               data-reveal="fade-up"
               data-reveal-delay="500"
             >
-              <span class="hero-cta-label hero-cta-label-current">Pelajari Selengkapnya</span>
+              <span class="hero-cta-label hero-cta-label-current"
+                >Pelajari Selengkapnya</span
+              >
               <span
                 class="hero-cta-label hero-cta-label-replacement"
                 aria-hidden="true"
-              >Pelajari Selengkapnya</span>
+                >Pelajari Selengkapnya</span
+              >
             </a>
           </div>
         </div>
@@ -1424,11 +1403,35 @@
               100+ Mitra Telah Memilih Kami.
             </h2>
 
-            <div class="partners-trust" aria-label="Rating mitra 4,9 dari 10 ribu penilaian">
+            <div
+              class="partners-trust"
+              aria-label="Rating mitra 4,9 dari 10 ribu penilaian"
+            >
               <div class="partners-avatars" aria-hidden="true">
-                <img src="assets/images/testimonial/ceo.webp" alt="" width="52" height="52" loading="lazy" decoding="async" />
-                <img src="assets/images/testimonial/putri.webp" alt="" width="52" height="52" loading="lazy" decoding="async" />
-                <img src="assets/images/testimonial/mahasiswa.webp" alt="" width="52" height="52" loading="lazy" decoding="async" />
+                <img
+                  src="assets/images/testimonial/ceo.webp"
+                  alt=""
+                  width="52"
+                  height="52"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="assets/images/testimonial/putri.webp"
+                  alt=""
+                  width="52"
+                  height="52"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  src="assets/images/testimonial/mahasiswa.webp"
+                  alt=""
+                  width="52"
+                  height="52"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span class="partners-avatar-more"></span>
               </div>
               <div class="partners-rating">
@@ -1438,11 +1441,20 @@
             </div>
           </div>
 
-          <div class="partners-brandmark" aria-hidden="true" data-reveal="fade-up" data-reveal-delay="100">
+          <div
+            class="partners-brandmark"
+            aria-hidden="true"
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+          >
             <span class="material-symbols-outlined">nutrition</span>
           </div>
 
-          <div class="partners-invitation" data-reveal="fade-up" data-reveal-delay="200">
+          <div
+            class="partners-invitation"
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+          >
             <p>
               NutLens adalah partner kesehatan terpercaya yang menghadirkan
               informasi nutrisi dan kesehatan yang akurat, mudah dipahami, dan
@@ -1452,37 +1464,109 @@
               class="hero-cta hero-cta-primary hero-cta-text-swap partners-cta"
               type="button"
             >
-              <span class="hero-cta-label hero-cta-label-current">Gabung Sebagai Mitra</span>
+              <span class="hero-cta-label hero-cta-label-current"
+                >Gabung Sebagai Mitra</span
+              >
               <span
                 class="hero-cta-label hero-cta-label-replacement"
                 aria-hidden="true"
-              >Gabung Sebagai Mitra</span>
+                >Gabung Sebagai Mitra</span
+              >
             </button>
           </div>
         </div>
 
-        <div class="partners-marquee" aria-label="Mitra kesehatan NutLens" data-reveal="fade-up" data-reveal-delay="300">
+        <div
+          class="partners-marquee"
+          aria-label="Mitra kesehatan NutLens"
+          data-reveal="fade-up"
+          data-reveal-delay="300"
+        >
           <div class="partners-track">
             <div class="partners-logo-set">
               <div class="partners-logo">
-                <img src="assets/images/partners/bgn.png" alt="Badan Gizi Nasional" width="1762" height="742" loading="lazy" decoding="async" />
+                <img
+                  src="assets/images/partners/bgn.png"
+                  alt="Badan Gizi Nasional"
+                  width="1762"
+                  height="742"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="partners-logo">
-                <img src="assets/images/partners/kemenkes.png" alt="Kementerian Kesehatan Republik Indonesia" width="3508" height="2481" loading="lazy" decoding="async" />
+                <img
+                  src="assets/images/partners/kemenkes.png"
+                  alt="Kementerian Kesehatan Republik Indonesia"
+                  width="3508"
+                  height="2481"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="partners-logo">
-                <img src="assets/images/partners/bpom.png" alt="Badan Pengawas Obat dan Makanan" width="2000" height="1738" loading="lazy" decoding="async" />
+                <img
+                  src="assets/images/partners/bpom.png"
+                  alt="Badan Pengawas Obat dan Makanan"
+                  width="2000"
+                  height="1738"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="partners-logo">
-                <img src="assets/images/partners/persagi.png" alt="Persatuan Ahli Gizi Indonesia" width="500" height="500" loading="lazy" decoding="async" />
+                <img
+                  src="assets/images/partners/persagi.png"
+                  alt="Persatuan Ahli Gizi Indonesia"
+                  width="500"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
 
             <div class="partners-logo-set" aria-hidden="true">
-              <div class="partners-logo"><img src="assets/images/partners/bgn.png" alt="" width="1762" height="742" loading="lazy" decoding="async" /></div>
-              <div class="partners-logo"><img src="assets/images/partners/kemenkes.png" alt="" width="3508" height="2481" loading="lazy" decoding="async" /></div>
-              <div class="partners-logo"><img src="assets/images/partners/bpom.png" alt="" width="2000" height="1738" loading="lazy" decoding="async" /></div>
-              <div class="partners-logo"><img src="assets/images/partners/persagi.png" alt="" width="500" height="500" loading="lazy" decoding="async" /></div>
+              <div class="partners-logo">
+                <img
+                  src="assets/images/partners/bgn.png"
+                  alt=""
+                  width="1762"
+                  height="742"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="partners-logo">
+                <img
+                  src="assets/images/partners/kemenkes.png"
+                  alt=""
+                  width="3508"
+                  height="2481"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="partners-logo">
+                <img
+                  src="assets/images/partners/bpom.png"
+                  alt=""
+                  width="2000"
+                  height="1738"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="partners-logo">
+                <img
+                  src="assets/images/partners/persagi.png"
+                  alt=""
+                  width="500"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1520,11 +1604,14 @@
                   class="hero-cta hero-cta-primary hero-cta-text-swap final-cta-button"
                   href="assets/pages/cek-makanan.html"
                 >
-                  <span class="hero-cta-label hero-cta-label-current">Pelajari Selengkapnya</span>
+                  <span class="hero-cta-label hero-cta-label-current"
+                    >Pelajari Selengkapnya</span
+                  >
                   <span
                     class="hero-cta-label hero-cta-label-replacement"
                     aria-hidden="true"
-                  >Pelajari Selengkapnya</span>
+                    >Pelajari Selengkapnya</span
+                  >
                 </a>
               </div>
             </article>
@@ -1699,9 +1786,9 @@
                     data-faq-panel
                   >
                     <p>
-                      NutLens menyediakan fitur dasar yang dapat digunakan
-                      untuk mencoba pengenalan makanan dan memahami informasi
-                      nutrisi dengan lebih mudah.
+                      NutLens menyediakan fitur dasar yang dapat digunakan untuk
+                      mencoba pengenalan makanan dan memahami informasi nutrisi
+                      dengan lebih mudah.
                     </p>
                   </div>
                 </div>
@@ -1743,8 +1830,8 @@
                   >
                     <p>
                       Tidak. NutLens merupakan sarana edukasi dan pendukung
-                      keputusan, bukan pengganti diagnosis atau rekomendasi
-                      dari dokter dan ahli gizi.
+                      keputusan, bukan pengganti diagnosis atau rekomendasi dari
+                      dokter dan ahli gizi.
                     </p>
                   </div>
                 </div>
@@ -1801,7 +1888,11 @@
     <footer class="site-footer">
       <div class="site-footer-container">
         <div class="site-footer-main">
-          <div class="site-footer-brand" data-reveal="fade-up" data-reveal-delay="100">
+          <div
+            class="site-footer-brand"
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+          >
             <a
               class="site-footer-brand-link"
               href="index.html"
@@ -1854,15 +1945,24 @@
             </div>
           </div>
 
-          <div class="site-footer-navigation" data-reveal="fade-up" data-reveal-delay="250">
+          <div
+            class="site-footer-navigation"
+            data-reveal="fade-up"
+            data-reveal-delay="250"
+          >
             <nav aria-labelledby="footer-navigation-title">
               <h2 id="footer-navigation-title" class="site-footer-nav-title">
                 Navigasi
               </h2>
               <ul class="site-footer-nav-list">
-                <li><a class="site-footer-link" href="index.html">Beranda</a></li>
                 <li>
-                  <a class="site-footer-link" href="assets/pages/cek-makanan.html">
+                  <a class="site-footer-link" href="index.html">Beranda</a>
+                </li>
+                <li>
+                  <a
+                    class="site-footer-link"
+                    href="assets/pages/cek-makanan.html"
+                  >
                     Cek Makanan
                   </a>
                 </li>
@@ -1877,7 +1977,10 @@
                   </a>
                 </li>
                 <li>
-                  <a class="site-footer-link" href="assets/pages/resep-galeri.html">
+                  <a
+                    class="site-footer-link"
+                    href="assets/pages/resep-galeri.html"
+                  >
                     Galeri Resep
                   </a>
                 </li>
@@ -1894,7 +1997,11 @@
                 Dukungan
               </h2>
               <ul class="site-footer-nav-list">
-                <li><a class="site-footer-link" href="#about-title">Tentang Kami</a></li>
+                <li>
+                  <a class="site-footer-link" href="#about-title"
+                    >Tentang Kami</a
+                  >
+                </li>
                 <li><a class="site-footer-link" href="#faq-title">FAQ</a></li>
                 <li>
                   <a
@@ -1976,7 +2083,11 @@
 
         <div class="site-footer-divider" aria-hidden="true"></div>
 
-        <div class="site-footer-bottom" data-reveal="fade-up" data-reveal-delay="350">
+        <div
+          class="site-footer-bottom"
+          data-reveal="fade-up"
+          data-reveal-delay="350"
+        >
           <p>© 2026 NutLens. Semua hak dilindungi.</p>
           <p>Desain Oleh Programmer Penipu</p>
         </div>
@@ -2084,8 +2195,8 @@
             </button>
           </form>
           <p class="visually-hidden" id="nutlens-chat-note">
-            Jawaban dipilih dari topik yang telah disiapkan dan tidak dikirim
-            ke layanan AI.
+            Jawaban dipilih dari topik yang telah disiapkan dan tidak dikirim ke
+            layanan AI.
           </p>
         </footer>
       </section>

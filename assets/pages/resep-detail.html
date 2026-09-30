@@ -8,29 +8,7 @@
       content="Resep Pepes Ayam Sehat lezat bernutrisi tinggi protein dan rendah lemak tanpa minyak bersama NutLens. Lengkap dengan takaran gizi dan panduan memasak."
     />
     <title>Pepes Ayam Sehat - Detail Resep | NutLens</title>
-    <script>
-      (() => {
-        const root = document.documentElement;
-        const reducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-
-        if (!reducedMotion && "IntersectionObserver" in window) {
-          root.classList.add("reveal-ready");
-          document.addEventListener(
-            "DOMContentLoaded",
-            () => {
-              window.setTimeout(() => {
-                if (!root.classList.contains("reveal-runtime-ready")) {
-                  root.classList.remove("reveal-ready");
-                }
-              }, 1600);
-            },
-            { once: true },
-          );
-        }
-      })();
-    </script>
+    <script src="../js/reveal-bootstrap.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -115,7 +93,9 @@
                       restaurant_menu
                     </span>
                     <span class="navbar-submenu-copy">
-                      <span class="navbar-submenu-title">Perencanaan Nutrisi</span>
+                      <span class="navbar-submenu-title"
+                        >Perencanaan Nutrisi</span
+                      >
                       <span class="navbar-submenu-description">
                         Buat resep dari bahan yang tersedia
                       </span>
@@ -175,12 +155,7 @@
             >
           </button>
 
-          <div
-            id="profile-menu"
-            class="navbar-profile-panel"
-            hidden
-            inert
-          >
+          <div id="profile-menu" class="navbar-profile-panel" hidden inert>
             <div class="navbar-profile-identity">
               <img
                 class="navbar-profile-avatar navbar-profile-avatar-panel"
@@ -226,11 +201,7 @@
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <div
-        class="mobile-nav"
-        id="mobile-navigation"
-        aria-hidden="true"
-      >
+      <div class="mobile-nav" id="mobile-navigation" aria-hidden="true">
         <button
           class="mobile-nav-overlay"
           type="button"
@@ -250,9 +221,7 @@
               <span class="material-symbols-outlined">nutrition</span>
               <span>NutLens</span>
             </span>
-            <h2 id="mobile-nav-title" class="visually-hidden">
-              Menu NutLens
-            </h2>
+            <h2 id="mobile-nav-title" class="visually-hidden">Menu NutLens</h2>
             <button
               class="mobile-nav-close"
               type="button"
@@ -269,10 +238,7 @@
               class="mobile-nav-section"
               aria-labelledby="mobile-account-title"
             >
-              <h3
-                id="mobile-account-title"
-                class="mobile-nav-section-title"
-              >
+              <h3 id="mobile-account-title" class="mobile-nav-section-title">
                 Akun
               </h3>
               <a class="mobile-nav-account">
@@ -297,19 +263,14 @@
               class="mobile-nav-section"
               aria-labelledby="mobile-navigation-title"
             >
-              <h3
-                id="mobile-navigation-title"
-                class="mobile-nav-section-title"
-              >
+              <h3 id="mobile-navigation-title" class="mobile-nav-section-title">
                 Navigasi
               </h3>
               <nav aria-label="Navigasi mobile">
                 <ul class="mobile-nav-list">
                   <li>
                     <a class="mobile-nav-item" href="../../index.html">
-                      <span
-                        class="material-symbols-outlined"
-                        aria-hidden="true"
+                      <span class="material-symbols-outlined" aria-hidden="true"
                         >home</span
                       >
                       <span>Beranda</span>
@@ -362,9 +323,7 @@
                   </li>
                   <li>
                     <a class="mobile-nav-item" href="artikel.html">
-                      <span
-                        class="material-symbols-outlined"
-                        aria-hidden="true"
+                      <span class="material-symbols-outlined" aria-hidden="true"
                         >article</span
                       >
                       <span>Artikel</span>
@@ -394,11 +353,18 @@
         <nav class="recipe-breadcrumb" aria-label="Breadcrumb">
           <ol class="recipe-breadcrumb-list">
             <li class="recipe-breadcrumb-item">
-              <a href="resep-galeri.html" class="recipe-breadcrumb-link">Galeri Resep</a>
+              <a href="resep-galeri.html" class="recipe-breadcrumb-link"
+                >Galeri Resep</a
+              >
             </li>
             <li class="recipe-breadcrumb-separator" aria-hidden="true">&gt;</li>
             <li class="recipe-breadcrumb-item">
-              <span class="recipe-breadcrumb-current" id="recipe-breadcrumb-current" aria-current="page">Pepes Ayam Sehat</span>
+              <span
+                class="recipe-breadcrumb-current"
+                id="recipe-breadcrumb-current"
+                aria-current="page"
+                >Pepes Ayam Sehat</span
+              >
             </li>
           </ol>
         </nav>
@@ -416,22 +382,36 @@
 
             <div class="recipe-hero-card-content">
               <div class="recipe-hero-card-info">
-                <h1 class="recipe-hero-card-title" id="recipe-title">Pepes Ayam</h1>
+                <h1 class="recipe-hero-card-title" id="recipe-title">
+                  Pepes Ayam
+                </h1>
                 <p class="recipe-hero-card-desc" id="recipe-desc">
-                  Pepes ayam adalah makanan sehat karena dimasak tanpa minyak melalui pengukusan dengan daun pisang, kaya protein berkualitas tinggi, serta sarat antioksidan dari limpahan bumbu rempah alami.
+                  Pepes ayam adalah makanan sehat karena dimasak tanpa minyak
+                  melalui pengukusan dengan daun pisang, kaya protein
+                  berkualitas tinggi, serta sarat antioksidan dari limpahan
+                  bumbu rempah alami.
                 </p>
 
-                <div class="recipe-hero-card-meta-chips" aria-label="Informasi porsi dan waktu memasak">
+                <div
+                  class="recipe-hero-card-meta-chips"
+                  aria-label="Informasi porsi dan waktu memasak"
+                >
                   <span class="recipe-hero-card-chip">
-                    <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+                    <span class="material-symbols-outlined" aria-hidden="true"
+                      >local_fire_department</span
+                    >
                     <span id="recipe-calories">310 kkal</span>
                   </span>
                   <span class="recipe-hero-card-chip">
-                    <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
+                    <span class="material-symbols-outlined" aria-hidden="true"
+                      >alarm_on</span
+                    >
                     <span id="recipe-cooktime">25 Menit</span>
                   </span>
                   <span class="recipe-hero-card-chip">
-                    <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
+                    <span class="material-symbols-outlined" aria-hidden="true"
+                      >fork_spoon</span
+                    >
                     <span id="recipe-servings">1 Porsi</span>
                   </span>
                 </div>
@@ -444,14 +424,20 @@
                 aria-label="Simpan resep ke favorit"
                 aria-pressed="false"
               >
-                <span class="material-symbols-outlined" aria-hidden="true">bookmark</span>
+                <span class="material-symbols-outlined" aria-hidden="true"
+                  >bookmark</span
+                >
               </button>
             </div>
           </div>
         </section>
 
         <!-- Section 1: Ingredients & Nutrition Grid -->
-        <div class="recipe-section-grid" data-reveal="fade-up" data-reveal-delay="100">
+        <div
+          class="recipe-section-grid"
+          data-reveal="fade-up"
+          data-reveal-delay="100"
+        >
           <!-- Left Column: Ingredients, Spices, and Benefits -->
           <div class="recipe-column-left">
             <!-- 2-Card Split for Ingredients & Spices -->
@@ -459,7 +445,11 @@
               <!-- Bahan - Bahan -->
               <div class="recipe-card recipe-card-elevated">
                 <div class="recipe-card-header">
-                  <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">receipt_long</span>
+                  <span
+                    class="material-symbols-outlined recipe-card-header-icon"
+                    aria-hidden="true"
+                    >receipt_long</span
+                  >
                   <h2 class="recipe-card-title">Bahan - Bahan</h2>
                 </div>
                 <ul class="recipe-bullet-list" id="recipe-ingredients-list">
@@ -476,7 +466,11 @@
               <!-- Bumbu Halus -->
               <div class="recipe-card recipe-card-elevated">
                 <div class="recipe-card-header">
-                  <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">soup_kitchen</span>
+                  <span
+                    class="material-symbols-outlined recipe-card-header-icon"
+                    aria-hidden="true"
+                    >soup_kitchen</span
+                  >
                   <h2 class="recipe-card-title">Bumbu Halus</h2>
                 </div>
                 <ul class="recipe-bullet-list" id="recipe-spices-list">
@@ -491,22 +485,40 @@
             </div>
 
             <!-- Manfaat Bahan -->
-            <div class="recipe-benefits-card" data-reveal="fade-up" data-reveal-delay="150">
+            <div
+              class="recipe-benefits-card"
+              data-reveal="fade-up"
+              data-reveal-delay="150"
+            >
               <div class="recipe-card-header">
-                <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">eco</span>
+                <span
+                  class="material-symbols-outlined recipe-card-header-icon"
+                  aria-hidden="true"
+                  >eco</span
+                >
                 <h2 class="recipe-card-title">Manfaat Bahan</h2>
               </div>
               <div class="recipe-benefits-grid" id="recipe-benefits-list">
                 <div class="recipe-benefit-item">
-                  <span class="material-symbols-outlined recipe-benefit-item-icon" aria-hidden="true">check_circle</span>
+                  <span
+                    class="material-symbols-outlined recipe-benefit-item-icon"
+                    aria-hidden="true"
+                    >check_circle</span
+                  >
                   <div class="recipe-benefit-item-text">
-                    <strong>Ayam Tanpa Kulit:</strong> Sumber protein tinggi rendah lemak untuk massa otot.
+                    <strong>Ayam Tanpa Kulit:</strong> Sumber protein tinggi
+                    rendah lemak untuk massa otot.
                   </div>
                 </div>
                 <div class="recipe-benefit-item">
-                  <span class="material-symbols-outlined recipe-benefit-item-icon" aria-hidden="true">check_circle</span>
+                  <span
+                    class="material-symbols-outlined recipe-benefit-item-icon"
+                    aria-hidden="true"
+                    >check_circle</span
+                  >
                   <div class="recipe-benefit-item-text">
-                    <strong>Bumbu Rempah:</strong> Kaya antioksidan alami untuk memperkuat sistem imun.
+                    <strong>Bumbu Rempah:</strong> Kaya antioksidan alami untuk
+                    memperkuat sistem imun.
                   </div>
                 </div>
               </div>
@@ -515,10 +527,18 @@
 
           <!-- Right Column: Nutrition Information & Nutri-Level -->
           <div class="recipe-column-right">
-            <div class="recipe-card recipe-nutrition-card recipe-card-elevated" data-reveal="fade-up" data-reveal-delay="150">
+            <div
+              class="recipe-card recipe-nutrition-card recipe-card-elevated"
+              data-reveal="fade-up"
+              data-reveal-delay="150"
+            >
               <div>
                 <div class="recipe-card-header">
-                  <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">bar_chart</span>
+                  <span
+                    class="material-symbols-outlined recipe-card-header-icon"
+                    aria-hidden="true"
+                    >bar_chart</span
+                  >
                   <h2 class="recipe-card-title">Informasi Nutrisi Gizi</h2>
                 </div>
 
@@ -528,13 +548,20 @@
                   <div class="recipe-macro-item macro-protein">
                     <div class="recipe-macro-item-header">
                       <div class="recipe-macro-item-label-group">
-                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span
+                          class="recipe-macro-item-dot"
+                          aria-hidden="true"
+                        ></span>
                         <span class="recipe-macro-item-name">Protein</span>
                       </div>
                       <span class="recipe-macro-item-value">22 g/60g</span>
                     </div>
                     <div class="recipe-macro-item-bar-track">
-                      <div class="recipe-macro-item-bar-fill" style="width: 36.6%;" data-target-width="36.6%"></div>
+                      <div
+                        class="recipe-macro-item-bar-fill"
+                        style="width: 36.6%"
+                        data-target-width="36.6%"
+                      ></div>
                     </div>
                   </div>
 
@@ -542,13 +569,20 @@
                   <div class="recipe-macro-item macro-calories">
                     <div class="recipe-macro-item-header">
                       <div class="recipe-macro-item-label-group">
-                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span
+                          class="recipe-macro-item-dot"
+                          aria-hidden="true"
+                        ></span>
                         <span class="recipe-macro-item-name">Kalori</span>
                       </div>
                       <span class="recipe-macro-item-value">220/2,000kkal</span>
                     </div>
                     <div class="recipe-macro-item-bar-track">
-                      <div class="recipe-macro-item-bar-fill" style="width: 11%;" data-target-width="11%"></div>
+                      <div
+                        class="recipe-macro-item-bar-fill"
+                        style="width: 11%"
+                        data-target-width="11%"
+                      ></div>
                     </div>
                   </div>
 
@@ -556,13 +590,20 @@
                   <div class="recipe-macro-item macro-carbs">
                     <div class="recipe-macro-item-header">
                       <div class="recipe-macro-item-label-group">
-                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span
+                          class="recipe-macro-item-dot"
+                          aria-hidden="true"
+                        ></span>
                         <span class="recipe-macro-item-name">Karbohidrat</span>
                       </div>
                       <span class="recipe-macro-item-value">6g/300g</span>
                     </div>
                     <div class="recipe-macro-item-bar-track">
-                      <div class="recipe-macro-item-bar-fill" style="width: 2%;" data-target-width="2%"></div>
+                      <div
+                        class="recipe-macro-item-bar-fill"
+                        style="width: 2%"
+                        data-target-width="2%"
+                      ></div>
                     </div>
                   </div>
 
@@ -570,13 +611,20 @@
                   <div class="recipe-macro-item macro-fat">
                     <div class="recipe-macro-item-header">
                       <div class="recipe-macro-item-label-group">
-                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span
+                          class="recipe-macro-item-dot"
+                          aria-hidden="true"
+                        ></span>
                         <span class="recipe-macro-item-name">Lemak</span>
                       </div>
                       <span class="recipe-macro-item-value">11g/60g</span>
                     </div>
                     <div class="recipe-macro-item-bar-track">
-                      <div class="recipe-macro-item-bar-fill" style="width: 18.3%;" data-target-width="18.3%"></div>
+                      <div
+                        class="recipe-macro-item-bar-fill"
+                        style="width: 18.3%"
+                        data-target-width="18.3%"
+                      ></div>
                     </div>
                   </div>
 
@@ -584,13 +632,20 @@
                   <div class="recipe-macro-item macro-fiber">
                     <div class="recipe-macro-item-header">
                       <div class="recipe-macro-item-label-group">
-                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span
+                          class="recipe-macro-item-dot"
+                          aria-hidden="true"
+                        ></span>
                         <span class="recipe-macro-item-name">Serat</span>
                       </div>
                       <span class="recipe-macro-item-value">1,5g/30g</span>
                     </div>
                     <div class="recipe-macro-item-bar-track">
-                      <div class="recipe-macro-item-bar-fill" style="width: 5%;" data-target-width="5%"></div>
+                      <div
+                        class="recipe-macro-item-bar-fill"
+                        style="width: 5%"
+                        data-target-width="5%"
+                      ></div>
                     </div>
                   </div>
 
@@ -598,13 +653,20 @@
                   <div class="recipe-macro-item macro-sugar">
                     <div class="recipe-macro-item-header">
                       <div class="recipe-macro-item-label-group">
-                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span
+                          class="recipe-macro-item-dot"
+                          aria-hidden="true"
+                        ></span>
                         <span class="recipe-macro-item-name">Gula</span>
                       </div>
                       <span class="recipe-macro-item-value">1g/50g</span>
                     </div>
                     <div class="recipe-macro-item-bar-track">
-                      <div class="recipe-macro-item-bar-fill" style="width: 2%;" data-target-width="2%"></div>
+                      <div
+                        class="recipe-macro-item-bar-fill"
+                        style="width: 2%"
+                        data-target-width="2%"
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -619,7 +681,8 @@
                 <div class="recipe-nutri-level-copy">
                   <h3 class="recipe-nutri-level-copy-title">Nutri-Level</h3>
                   <p class="recipe-nutri-level-copy-desc">
-                    sangat sehat dan kaya serat alami, berkat metode pengukusan tanpa minyak, kandungan protein tinggi.
+                    sangat sehat dan kaya serat alami, berkat metode pengukusan
+                    tanpa minyak, kandungan protein tinggi.
                   </p>
                 </div>
               </div>
@@ -628,12 +691,20 @@
         </div>
 
         <!-- Section 2: Cooking Steps, Nutrition Tips & Price -->
-        <div class="recipe-section-grid" data-reveal="fade-up" data-reveal-delay="200">
+        <div
+          class="recipe-section-grid"
+          data-reveal="fade-up"
+          data-reveal-delay="200"
+        >
           <!-- Left Column: Cara Memasak -->
           <div class="recipe-column-left">
             <div class="recipe-card recipe-card-elevated">
               <div class="recipe-card-header">
-                <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">restaurant</span>
+                <span
+                  class="material-symbols-outlined recipe-card-header-icon"
+                  aria-hidden="true"
+                  >restaurant</span
+                >
                 <h2 class="recipe-card-title">Cara Memasak</h2>
               </div>
 
@@ -644,7 +715,8 @@
                   <div class="recipe-step-item-content">
                     <h3 class="recipe-step-item-title">Memotong Ayam</h3>
                     <p class="recipe-step-item-desc">
-                      Ayam dipotong ukuran besar bisa 7 potong, kemudian dicuci bersih dan disayat-sayat bagian dada agar bumbu meresap.
+                      Ayam dipotong ukuran besar bisa 7 potong, kemudian dicuci
+                      bersih dan disayat-sayat bagian dada agar bumbu meresap.
                     </p>
                   </div>
                   <div class="recipe-step-item-thumb">
@@ -660,9 +732,13 @@
                 <div class="recipe-step-item">
                   <span class="recipe-step-item-number">2</span>
                   <div class="recipe-step-item-content">
-                    <h3 class="recipe-step-item-title">Ungkep Ayam Dengan Bumbu Rempah</h3>
+                    <h3 class="recipe-step-item-title">
+                      Ungkep Ayam Dengan Bumbu Rempah
+                    </h3>
                     <p class="recipe-step-item-desc">
-                      Ungkep ayam dengan bumbu halus, kalau saya bumbu tanpa ditumis. Masukkan salam, serai, garam &amp; kaldu bubuk. Tunggu sampai air surut dan koreksi rasa.
+                      Ungkep ayam dengan bumbu halus, kalau saya bumbu tanpa
+                      ditumis. Masukkan salam, serai, garam &amp; kaldu bubuk.
+                      Tunggu sampai air surut dan koreksi rasa.
                     </p>
                   </div>
                   <div class="recipe-step-item-thumb">
@@ -678,9 +754,14 @@
                 <div class="recipe-step-item">
                   <span class="recipe-step-item-number">3</span>
                   <div class="recipe-step-item-content">
-                    <h3 class="recipe-step-item-title">Bungkus &amp; Kukus Ayam</h3>
+                    <h3 class="recipe-step-item-title">
+                      Bungkus &amp; Kukus Ayam
+                    </h3>
                     <p class="recipe-step-item-desc">
-                      Setelah air menyusut, matikan api. Bungkus ayam dengan daun pisang, tambahkan daun kemangi dan irisan cabai rawit, kemudian kukus selama kurang lebih 20 menit hingga daun layu.
+                      Setelah air menyusut, matikan api. Bungkus ayam dengan
+                      daun pisang, tambahkan daun kemangi dan irisan cabai
+                      rawit, kemudian kukus selama kurang lebih 20 menit hingga
+                      daun layu.
                     </p>
                   </div>
                   <div class="recipe-step-item-thumb">
@@ -696,9 +777,12 @@
                 <div class="recipe-step-item">
                   <span class="recipe-step-item-number">4</span>
                   <div class="recipe-step-item-content">
-                    <h3 class="recipe-step-item-title">Pepes Ayam, lalu Sajikan</h3>
+                    <h3 class="recipe-step-item-title">
+                      Pepes Ayam, lalu Sajikan
+                    </h3>
                     <p class="recipe-step-item-desc">
-                      Panaskan panggangan, kemudian panggang pepes ayam agar bumbu lebih meresap dan tidak berair. Angkat dan sajikan
+                      Panaskan panggangan, kemudian panggang pepes ayam agar
+                      bumbu lebih meresap dan tidak berair. Angkat dan sajikan
                     </p>
                   </div>
                   <div class="recipe-step-item-thumb">
@@ -716,30 +800,48 @@
           <!-- Right Column: Nutrition Tips & Price -->
           <div class="recipe-column-right recipe-sidebar">
             <!-- Tips Nutrisi Card -->
-            <div class="recipe-tips-card" data-reveal="fade-up" data-reveal-delay="250">
+            <div
+              class="recipe-tips-card"
+              data-reveal="fade-up"
+              data-reveal-delay="250"
+            >
               <div class="recipe-card-header">
-                <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">tips_and_updates</span>
+                <span
+                  class="material-symbols-outlined recipe-card-header-icon"
+                  aria-hidden="true"
+                  >tips_and_updates</span
+                >
                 <h2 class="recipe-card-title">Tips Nutrisi</h2>
               </div>
               <p class="recipe-tips-card-desc" id="recipe-nutrition-tips">
-                Pepes ayam merupakan pilihan menu yang lebih sehat karena dimasak dengan cara dikukus sehingga tidak memerlukan banyak minyak. Tambahkan daun kemangi dan cabai untuk memberikan aroma,dan cita rasa yang lebih segar.
+                Pepes ayam merupakan pilihan menu yang lebih sehat karena
+                dimasak dengan cara dikukus sehingga tidak memerlukan banyak
+                minyak. Tambahkan daun kemangi dan cabai untuk memberikan
+                aroma,dan cita rasa yang lebih segar.
               </p>
 
               <!-- Analisis AI Glass Box -->
               <div class="recipe-ai-box">
                 <span class="recipe-ai-box-label">Analisis AI</span>
                 <p class="recipe-ai-box-text" id="recipe-ai-analysis">
-                  Resep ini tinggi protein dan rendah minyak, sehingga cocok untuk menu makan sehat sehari-hari.
+                  Resep ini tinggi protein dan rendah minyak, sehingga cocok
+                  untuk menu makan sehat sehari-hari.
                 </p>
               </div>
             </div>
 
             <!-- Harga Belanja Card -->
-            <div class="recipe-price-card" data-reveal="fade-up" data-reveal-delay="300">
+            <div
+              class="recipe-price-card"
+              data-reveal="fade-up"
+              data-reveal-delay="300"
+            >
               <h2 class="recipe-card-title">Harga Belanja</h2>
               <div class="recipe-price-card-content">
                 <span class="recipe-price-card-label">Per Porsi</span>
-                <span class="recipe-price-card-amount" id="recipe-price-amount">Rp 16.500</span>
+                <span class="recipe-price-card-amount" id="recipe-price-amount"
+                  >Rp 16.500</span
+                >
               </div>
             </div>
           </div>
@@ -751,7 +853,11 @@
     <footer class="site-footer">
       <div class="site-footer-container">
         <div class="site-footer-main">
-          <div class="site-footer-brand" data-reveal="fade-up" data-reveal-delay="100">
+          <div
+            class="site-footer-brand"
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+          >
             <a
               class="site-footer-brand-link"
               href="../../index.html"
@@ -763,7 +869,8 @@
               <span>NutLens</span>
             </a>
             <p class="site-footer-description">
-              Solusi nutrisi cerdas berbasis AI untuk membantu Anda mencapai pola makan seimbang dan gaya hidup yang lebih sehat setiap hari.
+              Solusi nutrisi cerdas berbasis AI untuk membantu Anda mencapai
+              pola makan seimbang dan gaya hidup yang lebih sehat setiap hari.
             </p>
 
             <div class="site-footer-socials" aria-label="Media sosial NutLens">
@@ -802,22 +909,44 @@
             </div>
           </div>
 
-          <div class="site-footer-navigation" data-reveal="fade-up" data-reveal-delay="250">
+          <div
+            class="site-footer-navigation"
+            data-reveal="fade-up"
+            data-reveal-delay="250"
+          >
             <nav aria-labelledby="footer-navigation-title">
               <h2 id="footer-navigation-title" class="site-footer-nav-title">
                 Navigasi
               </h2>
               <ul class="site-footer-nav-list">
-                <li><a class="site-footer-link" href="../../index.html">Beranda</a></li>
-                <li><a class="site-footer-link" href="cek-makanan.html">Cek Makanan</a></li>
-                <li><a class="site-footer-link" href="buat-resep.html">Buat Resep</a></li>
+                <li>
+                  <a class="site-footer-link" href="../../index.html"
+                    >Beranda</a
+                  >
+                </li>
+                <li>
+                  <a class="site-footer-link" href="cek-makanan.html"
+                    >Cek Makanan</a
+                  >
+                </li>
+                <li>
+                  <a class="site-footer-link" href="buat-resep.html"
+                    >Buat Resep</a
+                  >
+                </li>
                 <li>
                   <a class="site-footer-link" href="resep-galeri.html">
                     Galeri Resep
                   </a>
                 </li>
-                <li><a class="site-footer-link" href="challenge-sehat.html">Challenge Sehat</a></li>
-                <li><a class="site-footer-link" href="artikel.html">Artikel</a></li>
+                <li>
+                  <a class="site-footer-link" href="challenge-sehat.html"
+                    >Challenge Sehat</a
+                  >
+                </li>
+                <li>
+                  <a class="site-footer-link" href="artikel.html">Artikel</a>
+                </li>
               </ul>
             </nav>
 
@@ -826,8 +955,18 @@
                 Dukungan
               </h2>
               <ul class="site-footer-nav-list">
-                <li><a class="site-footer-link" href="../../index.html#about-title">Tentang Kami</a></li>
-                <li><a class="site-footer-link" href="../../index.html#faq-title">FAQ</a></li>
+                <li>
+                  <a
+                    class="site-footer-link"
+                    href="../../index.html#about-title"
+                    >Tentang Kami</a
+                  >
+                </li>
+                <li>
+                  <a class="site-footer-link" href="../../index.html#faq-title"
+                    >FAQ</a
+                  >
+                </li>
                 <li>
                   <a
                     class="site-footer-link"
@@ -876,7 +1015,11 @@
                     Panduan Nutrisi
                   </a>
                 </li>
-                <li><a class="site-footer-link" href="artikel.html">Artikel Kesehatan</a></li>
+                <li>
+                  <a class="site-footer-link" href="artikel.html"
+                    >Artikel Kesehatan</a
+                  >
+                </li>
                 <li>
                   <a
                     class="site-footer-link"
@@ -904,7 +1047,11 @@
 
         <div class="site-footer-divider" aria-hidden="true"></div>
 
-        <div class="site-footer-bottom" data-reveal="fade-up" data-reveal-delay="350">
+        <div
+          class="site-footer-bottom"
+          data-reveal="fade-up"
+          data-reveal-delay="350"
+        >
           <p>© 2026 NutLens. Semua hak dilindungi.</p>
           <p>Desain Oleh Programmer Penipu</p>
         </div>
