@@ -6,7 +6,7 @@ const COMPLETE = 'hero-intro-complete';
 
 export function initHeroIntro(documentRef, environment = globalThis) {
   const root = documentRef?.documentElement;
-  const artwork = documentRef?.querySelector?.('.hero__artwork');
+  const artwork = documentRef?.querySelector?.('.hero-artwork');
 
   if (!root || !artwork) return () => {};
 

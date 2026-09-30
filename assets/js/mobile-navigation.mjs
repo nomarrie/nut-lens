@@ -14,14 +14,14 @@ export function setMobileSubmenuState(trigger, shell, expanded) {
 
 export function initMobileNavigation(root, environment = globalThis) {
   const documentRef = environment.document;
-  const openButton = root?.querySelector('.mobile-nav__open');
+  const openButton = root?.querySelector('.mobile-nav-open');
   const mobileRoot = root?.querySelector('.mobile-nav');
-  const drawer = root?.querySelector('.mobile-nav__drawer');
-  const closeButton = root?.querySelector('.mobile-nav__close');
-  const overlay = root?.querySelector('.mobile-nav__overlay');
-  const submenuTrigger = root?.querySelector('.mobile-nav__submenu-trigger');
-  const submenuShell = root?.querySelector('.mobile-nav__submenu-shell');
-  const logoutButton = root?.querySelector('.mobile-nav__logout');
+  const drawer = root?.querySelector('.mobile-nav-drawer');
+  const closeButton = root?.querySelector('.mobile-nav-close');
+  const overlay = root?.querySelector('.mobile-nav-overlay');
+  const submenuTrigger = root?.querySelector('.mobile-nav-submenu-trigger');
+  const submenuShell = root?.querySelector('.mobile-nav-submenu-shell');
+  const logoutButton = root?.querySelector('.mobile-nav-logout');
   const body = documentRef?.body;
   const desktopMedia = environment.matchMedia?.(DESKTOP_QUERY);
 

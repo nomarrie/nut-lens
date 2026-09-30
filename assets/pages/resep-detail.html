@@ -42,7 +42,6 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/resep-detail.css" />
     <script type="module" src="../js/navbar.mjs"></script>
     <script type="module" src="../js/profile-dropdown.mjs"></script>
     <script type="module" src="../js/mobile-navigation.mjs"></script>
@@ -58,13 +57,13 @@
       aria-label="Navigasi utama"
       data-mobile-navigation
     >
-      <div class="navbar__container">
-        <ul class="navbar__menu">
+      <div class="navbar-container">
+        <ul class="navbar-menu">
           <li><a href="../../index.html">Beranda</a></li>
           <li>
-            <div class="navbar__services" data-services-dropdown>
+            <div class="navbar-services" data-services-dropdown>
               <button
-                class="navbar__services-toggle is-active"
+                class="navbar-services-toggle is-active"
                 type="button"
                 aria-expanded="false"
                 aria-controls="services-menu"
@@ -74,18 +73,18 @@
                   >expand_more</span
                 >
               </button>
-              <ul id="services-menu" class="navbar__submenu" hidden>
+              <ul id="services-menu" class="navbar-submenu" hidden>
                 <li>
                   <a href="cek-makanan.html">
                     <span
-                      class="navbar__submenu-icon navbar__submenu-icon--check material-symbols-outlined"
+                      class="navbar-submenu-icon navbar-submenu-icon-check material-symbols-outlined"
                       aria-hidden="true"
                     >
                       nutrition
                     </span>
-                    <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Analisis Gizi</span>
-                      <span class="navbar__submenu-description">
+                    <span class="navbar-submenu-copy">
+                      <span class="navbar-submenu-title">Analisis Gizi</span>
+                      <span class="navbar-submenu-description">
                         Analisis nutrisi dari makananmu
                       </span>
                     </span>
@@ -94,14 +93,14 @@
                 <li>
                   <a href="resep-galeri.html" aria-current="page">
                     <span
-                      class="navbar__submenu-icon navbar__submenu-icon--gallery material-symbols-outlined"
+                      class="navbar-submenu-icon navbar-submenu-icon-gallery material-symbols-outlined"
                       aria-hidden="true"
                     >
                       menu_book
                     </span>
-                    <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Resep Sehat</span>
-                      <span class="navbar__submenu-description">
+                    <span class="navbar-submenu-copy">
+                      <span class="navbar-submenu-title">Resep Sehat</span>
+                      <span class="navbar-submenu-description">
                         Temukan inspirasi resep sehat
                       </span>
                     </span>
@@ -110,14 +109,14 @@
                 <li>
                   <a href="buat-resep.html">
                     <span
-                      class="navbar__submenu-icon navbar__submenu-icon--recipe material-symbols-outlined"
+                      class="navbar-submenu-icon navbar-submenu-icon-recipe material-symbols-outlined"
                       aria-hidden="true"
                     >
                       restaurant_menu
                     </span>
-                    <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Perencanaan Nutrisi</span>
-                      <span class="navbar__submenu-description">
+                    <span class="navbar-submenu-copy">
+                      <span class="navbar-submenu-title">Perencanaan Nutrisi</span>
+                      <span class="navbar-submenu-description">
                         Buat resep dari bahan yang tersedia
                       </span>
                     </span>
@@ -126,14 +125,14 @@
                 <li>
                   <a href="challenge-sehat.html">
                     <span
-                      class="navbar__submenu-icon navbar__submenu-icon--challenge material-symbols-outlined"
+                      class="navbar-submenu-icon navbar-submenu-icon-challenge material-symbols-outlined"
                       aria-hidden="true"
                     >
                       emoji_events
                     </span>
-                    <span class="navbar__submenu-copy">
-                      <span class="navbar__submenu-title">Challenge Sehat</span>
-                      <span class="navbar__submenu-description">
+                    <span class="navbar-submenu-copy">
+                      <span class="navbar-submenu-title">Challenge Sehat</span>
+                      <span class="navbar-submenu-description">
                         Ikuti tantangan hidup lebih sehat
                       </span>
                     </span>
@@ -145,7 +144,7 @@
           <li><a href="artikel.html">Artikel</a></li>
         </ul>
 
-        <div class="navbar__logo">
+        <div class="navbar-logo">
           <span class="material-symbols-outlined" aria-hidden="true"
             >nutrition</span
           >
@@ -154,23 +153,23 @@
           >
         </div>
 
-        <div class="navbar__profile" data-profile-dropdown>
+        <div class="navbar-profile" data-profile-dropdown>
           <button
-            class="navbar__profile-trigger"
+            class="navbar-profile-trigger"
             type="button"
             aria-expanded="false"
             aria-controls="profile-menu"
             aria-label="Buka menu profil Denny Pramana"
           >
             <img
-              class="navbar__profile-avatar navbar__profile-avatar--trigger"
+              class="navbar-profile-avatar navbar-profile-avatar-trigger"
               src="../images/testimonial/Bang Raka.webp"
               alt=""
               width="40"
               height="40"
             />
             <span
-              class="navbar__profile-chevron material-symbols-outlined"
+              class="navbar-profile-chevron material-symbols-outlined"
               aria-hidden="true"
               >expand_more</span
             >
@@ -178,32 +177,32 @@
 
           <div
             id="profile-menu"
-            class="navbar__profile-panel"
+            class="navbar-profile-panel"
             hidden
             inert
           >
-            <div class="navbar__profile-identity">
+            <div class="navbar-profile-identity">
               <img
-                class="navbar__profile-avatar navbar__profile-avatar--panel"
+                class="navbar-profile-avatar navbar-profile-avatar-panel"
                 src="../images/testimonial/Bang Raka.webp"
                 alt=""
                 width="48"
                 height="48"
               />
-              <div class="navbar__profile-copy">
-                <p class="navbar__profile-name">Denny Pramana</p>
-                <p class="navbar__profile-email">denprama@email.com</p>
+              <div class="navbar-profile-copy">
+                <p class="navbar-profile-name">Denny Pramana</p>
+                <p class="navbar-profile-email">denprama@email.com</p>
               </div>
             </div>
-            <hr class="navbar__profile-divider" />
-            <a class="navbar__profile-action" data-profile-link>
+            <hr class="navbar-profile-divider" />
+            <a class="navbar-profile-action" data-profile-link>
               <span class="material-symbols-outlined" aria-hidden="true"
                 >person</span
               >
               <span>Profile</span>
             </a>
             <button
-              class="navbar__profile-action"
+              class="navbar-profile-action"
               type="button"
               data-profile-logout
             >
@@ -216,7 +215,7 @@
         </div>
 
         <button
-          class="mobile-nav__open"
+          class="mobile-nav-open"
           type="button"
           aria-label="Buka menu navigasi"
           aria-expanded="false"
@@ -233,21 +232,21 @@
         aria-hidden="true"
       >
         <button
-          class="mobile-nav__overlay"
+          class="mobile-nav-overlay"
           type="button"
           aria-label="Tutup menu navigasi"
           tabindex="-1"
         ></button>
 
         <aside
-          class="mobile-nav__drawer"
+          class="mobile-nav-drawer"
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-nav-title"
           inert
         >
-          <header class="mobile-nav__header">
-            <span class="mobile-nav__brand" aria-hidden="true">
+          <header class="mobile-nav-header">
+            <span class="mobile-nav-brand" aria-hidden="true">
               <span class="material-symbols-outlined">nutrition</span>
               <span>NutLens</span>
             </span>
@@ -255,7 +254,7 @@
               Menu NutLens
             </h2>
             <button
-              class="mobile-nav__close"
+              class="mobile-nav-close"
               type="button"
               aria-label="Tutup menu navigasi"
             >
@@ -265,26 +264,26 @@
             </button>
           </header>
 
-          <div class="mobile-nav__body">
+          <div class="mobile-nav-body">
             <section
-              class="mobile-nav__section"
+              class="mobile-nav-section"
               aria-labelledby="mobile-account-title"
             >
               <h3
                 id="mobile-account-title"
-                class="mobile-nav__section-title"
+                class="mobile-nav-section-title"
               >
                 Akun
               </h3>
-              <a class="mobile-nav__account">
+              <a class="mobile-nav-account">
                 <img
-                  class="mobile-nav__avatar"
+                  class="mobile-nav-avatar"
                   src="../images/testimonial/Bang Raka.webp"
                   alt=""
                   width="48"
                   height="48"
                 />
-                <span class="mobile-nav__account-text">
+                <span class="mobile-nav-account-text">
                   <strong>Denny Pramana</strong>
                   <span>Lihat profil saya</span>
                 </span>
@@ -295,19 +294,19 @@
             </section>
 
             <section
-              class="mobile-nav__section"
+              class="mobile-nav-section"
               aria-labelledby="mobile-navigation-title"
             >
               <h3
                 id="mobile-navigation-title"
-                class="mobile-nav__section-title"
+                class="mobile-nav-section-title"
               >
                 Navigasi
               </h3>
               <nav aria-label="Navigasi mobile">
-                <ul class="mobile-nav__list">
+                <ul class="mobile-nav-list">
                   <li>
-                    <a class="mobile-nav__item" href="../../index.html">
+                    <a class="mobile-nav-item" href="../../index.html">
                       <span
                         class="material-symbols-outlined"
                         aria-hidden="true"
@@ -318,12 +317,12 @@
                   </li>
                   <li>
                     <button
-                      class="mobile-nav__submenu-trigger"
+                      class="mobile-nav-submenu-trigger"
                       type="button"
                       aria-expanded="false"
                       aria-controls="mobile-services-menu"
                     >
-                      <span class="mobile-nav__item-main is-active">
+                      <span class="mobile-nav-item-main is-active">
                         <span
                           class="material-symbols-outlined"
                           aria-hidden="true"
@@ -332,18 +331,18 @@
                         <span>Layanan</span>
                       </span>
                       <span
-                        class="material-symbols-outlined mobile-nav__submenu-icon"
+                        class="material-symbols-outlined mobile-nav-submenu-icon"
                         aria-hidden="true"
                         >expand_more</span
                       >
                     </button>
                     <div
-                      class="mobile-nav__submenu-shell"
+                      class="mobile-nav-submenu-shell"
                       id="mobile-services-menu"
                       aria-hidden="true"
                       inert
                     >
-                      <ul class="mobile-nav__submenu">
+                      <ul class="mobile-nav-submenu">
                         <li>
                           <a href="cek-makanan.html">Analisis Gizi</a>
                         </li>
@@ -362,7 +361,7 @@
                     </div>
                   </li>
                   <li>
-                    <a class="mobile-nav__item" href="artikel.html">
+                    <a class="mobile-nav-item" href="artikel.html">
                       <span
                         class="material-symbols-outlined"
                         aria-hidden="true"
@@ -376,8 +375,8 @@
             </section>
           </div>
 
-          <div class="mobile-nav__footer">
-            <button class="mobile-nav__logout" type="button">
+          <div class="mobile-nav-footer">
+            <button class="mobile-nav-logout" type="button">
               <span class="material-symbols-outlined" aria-hidden="true"
                 >logout</span
               >
@@ -393,13 +392,13 @@
       <div class="recipe-detail-container">
         <!-- Breadcrumb Navigation -->
         <nav class="recipe-breadcrumb" aria-label="Breadcrumb">
-          <ol class="recipe-breadcrumb__list">
-            <li class="recipe-breadcrumb__item">
-              <a href="resep-galeri.html" class="recipe-breadcrumb__link">Galeri Resep</a>
+          <ol class="recipe-breadcrumb-list">
+            <li class="recipe-breadcrumb-item">
+              <a href="resep-galeri.html" class="recipe-breadcrumb-link">Galeri Resep</a>
             </li>
-            <li class="recipe-breadcrumb__separator" aria-hidden="true">&gt;</li>
-            <li class="recipe-breadcrumb__item">
-              <span class="recipe-breadcrumb__current" id="recipe-breadcrumb-current" aria-current="page">Pepes Ayam Sehat</span>
+            <li class="recipe-breadcrumb-separator" aria-hidden="true">&gt;</li>
+            <li class="recipe-breadcrumb-item">
+              <span class="recipe-breadcrumb-current" id="recipe-breadcrumb-current" aria-current="page">Pepes Ayam Sehat</span>
             </li>
           </ol>
         </nav>
@@ -410,28 +409,28 @@
             <img
               src="../images/recipes/pepes-ayam.jpg"
               alt="Pepes Ayam Sehat disajikan di atas daun pisang segar"
-              class="recipe-hero-card__bg-img"
+              class="recipe-hero-card-bg-img"
               id="recipe-hero-image"
             />
-            <div class="recipe-hero-card__overlay"></div>
+            <div class="recipe-hero-card-overlay"></div>
 
-            <div class="recipe-hero-card__content">
-              <div class="recipe-hero-card__info">
-                <h1 class="recipe-hero-card__title" id="recipe-title">Pepes Ayam</h1>
-                <p class="recipe-hero-card__desc" id="recipe-desc">
+            <div class="recipe-hero-card-content">
+              <div class="recipe-hero-card-info">
+                <h1 class="recipe-hero-card-title" id="recipe-title">Pepes Ayam</h1>
+                <p class="recipe-hero-card-desc" id="recipe-desc">
                   Pepes ayam adalah makanan sehat karena dimasak tanpa minyak melalui pengukusan dengan daun pisang, kaya protein berkualitas tinggi, serta sarat antioksidan dari limpahan bumbu rempah alami.
                 </p>
 
-                <div class="recipe-hero-card__meta-chips" aria-label="Informasi porsi dan waktu memasak">
-                  <span class="recipe-hero-card__chip">
+                <div class="recipe-hero-card-meta-chips" aria-label="Informasi porsi dan waktu memasak">
+                  <span class="recipe-hero-card-chip">
                     <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
                     <span id="recipe-calories">310 kkal</span>
                   </span>
-                  <span class="recipe-hero-card__chip">
+                  <span class="recipe-hero-card-chip">
                     <span class="material-symbols-outlined" aria-hidden="true">alarm_on</span>
                     <span id="recipe-cooktime">25 Menit</span>
                   </span>
-                  <span class="recipe-hero-card__chip">
+                  <span class="recipe-hero-card-chip">
                     <span class="material-symbols-outlined" aria-hidden="true">fork_spoon</span>
                     <span id="recipe-servings">1 Porsi</span>
                   </span>
@@ -440,7 +439,7 @@
 
               <button
                 type="button"
-                class="recipe-hero-card__bookmark-btn"
+                class="recipe-hero-card-bookmark-btn"
                 id="recipe-bookmark-btn"
                 aria-label="Simpan resep ke favorit"
                 aria-pressed="false"
@@ -458,10 +457,10 @@
             <!-- 2-Card Split for Ingredients & Spices -->
             <div class="recipe-ingredients-split">
               <!-- Bahan - Bahan -->
-              <div class="recipe-card recipe-card--elevated">
-                <div class="recipe-card__header">
-                  <span class="material-symbols-outlined recipe-card__header-icon" aria-hidden="true">receipt_long</span>
-                  <h2 class="recipe-card__title">Bahan - Bahan</h2>
+              <div class="recipe-card recipe-card-elevated">
+                <div class="recipe-card-header">
+                  <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">receipt_long</span>
+                  <h2 class="recipe-card-title">Bahan - Bahan</h2>
                 </div>
                 <ul class="recipe-bullet-list" id="recipe-ingredients-list">
                   <li>800 gr/ 1 ekor ayam</li>
@@ -475,10 +474,10 @@
               </div>
 
               <!-- Bumbu Halus -->
-              <div class="recipe-card recipe-card--elevated">
-                <div class="recipe-card__header">
-                  <span class="material-symbols-outlined recipe-card__header-icon" aria-hidden="true">soup_kitchen</span>
-                  <h2 class="recipe-card__title">Bumbu Halus</h2>
+              <div class="recipe-card recipe-card-elevated">
+                <div class="recipe-card-header">
+                  <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">soup_kitchen</span>
+                  <h2 class="recipe-card-title">Bumbu Halus</h2>
                 </div>
                 <ul class="recipe-bullet-list" id="recipe-spices-list">
                   <li>8 bawang merah</li>
@@ -493,20 +492,20 @@
 
             <!-- Manfaat Bahan -->
             <div class="recipe-benefits-card" data-reveal="fade-up" data-reveal-delay="150">
-              <div class="recipe-card__header">
-                <span class="material-symbols-outlined recipe-card__header-icon" aria-hidden="true">eco</span>
-                <h2 class="recipe-card__title">Manfaat Bahan</h2>
+              <div class="recipe-card-header">
+                <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">eco</span>
+                <h2 class="recipe-card-title">Manfaat Bahan</h2>
               </div>
               <div class="recipe-benefits-grid" id="recipe-benefits-list">
                 <div class="recipe-benefit-item">
-                  <span class="material-symbols-outlined recipe-benefit-item__icon" aria-hidden="true">check_circle</span>
-                  <div class="recipe-benefit-item__text">
+                  <span class="material-symbols-outlined recipe-benefit-item-icon" aria-hidden="true">check_circle</span>
+                  <div class="recipe-benefit-item-text">
                     <strong>Ayam Tanpa Kulit:</strong> Sumber protein tinggi rendah lemak untuk massa otot.
                   </div>
                 </div>
                 <div class="recipe-benefit-item">
-                  <span class="material-symbols-outlined recipe-benefit-item__icon" aria-hidden="true">check_circle</span>
-                  <div class="recipe-benefit-item__text">
+                  <span class="material-symbols-outlined recipe-benefit-item-icon" aria-hidden="true">check_circle</span>
+                  <div class="recipe-benefit-item-text">
                     <strong>Bumbu Rempah:</strong> Kaya antioksidan alami untuk memperkuat sistem imun.
                   </div>
                 </div>
@@ -516,96 +515,96 @@
 
           <!-- Right Column: Nutrition Information & Nutri-Level -->
           <div class="recipe-column-right">
-            <div class="recipe-card recipe-nutrition-card recipe-card--elevated" data-reveal="fade-up" data-reveal-delay="150">
+            <div class="recipe-card recipe-nutrition-card recipe-card-elevated" data-reveal="fade-up" data-reveal-delay="150">
               <div>
-                <div class="recipe-card__header">
-                  <span class="material-symbols-outlined recipe-card__header-icon" aria-hidden="true">bar_chart</span>
-                  <h2 class="recipe-card__title">Informasi Nutrisi Gizi</h2>
+                <div class="recipe-card-header">
+                  <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">bar_chart</span>
+                  <h2 class="recipe-card-title">Informasi Nutrisi Gizi</h2>
                 </div>
 
                 <!-- Macro Nutrient Bars -->
                 <div class="recipe-macro-list" id="recipe-nutrition-list">
                   <!-- Protein -->
-                  <div class="recipe-macro-item macro--protein">
-                    <div class="recipe-macro-item__header">
-                      <div class="recipe-macro-item__label-group">
-                        <span class="recipe-macro-item__dot" aria-hidden="true"></span>
-                        <span class="recipe-macro-item__name">Protein</span>
+                  <div class="recipe-macro-item macro-protein">
+                    <div class="recipe-macro-item-header">
+                      <div class="recipe-macro-item-label-group">
+                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span class="recipe-macro-item-name">Protein</span>
                       </div>
-                      <span class="recipe-macro-item__value">22 g/60g</span>
+                      <span class="recipe-macro-item-value">22 g/60g</span>
                     </div>
-                    <div class="recipe-macro-item__bar-track">
-                      <div class="recipe-macro-item__bar-fill" style="width: 36.6%;" data-target-width="36.6%"></div>
+                    <div class="recipe-macro-item-bar-track">
+                      <div class="recipe-macro-item-bar-fill" style="width: 36.6%;" data-target-width="36.6%"></div>
                     </div>
                   </div>
 
                   <!-- Kalori -->
-                  <div class="recipe-macro-item macro--calories">
-                    <div class="recipe-macro-item__header">
-                      <div class="recipe-macro-item__label-group">
-                        <span class="recipe-macro-item__dot" aria-hidden="true"></span>
-                        <span class="recipe-macro-item__name">Kalori</span>
+                  <div class="recipe-macro-item macro-calories">
+                    <div class="recipe-macro-item-header">
+                      <div class="recipe-macro-item-label-group">
+                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span class="recipe-macro-item-name">Kalori</span>
                       </div>
-                      <span class="recipe-macro-item__value">220/2,000kkal</span>
+                      <span class="recipe-macro-item-value">220/2,000kkal</span>
                     </div>
-                    <div class="recipe-macro-item__bar-track">
-                      <div class="recipe-macro-item__bar-fill" style="width: 11%;" data-target-width="11%"></div>
+                    <div class="recipe-macro-item-bar-track">
+                      <div class="recipe-macro-item-bar-fill" style="width: 11%;" data-target-width="11%"></div>
                     </div>
                   </div>
 
                   <!-- Karbohidrat -->
-                  <div class="recipe-macro-item macro--carbs">
-                    <div class="recipe-macro-item__header">
-                      <div class="recipe-macro-item__label-group">
-                        <span class="recipe-macro-item__dot" aria-hidden="true"></span>
-                        <span class="recipe-macro-item__name">Karbohidrat</span>
+                  <div class="recipe-macro-item macro-carbs">
+                    <div class="recipe-macro-item-header">
+                      <div class="recipe-macro-item-label-group">
+                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span class="recipe-macro-item-name">Karbohidrat</span>
                       </div>
-                      <span class="recipe-macro-item__value">6g/300g</span>
+                      <span class="recipe-macro-item-value">6g/300g</span>
                     </div>
-                    <div class="recipe-macro-item__bar-track">
-                      <div class="recipe-macro-item__bar-fill" style="width: 2%;" data-target-width="2%"></div>
+                    <div class="recipe-macro-item-bar-track">
+                      <div class="recipe-macro-item-bar-fill" style="width: 2%;" data-target-width="2%"></div>
                     </div>
                   </div>
 
                   <!-- Lemak -->
-                  <div class="recipe-macro-item macro--fat">
-                    <div class="recipe-macro-item__header">
-                      <div class="recipe-macro-item__label-group">
-                        <span class="recipe-macro-item__dot" aria-hidden="true"></span>
-                        <span class="recipe-macro-item__name">Lemak</span>
+                  <div class="recipe-macro-item macro-fat">
+                    <div class="recipe-macro-item-header">
+                      <div class="recipe-macro-item-label-group">
+                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span class="recipe-macro-item-name">Lemak</span>
                       </div>
-                      <span class="recipe-macro-item__value">11g/60g</span>
+                      <span class="recipe-macro-item-value">11g/60g</span>
                     </div>
-                    <div class="recipe-macro-item__bar-track">
-                      <div class="recipe-macro-item__bar-fill" style="width: 18.3%;" data-target-width="18.3%"></div>
+                    <div class="recipe-macro-item-bar-track">
+                      <div class="recipe-macro-item-bar-fill" style="width: 18.3%;" data-target-width="18.3%"></div>
                     </div>
                   </div>
 
                   <!-- Serat -->
-                  <div class="recipe-macro-item macro--fiber">
-                    <div class="recipe-macro-item__header">
-                      <div class="recipe-macro-item__label-group">
-                        <span class="recipe-macro-item__dot" aria-hidden="true"></span>
-                        <span class="recipe-macro-item__name">Serat</span>
+                  <div class="recipe-macro-item macro-fiber">
+                    <div class="recipe-macro-item-header">
+                      <div class="recipe-macro-item-label-group">
+                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span class="recipe-macro-item-name">Serat</span>
                       </div>
-                      <span class="recipe-macro-item__value">1,5g/30g</span>
+                      <span class="recipe-macro-item-value">1,5g/30g</span>
                     </div>
-                    <div class="recipe-macro-item__bar-track">
-                      <div class="recipe-macro-item__bar-fill" style="width: 5%;" data-target-width="5%"></div>
+                    <div class="recipe-macro-item-bar-track">
+                      <div class="recipe-macro-item-bar-fill" style="width: 5%;" data-target-width="5%"></div>
                     </div>
                   </div>
 
                   <!-- Gula -->
-                  <div class="recipe-macro-item macro--sugar">
-                    <div class="recipe-macro-item__header">
-                      <div class="recipe-macro-item__label-group">
-                        <span class="recipe-macro-item__dot" aria-hidden="true"></span>
-                        <span class="recipe-macro-item__name">Gula</span>
+                  <div class="recipe-macro-item macro-sugar">
+                    <div class="recipe-macro-item-header">
+                      <div class="recipe-macro-item-label-group">
+                        <span class="recipe-macro-item-dot" aria-hidden="true"></span>
+                        <span class="recipe-macro-item-name">Gula</span>
                       </div>
-                      <span class="recipe-macro-item__value">1g/50g</span>
+                      <span class="recipe-macro-item-value">1g/50g</span>
                     </div>
-                    <div class="recipe-macro-item__bar-track">
-                      <div class="recipe-macro-item__bar-fill" style="width: 2%;" data-target-width="2%"></div>
+                    <div class="recipe-macro-item-bar-track">
+                      <div class="recipe-macro-item-bar-fill" style="width: 2%;" data-target-width="2%"></div>
                     </div>
                   </div>
                 </div>
@@ -614,12 +613,12 @@
               <!-- Nutri-Level Badge Container -->
               <div class="recipe-nutri-level-box" id="recipe-nutri-level-box">
                 <div class="recipe-nutri-level-badge">
-                  <span class="recipe-nutri-level-badge__grade">A</span>
-                  <span class="recipe-nutri-level-badge__tag">VES: Sehat</span>
+                  <span class="recipe-nutri-level-badge-grade">A</span>
+                  <span class="recipe-nutri-level-badge-tag">VES: Sehat</span>
                 </div>
                 <div class="recipe-nutri-level-copy">
-                  <h3 class="recipe-nutri-level-copy__title">Nutri-Level</h3>
-                  <p class="recipe-nutri-level-copy__desc">
+                  <h3 class="recipe-nutri-level-copy-title">Nutri-Level</h3>
+                  <p class="recipe-nutri-level-copy-desc">
                     sangat sehat dan kaya serat alami, berkat metode pengukusan tanpa minyak, kandungan protein tinggi.
                   </p>
                 </div>
@@ -632,23 +631,23 @@
         <div class="recipe-section-grid" data-reveal="fade-up" data-reveal-delay="200">
           <!-- Left Column: Cara Memasak -->
           <div class="recipe-column-left">
-            <div class="recipe-card recipe-card--elevated">
-              <div class="recipe-card__header">
-                <span class="material-symbols-outlined recipe-card__header-icon" aria-hidden="true">restaurant</span>
-                <h2 class="recipe-card__title">Cara Memasak</h2>
+            <div class="recipe-card recipe-card-elevated">
+              <div class="recipe-card-header">
+                <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">restaurant</span>
+                <h2 class="recipe-card-title">Cara Memasak</h2>
               </div>
 
               <div class="recipe-steps-list" id="recipe-steps-list">
                 <!-- Step 1 -->
                 <div class="recipe-step-item">
-                  <span class="recipe-step-item__number">1</span>
-                  <div class="recipe-step-item__content">
-                    <h3 class="recipe-step-item__title">Memotong Ayam</h3>
-                    <p class="recipe-step-item__desc">
+                  <span class="recipe-step-item-number">1</span>
+                  <div class="recipe-step-item-content">
+                    <h3 class="recipe-step-item-title">Memotong Ayam</h3>
+                    <p class="recipe-step-item-desc">
                       Ayam dipotong ukuran besar bisa 7 potong, kemudian dicuci bersih dan disayat-sayat bagian dada agar bumbu meresap.
                     </p>
                   </div>
-                  <div class="recipe-step-item__thumb">
+                  <div class="recipe-step-item-thumb">
                     <img
                       src="../images/recipes/chicken-soup.jpg"
                       alt="Langkah 1: Memotong Ayam"
@@ -659,14 +658,14 @@
 
                 <!-- Step 2 -->
                 <div class="recipe-step-item">
-                  <span class="recipe-step-item__number">2</span>
-                  <div class="recipe-step-item__content">
-                    <h3 class="recipe-step-item__title">Ungkep Ayam Dengan Bumbu Rempah</h3>
-                    <p class="recipe-step-item__desc">
+                  <span class="recipe-step-item-number">2</span>
+                  <div class="recipe-step-item-content">
+                    <h3 class="recipe-step-item-title">Ungkep Ayam Dengan Bumbu Rempah</h3>
+                    <p class="recipe-step-item-desc">
                       Ungkep ayam dengan bumbu halus, kalau saya bumbu tanpa ditumis. Masukkan salam, serai, garam &amp; kaldu bubuk. Tunggu sampai air surut dan koreksi rasa.
                     </p>
                   </div>
-                  <div class="recipe-step-item__thumb">
+                  <div class="recipe-step-item-thumb">
                     <img
                       src="../images/recipes/ikan-kuah-kuning.jpg"
                       alt="Langkah 2: Ungkep Ayam Dengan Bumbu Rempah"
@@ -677,14 +676,14 @@
 
                 <!-- Step 3 -->
                 <div class="recipe-step-item">
-                  <span class="recipe-step-item__number">3</span>
-                  <div class="recipe-step-item__content">
-                    <h3 class="recipe-step-item__title">Bungkus &amp; Kukus Ayam</h3>
-                    <p class="recipe-step-item__desc">
+                  <span class="recipe-step-item-number">3</span>
+                  <div class="recipe-step-item-content">
+                    <h3 class="recipe-step-item-title">Bungkus &amp; Kukus Ayam</h3>
+                    <p class="recipe-step-item-desc">
                       Setelah air menyusut, matikan api. Bungkus ayam dengan daun pisang, tambahkan daun kemangi dan irisan cabai rawit, kemudian kukus selama kurang lebih 20 menit hingga daun layu.
                     </p>
                   </div>
-                  <div class="recipe-step-item__thumb">
+                  <div class="recipe-step-item-thumb">
                     <img
                       src="../images/recipes/pepes-ayam.jpg"
                       alt="Langkah 3: Bungkus & Kukus Ayam"
@@ -695,14 +694,14 @@
 
                 <!-- Step 4 -->
                 <div class="recipe-step-item">
-                  <span class="recipe-step-item__number">4</span>
-                  <div class="recipe-step-item__content">
-                    <h3 class="recipe-step-item__title">Pepes Ayam, lalu Sajikan</h3>
-                    <p class="recipe-step-item__desc">
+                  <span class="recipe-step-item-number">4</span>
+                  <div class="recipe-step-item-content">
+                    <h3 class="recipe-step-item-title">Pepes Ayam, lalu Sajikan</h3>
+                    <p class="recipe-step-item-desc">
                       Panaskan panggangan, kemudian panggang pepes ayam agar bumbu lebih meresap dan tidak berair. Angkat dan sajikan
                     </p>
                   </div>
-                  <div class="recipe-step-item__thumb">
+                  <div class="recipe-step-item-thumb">
                     <img
                       src="../images/recipes/tempe-bakar.jpg"
                       alt="Langkah 4: Pepes Ayam, lalu Sajikan"
@@ -718,18 +717,18 @@
           <div class="recipe-column-right recipe-sidebar">
             <!-- Tips Nutrisi Card -->
             <div class="recipe-tips-card" data-reveal="fade-up" data-reveal-delay="250">
-              <div class="recipe-card__header">
-                <span class="material-symbols-outlined recipe-card__header-icon" aria-hidden="true">tips_and_updates</span>
-                <h2 class="recipe-card__title">Tips Nutrisi</h2>
+              <div class="recipe-card-header">
+                <span class="material-symbols-outlined recipe-card-header-icon" aria-hidden="true">tips_and_updates</span>
+                <h2 class="recipe-card-title">Tips Nutrisi</h2>
               </div>
-              <p class="recipe-tips-card__desc" id="recipe-nutrition-tips">
+              <p class="recipe-tips-card-desc" id="recipe-nutrition-tips">
                 Pepes ayam merupakan pilihan menu yang lebih sehat karena dimasak dengan cara dikukus sehingga tidak memerlukan banyak minyak. Tambahkan daun kemangi dan cabai untuk memberikan aroma,dan cita rasa yang lebih segar.
               </p>
 
               <!-- Analisis AI Glass Box -->
               <div class="recipe-ai-box">
-                <span class="recipe-ai-box__label">Analisis AI</span>
-                <p class="recipe-ai-box__text" id="recipe-ai-analysis">
+                <span class="recipe-ai-box-label">Analisis AI</span>
+                <p class="recipe-ai-box-text" id="recipe-ai-analysis">
                   Resep ini tinggi protein dan rendah minyak, sehingga cocok untuk menu makan sehat sehari-hari.
                 </p>
               </div>
@@ -737,10 +736,10 @@
 
             <!-- Harga Belanja Card -->
             <div class="recipe-price-card" data-reveal="fade-up" data-reveal-delay="300">
-              <h2 class="recipe-card__title">Harga Belanja</h2>
-              <div class="recipe-price-card__content">
-                <span class="recipe-price-card__label">Per Porsi</span>
-                <span class="recipe-price-card__amount" id="recipe-price-amount">Rp 16.500</span>
+              <h2 class="recipe-card-title">Harga Belanja</h2>
+              <div class="recipe-price-card-content">
+                <span class="recipe-price-card-label">Per Porsi</span>
+                <span class="recipe-price-card-amount" id="recipe-price-amount">Rp 16.500</span>
               </div>
             </div>
           </div>
@@ -750,11 +749,11 @@
 
     <!-- Site Footer -->
     <footer class="site-footer">
-      <div class="site-footer__container">
-        <div class="site-footer__main">
-          <div class="site-footer__brand" data-reveal="fade-up" data-reveal-delay="100">
+      <div class="site-footer-container">
+        <div class="site-footer-main">
+          <div class="site-footer-brand" data-reveal="fade-up" data-reveal-delay="100">
             <a
-              class="site-footer__brand-link"
+              class="site-footer-brand-link"
               href="../../index.html"
               aria-label="NutLens, kembali ke beranda"
             >
@@ -763,13 +762,13 @@
               </span>
               <span>NutLens</span>
             </a>
-            <p class="site-footer__description">
+            <p class="site-footer-description">
               Solusi nutrisi cerdas berbasis AI untuk membantu Anda mencapai pola makan seimbang dan gaya hidup yang lebih sehat setiap hari.
             </p>
 
-            <div class="site-footer__socials" aria-label="Media sosial NutLens">
+            <div class="site-footer-socials" aria-label="Media sosial NutLens">
               <a
-                class="site-footer__social-link"
+                class="site-footer-social-link"
                 aria-label="Kunjungi Facebook NutLens — belum tersedia"
                 aria-disabled="true"
                 tabindex="-1"
@@ -777,7 +776,7 @@
                 <i class="bi bi-facebook" aria-hidden="true"></i>
               </a>
               <a
-                class="site-footer__social-link"
+                class="site-footer-social-link"
                 aria-label="Kunjungi X NutLens — belum tersedia"
                 aria-disabled="true"
                 tabindex="-1"
@@ -785,7 +784,7 @@
                 <i class="bi bi-twitter-x" aria-hidden="true"></i>
               </a>
               <a
-                class="site-footer__social-link"
+                class="site-footer-social-link"
                 aria-label="Kunjungi YouTube NutLens — belum tersedia"
                 aria-disabled="true"
                 tabindex="-1"
@@ -793,7 +792,7 @@
                 <i class="bi bi-youtube" aria-hidden="true"></i>
               </a>
               <a
-                class="site-footer__social-link"
+                class="site-footer-social-link"
                 aria-label="Kunjungi Instagram NutLens — belum tersedia"
                 aria-disabled="true"
                 tabindex="-1"
@@ -803,35 +802,35 @@
             </div>
           </div>
 
-          <div class="site-footer__navigation" data-reveal="fade-up" data-reveal-delay="250">
+          <div class="site-footer-navigation" data-reveal="fade-up" data-reveal-delay="250">
             <nav aria-labelledby="footer-navigation-title">
-              <h2 id="footer-navigation-title" class="site-footer__nav-title">
+              <h2 id="footer-navigation-title" class="site-footer-nav-title">
                 Navigasi
               </h2>
-              <ul class="site-footer__nav-list">
-                <li><a class="site-footer__link" href="../../index.html">Beranda</a></li>
-                <li><a class="site-footer__link" href="cek-makanan.html">Cek Makanan</a></li>
-                <li><a class="site-footer__link" href="buat-resep.html">Buat Resep</a></li>
+              <ul class="site-footer-nav-list">
+                <li><a class="site-footer-link" href="../../index.html">Beranda</a></li>
+                <li><a class="site-footer-link" href="cek-makanan.html">Cek Makanan</a></li>
+                <li><a class="site-footer-link" href="buat-resep.html">Buat Resep</a></li>
                 <li>
-                  <a class="site-footer__link" href="resep-galeri.html">
+                  <a class="site-footer-link" href="resep-galeri.html">
                     Galeri Resep
                   </a>
                 </li>
-                <li><a class="site-footer__link" href="challenge-sehat.html">Challenge Sehat</a></li>
-                <li><a class="site-footer__link" href="artikel.html">Artikel</a></li>
+                <li><a class="site-footer-link" href="challenge-sehat.html">Challenge Sehat</a></li>
+                <li><a class="site-footer-link" href="artikel.html">Artikel</a></li>
               </ul>
             </nav>
 
             <nav aria-labelledby="footer-support-title">
-              <h2 id="footer-support-title" class="site-footer__nav-title">
+              <h2 id="footer-support-title" class="site-footer-nav-title">
                 Dukungan
               </h2>
-              <ul class="site-footer__nav-list">
-                <li><a class="site-footer__link" href="../../index.html#about-title">Tentang Kami</a></li>
-                <li><a class="site-footer__link" href="../../index.html#faq-title">FAQ</a></li>
+              <ul class="site-footer-nav-list">
+                <li><a class="site-footer-link" href="../../index.html#about-title">Tentang Kami</a></li>
+                <li><a class="site-footer-link" href="../../index.html#faq-title">FAQ</a></li>
                 <li>
                   <a
-                    class="site-footer__link"
+                    class="site-footer-link"
                     aria-label="Hubungi Kami belum tersedia"
                     aria-disabled="true"
                     tabindex="-1"
@@ -841,7 +840,7 @@
                 </li>
                 <li>
                   <a
-                    class="site-footer__link"
+                    class="site-footer-link"
                     aria-label="Kebijakan Privasi belum tersedia"
                     aria-disabled="true"
                     tabindex="-1"
@@ -851,7 +850,7 @@
                 </li>
                 <li>
                   <a
-                    class="site-footer__link"
+                    class="site-footer-link"
                     aria-label="Syarat dan Ketentuan belum tersedia"
                     aria-disabled="true"
                     tabindex="-1"
@@ -863,13 +862,13 @@
             </nav>
 
             <nav aria-labelledby="footer-resources-title">
-              <h2 id="footer-resources-title" class="site-footer__nav-title">
+              <h2 id="footer-resources-title" class="site-footer-nav-title">
                 Sumber Informasi
               </h2>
-              <ul class="site-footer__nav-list">
+              <ul class="site-footer-nav-list">
                 <li>
                   <a
-                    class="site-footer__link"
+                    class="site-footer-link"
                     aria-label="Panduan Nutrisi belum tersedia"
                     aria-disabled="true"
                     tabindex="-1"
@@ -877,10 +876,10 @@
                     Panduan Nutrisi
                   </a>
                 </li>
-                <li><a class="site-footer__link" href="artikel.html">Artikel Kesehatan</a></li>
+                <li><a class="site-footer-link" href="artikel.html">Artikel Kesehatan</a></li>
                 <li>
                   <a
-                    class="site-footer__link"
+                    class="site-footer-link"
                     aria-label="Tips Memasak belum tersedia"
                     aria-disabled="true"
                     tabindex="-1"
@@ -890,7 +889,7 @@
                 </li>
                 <li>
                   <a
-                    class="site-footer__link"
+                    class="site-footer-link"
                     aria-label="Tips Gaya Hidup belum tersedia"
                     aria-disabled="true"
                     tabindex="-1"
@@ -903,9 +902,9 @@
           </div>
         </div>
 
-        <div class="site-footer__divider" aria-hidden="true"></div>
+        <div class="site-footer-divider" aria-hidden="true"></div>
 
-        <div class="site-footer__bottom" data-reveal="fade-up" data-reveal-delay="350">
+        <div class="site-footer-bottom" data-reveal="fade-up" data-reveal-delay="350">
           <p>© 2026 NutLens. Semua hak dilindungi.</p>
           <p>Desain Oleh Programmer Penipu</p>
         </div>

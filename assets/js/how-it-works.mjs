@@ -86,7 +86,7 @@ export function animateStatCounters(
 
 export function initStatCounters(root, environment = globalThis) {
   const counters = [...(root.querySelectorAll?.('[data-count-target]') ?? [])];
-  const stats = root.querySelector?.('.how-it-works__stats');
+  const stats = root.querySelector?.('.how-it-works-stats');
 
   if (!stats || counters.length === 0) return () => {};
 

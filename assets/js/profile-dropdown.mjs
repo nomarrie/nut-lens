@@ -1,8 +1,8 @@
 export const PROFILE_CLOSE_DELAY = 200;
 
 export function initProfileDropdown(root, environment = globalThis) {
-  const trigger = root.querySelector('.navbar__profile-trigger');
-  const panel = root.querySelector('.navbar__profile-panel');
+  const trigger = root.querySelector('.navbar-profile-trigger');
+  const panel = root.querySelector('.navbar-profile-panel');
   const profileLink = root.querySelector('[data-profile-link]');
   const logoutButton = root.querySelector('[data-profile-logout]');
   const documentRef = environment.document;

@@ -18,7 +18,7 @@ const safeWrite = (key, value) => {
 };
 
 const followedChallenges = new Set(safeRead(storageKey, []));
-const joinButtons = [...document.querySelectorAll(".catalog-card__join")];
+const joinButtons = [...document.querySelectorAll(".catalog-card-join")];
 const activeCount = document.querySelector("[data-active-count]");
 
 const updateActiveCount = () => {
@@ -47,7 +47,7 @@ joinButtons.forEach((button) => {
 
 const completeButton = document.querySelector("[data-complete-challenge]");
 const activeChallenge = completeButton?.closest("[data-active-challenge]");
-const progressRing = activeChallenge?.querySelector(".active-challenge__progress-ring");
+const progressRing = activeChallenge?.querySelector(".active-challenge-progress-ring");
 
 const markComplete = () => {
   if (!completeButton || !progressRing) return;

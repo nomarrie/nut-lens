@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const removeButton = document.getElementById('btn-remove-image');
   const analyzeButton = document.getElementById('btn-analyze-now');
   const analyzeSpinner = document.getElementById('btn-analyze-spinner');
-  const nutritionPanel = document.querySelector('.scan-panel--nutrition');
+  const nutritionPanel = document.querySelector('.scan-panel-nutrition');
   const nutritionEmpty = document.getElementById('nutrition-empty');
   const nutritionResult = document.getElementById('nutrition-result');
   const statusTicker = document.getElementById('scan-status-ticker');
@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     analyzeButton.classList.remove('is-loading');
     if (analyzeSpinner) analyzeSpinner.hidden = true;
     analyzeButton.disabled = !currentFile;
-    const btnLabels = analyzeButton.querySelectorAll('.scan-btn-primary__label, .scan-btn-primary__text');
+    const btnLabels = analyzeButton.querySelectorAll('.scan-btn-primary-label, .scan-btn-primary-text');
     if (btnLabels.length > 0) {
       btnLabels.forEach((el) => {
         el.textContent = 'Analisis Sekarang';
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .map(
         (item) => `
         <li class="health-suggestion-card">
-          <p class="health-suggestion-card__text">
+          <p class="health-suggestion-card-text">
             <strong>${item.title}:</strong> ${item.text}
           </p>
         </li>
@@ -510,16 +510,16 @@ document.addEventListener('DOMContentLoaded', () => {
     li.className = 'food-history-card';
     li.innerHTML = `
       <img
-        class="food-history-card__thumb"
+        class="food-history-card-thumb"
         src="${previewUrl}"
         alt="${foodName}"
         width="60"
         height="60"
         loading="lazy"
       />
-      <div class="food-history-card__content">
-        <h4 class="food-history-card__name">${foodName}</h4>
-        <p class="food-history-card__meta">Baru saja • ${data.calories}</p>
+      <div class="food-history-card-content">
+        <h4 class="food-history-card-name">${foodName}</h4>
+        <p class="food-history-card-meta">Baru saja • ${data.calories}</p>
       </div>
     `;
 
@@ -567,19 +567,19 @@ document.addEventListener('DOMContentLoaded', () => {
         (item) => `
         <article class="smart-rec-card" data-recipe-id="${item.id}">
           <img
-            class="smart-rec-card__image"
+            class="smart-rec-card-image"
             src="${item.image}"
             alt="${item.title}"
             width="400"
             height="500"
             loading="lazy"
           />
-          <div class="smart-rec-card__overlay" aria-hidden="true"></div>
+          <div class="smart-rec-card-overlay" aria-hidden="true"></div>
 
-          <div class="smart-rec-card__top">
+          <div class="smart-rec-card-top">
             <button
               type="button"
-              class="smart-rec-card__bookmark"
+              class="smart-rec-card-bookmark"
               aria-label="Simpan resep ${item.title}"
               aria-pressed="false"
             >
@@ -587,11 +587,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </button>
           </div>
 
-          <div class="smart-rec-card__body">
-            <h3 class="smart-rec-card__title">${item.title}</h3>
-            <p class="smart-rec-card__desc">${item.desc}</p>
+          <div class="smart-rec-card-body">
+            <h3 class="smart-rec-card-title">${item.title}</h3>
+            <p class="smart-rec-card-desc">${item.desc}</p>
 
-            <div class="smart-rec-card__badges">
+            <div class="smart-rec-card-badges">
               <span class="smart-rec-badge">
                 <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
                 <span>${item.calories}</span>
@@ -608,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             <a
               href="resep-galeri.html"
-              class="smart-rec-card__btn smart-rec-card__btn--light"
+              class="smart-rec-card-btn smart-rec-card-btn-light"
             >
               Lihat Selengkapnya
             </a>
@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const bindBookmarkButtons = () => {
-    const bookmarkButtons = document.querySelectorAll('.smart-rec-card__bookmark');
+    const bookmarkButtons = document.querySelectorAll('.smart-rec-card-bookmark');
     bookmarkButtons.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -638,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!currentFile || analysisTimer) return;
 
     const setBtnText = (text) => {
-      const btnLabels = analyzeButton.querySelectorAll('.scan-btn-primary__label, .scan-btn-primary__text');
+      const btnLabels = analyzeButton.querySelectorAll('.scan-btn-primary-label, .scan-btn-primary-text');
       if (btnLabels.length > 0) {
         btnLabels.forEach((el) => {
           el.textContent = text;
@@ -707,7 +707,7 @@ document.addEventListener('DOMContentLoaded', () => {
       addHistoryItem(activeData);
       setNutritionState('result');
 
-      // Autoscroll to scan-panel--nutrition after loading state finishes
+      // Autoscroll to scan-panel-nutrition after loading state finishes
       if (nutritionPanel) {
         window.setTimeout(() => {
           nutritionPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });

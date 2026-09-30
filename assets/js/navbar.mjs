@@ -7,8 +7,8 @@ export function setDropdownState(button, menu, isOpen) {
 export const SERVICES_DROPDOWN_CLOSE_DELAY = 200;
 
 export function initServicesDropdown(root, environment = globalThis) {
-  const button = root.querySelector('.navbar__services-toggle');
-  const menu = root.querySelector('.navbar__submenu');
+  const button = root.querySelector('.navbar-services-toggle');
+  const menu = root.querySelector('.navbar-submenu');
   const documentRef = environment.document;
   const supportsHover = environment.matchMedia?.('(hover: hover) and (pointer: fine)');
 

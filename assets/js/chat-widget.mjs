@@ -15,38 +15,38 @@ export function createChatWidget(documentRef = document) {
   const template = documentRef.createElement('template');
   template.innerHTML = `
     <div class="chat-widget" data-chat-widget>
-      <section class="chat-widget__panel" id="nutlens-chat-panel" role="dialog" aria-modal="false" aria-hidden="true" aria-labelledby="nutlens-chat-title" inert data-chat-panel>
-        <header class="chat-widget__header">
-          <div class="chat-widget__avatar" aria-hidden="true"><span class="material-symbols-outlined">offline_bolt</span></div>
-          <div class="chat-widget__header-copy">
-            <h2 class="chat-widget__title" id="nutlens-chat-title">Teman NutLens</h2>
-            <p class="chat-widget__status">Respons lokal tanpa AI</p>
+      <section class="chat-widget-panel" id="nutlens-chat-panel" role="dialog" aria-modal="false" aria-hidden="true" aria-labelledby="nutlens-chat-title" inert data-chat-panel>
+        <header class="chat-widget-header">
+          <div class="chat-widget-avatar" aria-hidden="true"><span class="material-symbols-outlined">offline_bolt</span></div>
+          <div class="chat-widget-header-copy">
+            <h2 class="chat-widget-title" id="nutlens-chat-title">Teman NutLens</h2>
+            <p class="chat-widget-status">Respons lokal tanpa AI</p>
           </div>
-          <button class="chat-widget__close" type="button" aria-label="Tutup Teman NutLens" data-chat-close><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+          <button class="chat-widget-close" type="button" aria-label="Tutup Teman NutLens" data-chat-close><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
         </header>
-        <div class="chat-widget__messages" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" data-chat-messages>
-          <article class="chat-widget__message chat-widget__message--bot">
-            <span class="chat-widget__message-avatar" aria-hidden="true"><span class="material-symbols-outlined">offline_bolt</span></span>
-            <div class="chat-widget__bubble"><p>Halo, aku bisa membantu menjelaskan fitur NutLens dan informasi nutrisi umum yang sudah disiapkan.</p></div>
+        <div class="chat-widget-messages" role="log" aria-live="polite" aria-relevant="additions" tabindex="0" data-chat-messages>
+          <article class="chat-widget-message chat-widget-message-bot">
+            <span class="chat-widget-message-avatar" aria-hidden="true"><span class="material-symbols-outlined">offline_bolt</span></span>
+            <div class="chat-widget-bubble"><p>Halo, aku bisa membantu menjelaskan fitur NutLens dan informasi nutrisi umum yang sudah disiapkan.</p></div>
           </article>
         </div>
-        <footer class="chat-widget__footer">
-          <p class="chat-widget__safety"><span class="material-symbols-outlined" aria-hidden="true">verified_user</span>Informasi umum, bukan diagnosis medis.</p>
-          <div class="chat-widget__suggestions" aria-label="Saran pertanyaan" data-chat-suggestions></div>
-          <p class="chat-widget__allowance">Jawaban lokal berbasis kata kunci</p>
-          <form class="chat-widget__form" data-chat-form>
+        <footer class="chat-widget-footer">
+          <p class="chat-widget-safety"><span class="material-symbols-outlined" aria-hidden="true">verified_user</span>Informasi umum, bukan diagnosis medis.</p>
+          <div class="chat-widget-suggestions" aria-label="Saran pertanyaan" data-chat-suggestions></div>
+          <p class="chat-widget-allowance">Jawaban lokal berbasis kata kunci</p>
+          <form class="chat-widget-form" data-chat-form>
             <label class="visually-hidden" for="nutlens-chat-input">Tulis pertanyaan untuk Teman NutLens</label>
-            <input class="chat-widget__input" id="nutlens-chat-input" type="text" name="message" maxlength="180" autocomplete="off" placeholder="Tulis pertanyaanmu" aria-describedby="nutlens-chat-note" required data-chat-input />
-            <button class="chat-widget__submit" type="submit" aria-label="Kirim pesan" disabled data-chat-submit><span class="material-symbols-outlined" aria-hidden="true">send</span></button>
+            <input class="chat-widget-input" id="nutlens-chat-input" type="text" name="message" maxlength="180" autocomplete="off" placeholder="Tulis pertanyaanmu" aria-describedby="nutlens-chat-note" required data-chat-input />
+            <button class="chat-widget-submit" type="submit" aria-label="Kirim pesan" disabled data-chat-submit><span class="material-symbols-outlined" aria-hidden="true">send</span></button>
           </form>
           <p class="visually-hidden" id="nutlens-chat-note">Jawaban dipilih dari topik yang telah disiapkan dan tidak dikirim ke layanan AI.</p>
         </footer>
       </section>
-      <button class="chat-widget__launcher" type="button" aria-label="Buka Teman NutLens" aria-expanded="false" aria-controls="nutlens-chat-panel" data-chat-launcher>
-        <span class="chat-widget__launcher-label">Ada yang bisa dibantu? <span aria-hidden="true">👋</span></span>
-        <span class="chat-widget__robot-stage" data-chat-robot-stage>
-          <img class="chat-widget__launcher-image" src="${ROBOT_FALLBACK_URL}" alt="" width="512" height="512" />
-          <canvas class="chat-widget__robot-canvas" aria-hidden="true" data-chat-robot-canvas></canvas>
+      <button class="chat-widget-launcher" type="button" aria-label="Buka Teman NutLens" aria-expanded="false" aria-controls="nutlens-chat-panel" data-chat-launcher>
+        <span class="chat-widget-launcher-label">Ada yang bisa dibantu? <span aria-hidden="true">👋</span></span>
+        <span class="chat-widget-robot-stage" data-chat-robot-stage>
+          <img class="chat-widget-launcher-image" src="${ROBOT_FALLBACK_URL}" alt="" width="512" height="512" />
+          <canvas class="chat-widget-robot-canvas" aria-hidden="true" data-chat-robot-canvas></canvas>
         </span>
       </button>
     </div>
@@ -59,11 +59,11 @@ export function createChatWidget(documentRef = document) {
 
 function createMessage(documentRef, role, text, { typing = false } = {}) {
   const item = documentRef.createElement('article');
-  item.className = `chat-widget__message chat-widget__message--${role}`;
+  item.className = `chat-widget-message chat-widget-message-${role}`;
 
   if (role === 'bot') {
     const avatar = documentRef.createElement('span');
-    avatar.className = 'chat-widget__message-avatar';
+    avatar.className = 'chat-widget-message-avatar';
     avatar.setAttribute('aria-hidden', 'true');
 
     const avatarIcon = documentRef.createElement('span');
@@ -74,13 +74,13 @@ function createMessage(documentRef, role, text, { typing = false } = {}) {
   }
 
   const bubble = documentRef.createElement('div');
-  bubble.className = 'chat-widget__bubble';
+  bubble.className = 'chat-widget-bubble';
 
   if (typing) {
     item.dataset.chatTyping = 'true';
     bubble.setAttribute('aria-label', 'Teman NutLens sedang menyiapkan jawaban');
     bubble.innerHTML = [0, 1, 2]
-      .map(() => '<span class="chat-widget__typing-dot" aria-hidden="true"></span>')
+      .map(() => '<span class="chat-widget-typing-dot" aria-hidden="true"></span>')
       .join('');
   } else {
     const messageText = documentRef.createElement('p');
@@ -217,7 +217,7 @@ export function initChatWidget(root, environment = globalThis) {
   CHAT_SUGGESTIONS.forEach((suggestion) => {
     const button = documentRef.createElement('button');
     button.type = 'button';
-    button.className = 'chat-widget__suggestion';
+    button.className = 'chat-widget-suggestion';
     button.textContent = suggestion;
     button.dataset.chatSuggestion = suggestion;
     quickReplies.append(button);
