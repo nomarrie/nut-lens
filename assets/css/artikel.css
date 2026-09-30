@@ -2,7 +2,6 @@
   --article-content-max: 80rem;
   --article-radius: 2rem;
   --article-radius-small: 1rem;
-  --article-overlay: rgb(13 19 9 / 72%);
 }
 
 body {
@@ -19,7 +18,7 @@ body {
 .article-hero {
   position: relative;
   display: grid;
-  min-height: clamp(31rem, 53vw, 38rem);
+  min-height: clamp(31rem, 48vw, 38.5rem);
   margin-top: var(--space-2);
   overflow: hidden;
   isolation: isolate;
@@ -43,29 +42,34 @@ body {
 
 .article-hero-scrim {
   z-index: -1;
-  background:
-    linear-gradient(90deg, var(--article-overlay) 0%, rgb(13 19 9 / 48%) 54%, rgb(13 19 9 / 10%) 100%),
-    linear-gradient(0deg, rgb(13 19 9 / 55%) 0%, transparent 55%);
+  background: linear-gradient(
+    to left,
+    rgb(39 55 28 / 72%) 0%,
+    rgb(39 55 28 / 56%) 18%,
+    rgb(39 55 28 / 24%) 36%,
+    transparent 56%
+  );
 }
 
 .article-hero-content {
   align-self: end;
-  max-width: 52rem;
-  padding: clamp(2rem, 5vw, 4.5rem);
+  max-width: 50rem;
+  padding: clamp(2rem, 4.5vw, 3.5rem);
   color: var(--color-surface-container-lowest);
+  text-shadow: 0 0.125rem 1.25rem rgb(13 19 9 / 38%);
 }
 
 .article-hero-eyebrow {
-  margin: 0 0 var(--space-3);
-  font-size: var(--font-size-body-lg);
-  font-weight: 500;
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-h2);
+  font-weight: 400;
 }
 
 .article-hero h1 {
   max-width: 22ch;
   margin: 0;
-  font-size: clamp(2.35rem, 4.3vw, 3.8rem);
-  font-weight: 550;
+  font-size: clamp(2.35rem, 4vw, 3rem);
+  font-weight: 500;
   line-height: 1.06;
   letter-spacing: -0.045em;
   text-wrap: balance;
@@ -81,27 +85,27 @@ body {
 
 .article-hero-action {
   position: absolute;
-  right: clamp(2rem, 5vw, 4.5rem);
-  bottom: clamp(2rem, 5vw, 4.5rem);
+  top: 50%;
+  right: clamp(1.75rem, 4.5vw, 4rem);
   display: grid;
   place-items: center;
   width: 4.5rem;
-  height: 4.5rem;
+  height: 3rem;
   color: var(--color-surface-container-lowest);
-  border: 1px solid rgb(255 255 255 / 70%);
-  border-radius: var(--radius-full);
   text-decoration: none;
-  transition: color var(--transition-base), background-color var(--transition-base), transform var(--transition-base);
+  text-shadow: 0 0.125rem 1rem rgb(13 19 9 / 45%);
+  transform: translateY(200%);
+  transition: color var(--transition-base), transform var(--transition-base);
 }
 
 .article-hero-action .material-symbols-outlined {
-  font-size: 2.25rem;
+  font-size: 3.75rem;
+  font-weight: 400;
 }
 
-.article-hero-action:is(:hover, :focus-visible) {
-  color: var(--color-on-primary-container);
-  background: var(--color-primary-fixed);
-  transform: translateX(0.25rem);
+.article-hero-action:focus-visible {
+  outline: 3px solid var(--color-primary-fixed);
+  outline-offset: 0.25rem;
 }
 
 .article-feed {
@@ -137,7 +141,25 @@ body {
 
 .lead-story-scrim {
   z-index: -1;
-  background: linear-gradient(0deg, rgb(21 27 14 / 86%) 0%, rgb(21 27 14 / 34%) 42%, transparent 68%);
+  top: auto;
+  min-height: 12rem;
+  height: 33%;
+  pointer-events: none;
+  /* border-top: 1px solid rgb(255 255 255 / 18%); */
+  background: linear-gradient(
+    90deg,
+    rgb(48 58 30 / 48%) 0%,
+    rgb(67 70 47 / 30%) 56%,
+    rgb(255 255 255 / 14%) 100%
+  );
+  -webkit-backdrop-filter: blur(1.25rem) saturate(118%);
+  backdrop-filter: blur(1.25rem) saturate(118%);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .lead-story-scrim {
+    background: rgb(31 39 20 / 88%);
+  }
 }
 
 .lead-story:hover .lead-story-image {
@@ -148,25 +170,40 @@ body {
   position: absolute;
   inset-inline: 0;
   bottom: 0;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  padding: 24px 32px;
   color: var(--color-surface-container-lowest);
 }
 
 .story-category {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   width: fit-content;
   margin: 0 0 var(--space-4);
-  padding: var(--space-2) var(--space-3);
-  color: var(--color-on-primary-container);
-  background: var(--color-primary-fixed);
+  padding: 0.4rem 0.75rem 0.4rem 0.45rem;
+  color: var(--color-primary-hover);
+  background: rgb(255 253 246 / 94%);
+  border: 1px solid rgb(255 255 255 / 68%);
   border-radius: var(--radius-full);
+  box-shadow: 0 0.25rem 1rem rgb(21 27 14 / 14%);
   font-size: var(--font-size-sm);
-  font-weight: 600;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.story-category::before {
+  flex: 0 0 auto;
+  width: 1.125rem;
+  height: 1.125rem;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+  content: "";
 }
 
 .lead-story h2 {
   max-width: 26ch;
   margin: 0;
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: clamp(1rem, 3vw, 2rem);
   font-weight: 550;
   line-height: 1.08;
   letter-spacing: -0.035em;
@@ -181,6 +218,7 @@ body {
   margin: var(--space-4) 0 0;
   color: var(--color-on-surface-variant);
   font-size: var(--font-size-sm);
+  font-weight: 300;
   line-height: 1.4;
 }
 
@@ -373,11 +411,16 @@ body {
   }
 
   .article-hero-image {
-    object-position: 55% center;
+    object-position: 23% center;
   }
 
   .article-hero-scrim {
-    background: linear-gradient(0deg, rgb(13 19 9 / 88%) 0%, rgb(13 19 9 / 50%) 58%, rgb(13 19 9 / 15%) 100%);
+    background: linear-gradient(
+      to left,
+      rgb(39 55 28 / 78%) 0%,
+      rgb(39 55 28 / 46%) 38%,
+      transparent 72%
+    );
   }
 
   .article-hero-content {
@@ -390,10 +433,16 @@ body {
   }
 
   .article-hero-action {
+    top: auto;
     right: 1.5rem;
     bottom: 1.5rem;
     width: 3.75rem;
     height: 3.75rem;
+    transform: none;
+  }
+
+  .article-hero-action:is(:hover, :focus-visible) {
+    transform: translateX(0.25rem);
   }
 
   .article-feed {
@@ -405,6 +454,11 @@ body {
   .lead-story {
     min-height: 32rem;
     border-radius: 1.5rem;
+  }
+
+  .lead-story-scrim {
+    min-height: 18rem;
+    height: 58%;
   }
 
   .lead-story-content {
@@ -463,5 +517,13 @@ body {
   .article-hero-action,
   .lead-story-image {
     transition-duration: 1ms;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .lead-story-scrim {
+    background: rgb(31 39 20 / 88%);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
